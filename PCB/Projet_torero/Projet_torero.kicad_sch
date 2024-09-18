@@ -1,0 +1,65 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid 04e1eb47-a2c4-462b-bef7-377d9515a2c0)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (sheet (at 22.86 114.3) (size 143.51 73.66) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 15f7fbe2-20f5-4588-8b16-1e568ab2921c)
+    (property "Sheetname" "CAPTEURS" (at 22.86 113.5884 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "CAPTEURS.kicad_sch" (at 22.86 188.5446 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "Projet_torero"
+        (path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0" (page "4"))
+      )
+    )
+  )
+
+  (sheet (at 22.86 24.13) (size 106.68 73.66) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 6473f9d2-6a99-4702-8d30-7daa8ce98486)
+    (property "Sheetname" "STM32" (at 22.86 23.4184 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "STM32.kicad_sch" (at 22.86 98.3746 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "Projet_torero"
+        (path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0" (page "2"))
+      )
+    )
+  )
+
+  (sheet (at 140.97 24.13) (size 130.81 72.39) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid dd27f41c-7d47-40cd-8124-f9caabbde9e3)
+    (property "Sheetname" "PUISSANCE" (at 140.97 23.4184 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "PUISSANCE.kicad_sch" (at 140.97 97.1046 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "Projet_torero"
+        (path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0" (page "3"))
+      )
+    )
+  )
+
+  (sheet_instances
+    (path "/" (page "1"))
+  )
+)
