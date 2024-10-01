@@ -1421,18 +1421,6 @@
 		)
 		(uuid "00859791-ee06-4631-ad8c-1df5f0307330")
 	)
-	(hierarchical_label "V7.2"
-		(shape input)
-		(at 25.4 116.84 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "1cc93113-8a89-4b15-b3a4-305e9331bf6e")
-	)
 	(hierarchical_label "REVG"
 		(shape input)
 		(at 54.61 85.09 270)
@@ -1480,18 +1468,6 @@
 			(justify right)
 		)
 		(uuid "57a4642c-d6d8-4fb3-8368-bf8e74e1d8eb")
-	)
-	(hierarchical_label "V7.2"
-		(shape input)
-		(at 133.35 116.84 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "ce9028f7-b59c-437e-a2ff-d9b500862fb3")
 	)
 	(hierarchical_label "FWDG"
 		(shape input)

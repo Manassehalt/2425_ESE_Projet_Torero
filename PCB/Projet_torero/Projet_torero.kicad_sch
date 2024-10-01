@@ -5,6 +5,46 @@
 	(uuid "04e1eb47-a2c4-462b-bef7-377d9515a2c0")
 	(paper "A4")
 	(lib_symbols)
+	(wire
+		(pts
+			(xy 129.54 63.5) (xy 140.97 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0679b7e8-fdd0-4ceb-91f6-4a00efc3acd1")
+	)
+	(wire
+		(pts
+			(xy 129.54 55.88) (xy 140.97 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8b136cb9-823e-499d-b64d-29996363ba06")
+	)
+	(wire
+		(pts
+			(xy 129.54 58.42) (xy 140.97 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d1bc07d3-cb12-4017-8179-1a771ff42763")
+	)
+	(wire
+		(pts
+			(xy 129.54 60.96) (xy 140.97 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eff669c6-fd86-4f26-9154-b61b83ba2bc0")
+	)
 	(sheet
 		(at 22.86 114.3)
 		(size 143.51 73.66)
@@ -73,10 +113,88 @@
 				(justify left top)
 			)
 		)
+		(pin "FWDG" input
+			(at 129.54 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "2f288e84-d686-4876-9902-8dd1f8ed10cb")
+		)
+		(pin "REVG" input
+			(at 129.54 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "12101889-0551-4ba4-8725-22ffd95c2654")
+		)
+		(pin "FWDD" input
+			(at 129.54 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "ee31e605-6d8b-49af-87b8-81e36359be07")
+		)
+		(pin "REVD" input
+			(at 129.54 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "0f6b37c2-5790-4f49-8b22-8dcc2e0cb6a0")
+		)
 		(instances
 			(project "Projet_torero"
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0"
 					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 176.53 113.03)
+		(size 83.82 41.91)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "b3b2826c-2e3c-42fe-bcd6-22fcd6249c25")
+		(property "Sheetname" "ALIMENTATION"
+			(at 176.53 112.3184 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Alimentation.kicad_sch"
+			(at 176.53 155.5246 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Projet_torero"
+				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0"
+					(page "5")
 				)
 			)
 		)
@@ -110,6 +228,56 @@
 				)
 				(justify left top)
 			)
+		)
+		(pin "V7.2" input
+			(at 140.97 44.45 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "c5d3c1c9-f943-4d35-b89c-317dc6679516")
+		)
+		(pin "REVD" input
+			(at 140.97 63.5 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "c17933e3-f74a-4348-a4e4-e8407baf73f7")
+		)
+		(pin "FWDD" input
+			(at 140.97 60.96 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "cd589104-c1ff-4bd6-9cd4-f20a7b179054")
+		)
+		(pin "REVG" input
+			(at 140.97 58.42 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "53f11676-179f-4a41-ae16-16ed3fa0dfd3")
+		)
+		(pin "FWDG" input
+			(at 140.97 55.88 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "1e909533-f6bf-418a-810b-243c0a24d904")
 		)
 		(instances
 			(project "Projet_torero"
