@@ -413,6 +413,10 @@
     [
       "15f7fbe2-20f5-4588-8b16-1e568ab2921c",
       "CAPTEURS"
+    ],
+    [
+      "b3b2826c-2e3c-42fe-bcd6-22fcd6249c25",
+      "ALIMENTATION"
     ]
   ],
   "text_variables": {}
