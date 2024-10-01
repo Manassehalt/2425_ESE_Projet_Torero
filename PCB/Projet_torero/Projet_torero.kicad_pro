@@ -417,6 +417,14 @@
     [
       "b3b2826c-2e3c-42fe-bcd6-22fcd6249c25",
       "ALIMENTATION"
+    ],
+    [
+      "0f1c410a-6af4-4b35-8e5a-494d8e966509",
+      "Moteur"
+    ],
+    [
+      "1155aff2-0474-4d72-be32-a9f851f4a9bf",
+      "Moteur1"
     ]
   ],
   "text_variables": {}
