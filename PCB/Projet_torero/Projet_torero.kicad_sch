@@ -17,6 +17,86 @@
 	)
 	(wire
 		(pts
+			(xy 96.52 97.79) (xy 96.52 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "258b5db0-bfad-447d-afb8-1e2346effa6f")
+	)
+	(wire
+		(pts
+			(xy 111.76 97.79) (xy 111.76 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "29545890-181d-4282-91d7-9c05d9c25f5d")
+	)
+	(wire
+		(pts
+			(xy 74.93 97.79) (xy 74.93 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "390dfcec-a489-4851-9b66-5df9c5681da0")
+	)
+	(wire
+		(pts
+			(xy 99.06 97.79) (xy 99.06 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3f545dc1-3902-4653-8fc5-bdd2103335df")
+	)
+	(wire
+		(pts
+			(xy 72.39 97.79) (xy 72.39 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a396c77-5711-4d8e-bc9e-53001390b19b")
+	)
+	(wire
+		(pts
+			(xy 104.14 97.79) (xy 104.14 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5aaf5acb-c7a6-4862-af33-df17c65156c3")
+	)
+	(wire
+		(pts
+			(xy 101.6 97.79) (xy 101.6 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "77368ea1-4d9c-4aa0-af0a-25f82435cc42")
+	)
+	(wire
+		(pts
+			(xy 109.22 97.79) (xy 109.22 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "779e6943-5712-47d3-9d9e-8bd4b0e8b588")
+	)
+	(wire
+		(pts
 			(xy 129.54 55.88) (xy 140.97 55.88)
 		)
 		(stroke
@@ -24,6 +104,36 @@
 			(type default)
 		)
 		(uuid "8b136cb9-823e-499d-b64d-29996363ba06")
+	)
+	(wire
+		(pts
+			(xy 93.98 97.79) (xy 93.98 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8e6023bf-f2af-433f-ba66-7fed877bf4a3")
+	)
+	(wire
+		(pts
+			(xy 91.44 97.79) (xy 91.44 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9ba4dae1-ef98-4e77-865d-1d06ff5b2a02")
+	)
+	(wire
+		(pts
+			(xy 88.9 97.79) (xy 88.9 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c08a7521-cfd0-45f6-9574-a3d70507597d")
 	)
 	(wire
 		(pts
@@ -37,6 +147,26 @@
 	)
 	(wire
 		(pts
+			(xy 86.36 97.79) (xy 86.36 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "de193c8d-576c-4668-8287-ee056d2d0182")
+	)
+	(wire
+		(pts
+			(xy 208.28 96.52) (xy 208.28 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ed48f255-4be2-4dfe-8dc8-ce0c74d852e7")
+	)
+	(wire
+		(pts
 			(xy 129.54 60.96) (xy 140.97 60.96)
 		)
 		(stroke
@@ -44,6 +174,16 @@
 			(type default)
 		)
 		(uuid "eff669c6-fd86-4f26-9154-b61b83ba2bc0")
+	)
+	(wire
+		(pts
+			(xy 106.68 97.79) (xy 106.68 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f7fb4ac0-c2ef-4bdc-9237-8fdc71fe1849")
 	)
 	(sheet
 		(at 22.86 114.3)
@@ -74,6 +214,136 @@
 				)
 				(justify left top)
 			)
+		)
+		(pin "INT2" input
+			(at 74.93 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "75ab1031-c935-40d8-a83d-cd30d358d76d")
+		)
+		(pin "CS" input
+			(at 86.36 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "81e8ae2b-38ca-4d51-9643-63ddb22a4b06")
+		)
+		(pin "SDA{slash}SDI{slash}SDIO" input
+			(at 88.9 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "fd8c81ac-1954-4262-a468-ac06a68d2275")
+		)
+		(pin "SCLK" input
+			(at 91.44 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "4ac709f0-408e-43b0-81c4-ccb4607cb9a6")
+		)
+		(pin "DEV_EN" input
+			(at 93.98 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "662049e7-85ed-45a4-9127-a008e1ebbd69")
+		)
+		(pin "Rx" input
+			(at 96.52 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "9771501b-1cc6-4853-b92f-ea6e8fa9aa36")
+		)
+		(pin "M_EN" input
+			(at 104.14 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "3ebdf626-9f68-47b3-ad9b-f70c9370ca29")
+		)
+		(pin "Tx" input
+			(at 99.06 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "ee9364a2-ec4a-4fdc-8fb3-94d0bd7ff598")
+		)
+		(pin "SDO{slash}ADDR" input
+			(at 101.6 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "7b5e21ae-a34f-44bf-bf7b-ca99f616efa5")
+		)
+		(pin "INT1" input
+			(at 72.39 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "fc0cb4c8-076a-46ea-a344-21de4d760d5d")
+		)
+		(pin "M_SCTR" input
+			(at 106.68 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "39989cde-c2e5-46de-97e9-2a9eec3163b7")
+		)
+		(pin "ANALOG_OUTPUT_1" input
+			(at 109.22 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "bde667c0-b6a4-4093-96d2-9646c4708db5")
+		)
+		(pin "ANALOG_OUTPUT_2" input
+			(at 111.76 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "c66a52cc-9dff-4b81-8291-9666c6a6dbfd")
 		)
 		(instances
 			(project "Projet_torero"
@@ -153,6 +423,136 @@
 			)
 			(uuid "0f6b37c2-5790-4f49-8b22-8dcc2e0cb6a0")
 		)
+		(pin "M_SCTR" input
+			(at 106.68 97.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "f00db9be-d3f0-4da9-bfc2-fd3a97b0f49d")
+		)
+		(pin "M_EN" input
+			(at 104.14 97.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "80fbfc09-ad30-4ba4-afe4-e49c58284b13")
+		)
+		(pin "DEV_EN" input
+			(at 93.98 97.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "483e4cb3-7b6e-46c1-9f7e-037c478cf636")
+		)
+		(pin "ANALOG_OUTPUT_2" input
+			(at 111.76 97.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "53deb8f4-71f6-4e21-96d7-6beda718bc4d")
+		)
+		(pin "ANALOG_OUTPUT_1" input
+			(at 109.22 97.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "41aae677-cc14-4ef0-addb-d0e8ad706ff6")
+		)
+		(pin "Tx" input
+			(at 99.06 97.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "352e5c09-bc46-444c-a367-001afbcea939")
+		)
+		(pin "Rx" input
+			(at 96.52 97.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "6fa48696-4ac1-4669-856f-8dc0d6ca7582")
+		)
+		(pin "SDA{slash}SDI{slash}SDIO" input
+			(at 88.9 97.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "88a53af0-d465-4479-aaf6-cbb2ab770248")
+		)
+		(pin "SDO{slash}ADDR" input
+			(at 101.6 97.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "b50eb71e-19d8-4796-838e-c29001dd0683")
+		)
+		(pin "INT1" input
+			(at 72.39 97.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "48a883e6-c32d-4b87-9503-78df343a963b")
+		)
+		(pin "INT2" input
+			(at 74.93 97.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "4aee76a6-2343-4140-9570-4679c3b9b1a5")
+		)
+		(pin "CS" input
+			(at 86.36 97.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "00a64e47-e136-46f2-8ba7-167ce80b8e14")
+		)
+		(pin "SCLK" input
+			(at 91.44 97.79 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "4c3aab4f-3da5-4937-846a-f243f819f4bd")
+		)
 		(instances
 			(project "Projet_torero"
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0"
@@ -190,6 +590,16 @@
 				)
 				(justify left top)
 			)
+		)
+		(pin "V7.2" input
+			(at 208.28 113.03 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "16db018f-f72c-46a1-b790-39cdc3ec4fab")
 		)
 		(instances
 			(project "Projet_torero"
@@ -230,7 +640,7 @@
 			)
 		)
 		(pin "V7.2" input
-			(at 140.97 44.45 180)
+			(at 208.28 96.52 270)
 			(effects
 				(font
 					(size 1.27 1.27)
