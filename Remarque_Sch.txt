@@ -1,4 +1,4 @@
-Regarder pour encodeurs
+Regarder pour encodeurs OK
 Reprendre régulateur 5V (entrée à gauche et sortie à droite)
 Remplir le readme avec les schémas + calculs + présentation globale (ne pas avoir à aller chercher les fichiers à gauche à droite)
 faire symbole tof
@@ -8,9 +8,9 @@ Mettre texte descriptif pour définir connections
 PCB 54mm x 57mm
 valeur R 2k3 plutôt que 2.3k
 valeur C 0.1u plutôt que 0.1µF
-VDDA pas alimenté
-Calculer valeur R pour les leds d'état
-supprimer label hiérarchique 7.2V
-Merge les feuilles pour moteur afin de modifier les deux à la fois
+VDDA pas alimenté OK
+Calculer valeur R pour les leds d'état OK
+supprimer label hiérarchique 7.2V OK
+Merge les feuilles pour moteur afin de modifier les deux à la fois OK
 
 Rendre l'ensemble plus clair (label et autre)
