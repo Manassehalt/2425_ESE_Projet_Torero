@@ -2409,7 +2409,7 @@
 				)
 			)
 		)
-		(property "Value" "40.2k"
+		(property "Value" "40k2"
 			(at 119.38 148.59 0)
 			(effects
 				(font
@@ -2541,7 +2541,7 @@
 				)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "100n"
 			(at 55.626 148.844 90)
 			(effects
 				(font
@@ -2824,7 +2824,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" "100n"
 			(at 105.41 137.1662 0)
 			(effects
 				(font
@@ -3103,7 +3103,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "4.7u"
+		(property "Value" "4u7"
 			(at 108.204 141.732 90)
 			(effects
 				(font
