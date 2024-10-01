@@ -12,3 +12,5 @@ VDDA pas alimenté
 Calculer valeur R pour les leds d'état
 supprimer label hiérarchique 7.2V
 Merge les feuilles pour moteur afin de modifier les deux à la fois
+
+Rendre l'ensemble plus clair (label et autre)
