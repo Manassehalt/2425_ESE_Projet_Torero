@@ -1289,7 +1289,7 @@
 				)
 			)
 		)
-		(property "Value" "1µF"
+		(property "Value" "1u"
 			(at 155.956 67.564 90)
 			(effects
 				(font
