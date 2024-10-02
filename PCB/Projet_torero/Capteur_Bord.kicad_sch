@@ -822,7 +822,7 @@
 					(unit 1)
 				)
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/15f7fbe2-20f5-4588-8b16-1e568ab2921c/c5199f9a-575e-4cc6-940a-8598f60e0e2f"
-					(reference "#PWR0101")
+					(reference "#PWR0802")
 					(unit 1)
 				)
 			)
@@ -893,7 +893,7 @@
 					(unit 1)
 				)
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/15f7fbe2-20f5-4588-8b16-1e568ab2921c/c5199f9a-575e-4cc6-940a-8598f60e0e2f"
-					(reference "R803")
+					(reference "R801")
 					(unit 1)
 				)
 			)
@@ -1045,7 +1045,7 @@
 					(unit 1)
 				)
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/15f7fbe2-20f5-4588-8b16-1e568ab2921c/c5199f9a-575e-4cc6-940a-8598f60e0e2f"
-					(reference "#PWR0805")
+					(reference "#PWR0801")
 					(unit 1)
 				)
 			)
@@ -1116,7 +1116,7 @@
 					(unit 1)
 				)
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/15f7fbe2-20f5-4588-8b16-1e568ab2921c/c5199f9a-575e-4cc6-940a-8598f60e0e2f"
-					(reference "#PWR0807")
+					(reference "#PWR0803")
 					(unit 1)
 				)
 			)
@@ -1187,7 +1187,7 @@
 					(unit 1)
 				)
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/15f7fbe2-20f5-4588-8b16-1e568ab2921c/c5199f9a-575e-4cc6-940a-8598f60e0e2f"
-					(reference "#PWR0808")
+					(reference "#PWR0804")
 					(unit 1)
 				)
 			)
@@ -1258,7 +1258,7 @@
 					(unit 1)
 				)
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/15f7fbe2-20f5-4588-8b16-1e568ab2921c/c5199f9a-575e-4cc6-940a-8598f60e0e2f"
-					(reference "R804")
+					(reference "R802")
 					(unit 1)
 				)
 			)

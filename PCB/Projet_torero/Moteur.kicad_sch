@@ -1231,7 +1231,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1d64dfe1-32c8-4ea6-954b-4c96c15d1154")
-		(property "Reference" "#PWR0601"
+		(property "Reference" "#PWR0605"
 			(at 166.37 71.12 0)
 			(effects
 				(font
@@ -1282,11 +1282,11 @@
 		(instances
 			(project "Projet_torero"
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/dd27f41c-7d47-40cd-8124-f9caabbde9e3/0f1c410a-6af4-4b35-8e5a-494d8e966509"
-					(reference "#PWR0601")
+					(reference "#PWR0605")
 					(unit 1)
 				)
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/dd27f41c-7d47-40cd-8124-f9caabbde9e3/1155aff2-0474-4d72-be32-a9f851f4a9bf"
-					(reference "#PWR0701")
+					(reference "#PWR0705")
 					(unit 1)
 				)
 			)
@@ -1373,7 +1373,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "38873e6f-8d69-4cdd-9541-28a9e69d30b9")
-		(property "Reference" "#PWR0603"
+		(property "Reference" "#PWR0601"
 			(at 124.46 52.07 0)
 			(effects
 				(font
@@ -1423,11 +1423,11 @@
 		(instances
 			(project "Projet_torero"
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/dd27f41c-7d47-40cd-8124-f9caabbde9e3/0f1c410a-6af4-4b35-8e5a-494d8e966509"
-					(reference "#PWR0603")
+					(reference "#PWR0601")
 					(unit 1)
 				)
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/dd27f41c-7d47-40cd-8124-f9caabbde9e3/1155aff2-0474-4d72-be32-a9f851f4a9bf"
-					(reference "#PWR0703")
+					(reference "#PWR0701")
 					(unit 1)
 				)
 			)
@@ -1443,7 +1443,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "445f1ca8-c298-4342-b77b-b8d5da0ea07f")
-		(property "Reference" "J602"
+		(property "Reference" "J601"
 			(at 193.04 66.0399 0)
 			(effects
 				(font
@@ -1509,11 +1509,11 @@
 		(instances
 			(project ""
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/dd27f41c-7d47-40cd-8124-f9caabbde9e3/0f1c410a-6af4-4b35-8e5a-494d8e966509"
-					(reference "J602")
+					(reference "J601")
 					(unit 1)
 				)
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/dd27f41c-7d47-40cd-8124-f9caabbde9e3/1155aff2-0474-4d72-be32-a9f851f4a9bf"
-					(reference "J702")
+					(reference "J701")
 					(unit 1)
 				)
 			)
@@ -1529,7 +1529,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5b269d97-c25b-401e-92f1-5ec6f5518a40")
-		(property "Reference" "#PWR0604"
+		(property "Reference" "#PWR0602"
 			(at 139.7 77.47 0)
 			(effects
 				(font
@@ -1579,11 +1579,11 @@
 		(instances
 			(project "Projet_torero"
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/dd27f41c-7d47-40cd-8124-f9caabbde9e3/0f1c410a-6af4-4b35-8e5a-494d8e966509"
-					(reference "#PWR0604")
+					(reference "#PWR0602")
 					(unit 1)
 				)
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/dd27f41c-7d47-40cd-8124-f9caabbde9e3/1155aff2-0474-4d72-be32-a9f851f4a9bf"
-					(reference "#PWR0704")
+					(reference "#PWR0702")
 					(unit 1)
 				)
 			)
@@ -1673,7 +1673,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a22b50f8-2514-4a1e-8f56-bc988302aae4")
-		(property "Reference" "#PWR0605"
+		(property "Reference" "#PWR0603"
 			(at 152.4 52.07 0)
 			(effects
 				(font
@@ -1723,11 +1723,11 @@
 		(instances
 			(project "Projet_torero"
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/dd27f41c-7d47-40cd-8124-f9caabbde9e3/0f1c410a-6af4-4b35-8e5a-494d8e966509"
-					(reference "#PWR0605")
+					(reference "#PWR0603")
 					(unit 1)
 				)
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/dd27f41c-7d47-40cd-8124-f9caabbde9e3/1155aff2-0474-4d72-be32-a9f851f4a9bf"
-					(reference "#PWR0705")
+					(reference "#PWR0703")
 					(unit 1)
 				)
 			)
@@ -1910,7 +1910,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d9c35082-ed19-4ecb-8444-012f53de771e")
-		(property "Reference" "#PWR0602"
+		(property "Reference" "#PWR0604"
 			(at 156.21 63.5 0)
 			(effects
 				(font
@@ -1961,11 +1961,11 @@
 		(instances
 			(project "Projet_torero"
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/dd27f41c-7d47-40cd-8124-f9caabbde9e3/0f1c410a-6af4-4b35-8e5a-494d8e966509"
-					(reference "#PWR0602")
+					(reference "#PWR0604")
 					(unit 1)
 				)
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/dd27f41c-7d47-40cd-8124-f9caabbde9e3/1155aff2-0474-4d72-be32-a9f851f4a9bf"
-					(reference "#PWR0702")
+					(reference "#PWR0704")
 					(unit 1)
 				)
 			)
