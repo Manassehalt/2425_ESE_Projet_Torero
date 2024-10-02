@@ -425,6 +425,14 @@
     [
       "1155aff2-0474-4d72-be32-a9f851f4a9bf",
       "Moteur1"
+    ],
+    [
+      "c5199f9a-575e-4cc6-940a-8598f60e0e2f",
+      "Capteur de bord 1"
+    ],
+    [
+      "9764c893-76c3-4ff2-b354-f4d6378be2f5",
+      "Capteur de bord 2"
     ]
   ],
   "text_variables": {}

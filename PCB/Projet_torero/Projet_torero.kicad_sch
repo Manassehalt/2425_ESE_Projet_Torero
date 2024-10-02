@@ -97,16 +97,6 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 68.58) (xy 140.97 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7cc8f8f4-8b92-4736-ad9f-41b9dd07d720")
-	)
-	(wire
-		(pts
 			(xy 129.54 55.88) (xy 140.97 55.88)
 		)
 		(stroke
@@ -147,16 +137,6 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 66.04) (xy 140.97 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cd677978-d42e-498e-b048-5c6d0b692150")
-	)
-	(wire
-		(pts
 			(xy 129.54 58.42) (xy 140.97 58.42)
 		)
 		(stroke
@@ -167,16 +147,6 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 50.8) (xy 140.97 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dc05c625-d7a8-4964-b36c-390664356377")
-	)
-	(wire
-		(pts
 			(xy 86.36 97.79) (xy 86.36 114.3)
 		)
 		(stroke
@@ -184,6 +154,16 @@
 			(type default)
 		)
 		(uuid "de193c8d-576c-4668-8287-ee056d2d0182")
+	)
+	(wire
+		(pts
+			(xy 208.28 96.52) (xy 208.28 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ed48f255-4be2-4dfe-8dc8-ce0c74d852e7")
 	)
 	(wire
 		(pts
@@ -204,16 +184,6 @@
 			(type default)
 		)
 		(uuid "f7fb4ac0-c2ef-4bdc-9237-8fdc71fe1849")
-	)
-	(wire
-		(pts
-			(xy 129.54 53.34) (xy 140.97 53.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ff719be7-ca7e-49e2-aad5-d28db76733a7")
 	)
 	(sheet
 		(at 22.86 114.3)
@@ -583,46 +553,6 @@
 			)
 			(uuid "4c3aab4f-3da5-4937-846a-f243f819f4bd")
 		)
-		(pin "EncodeurB_Gauche" input
-			(at 129.54 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-			(uuid "15a38ae5-a0b7-4a40-8f50-9792d230eb6a")
-		)
-		(pin "EncodeurA_Gauche" input
-			(at 129.54 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-			(uuid "58b986e1-9784-45e5-a95d-f2b093d88c13")
-		)
-		(pin "EncodeurB_Droite" input
-			(at 129.54 68.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-			(uuid "7d2e5132-360c-4bbe-bc5c-d5e8c7c15a4e")
-		)
-		(pin "EncodeurA_Droite" input
-			(at 129.54 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-			(uuid "ebb1e7a1-3fe8-4937-a1e5-f8951a11dd49")
-		)
 		(instances
 			(project "Projet_torero"
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0"
@@ -661,6 +591,16 @@
 				(justify left top)
 			)
 		)
+		(pin "V7.2" input
+			(at 208.28 113.03 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "16db018f-f72c-46a1-b790-39cdc3ec4fab")
+		)
 		(instances
 			(project "Projet_torero"
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0"
@@ -698,6 +638,16 @@
 				)
 				(justify left top)
 			)
+		)
+		(pin "V7.2" input
+			(at 208.28 96.52 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "c5d3c1c9-f943-4d35-b89c-317dc6679516")
 		)
 		(pin "REVD" input
 			(at 140.97 63.5 180)
@@ -738,46 +688,6 @@
 				(justify left)
 			)
 			(uuid "1e909533-f6bf-418a-810b-243c0a24d904")
-		)
-		(pin "EncodeurA_Gauche" input
-			(at 140.97 53.34 180)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-			(uuid "0dd6d4c0-ec89-45ec-a14b-99936a9a9972")
-		)
-		(pin "EncodeurB_Gauche" input
-			(at 140.97 50.8 180)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-			(uuid "71bd2bee-3658-4825-a157-66e9b11278bb")
-		)
-		(pin "EncodeurA_Droite" input
-			(at 140.97 66.04 180)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-			(uuid "59342a3f-a7c1-4bc0-94e3-b527eeae908c")
-		)
-		(pin "EncodeurB_Droite" input
-			(at 140.97 68.58 180)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-			(uuid "5dfa05b6-e659-4997-8de2-febb13d23fe2")
 		)
 		(instances
 			(project "Projet_torero"
