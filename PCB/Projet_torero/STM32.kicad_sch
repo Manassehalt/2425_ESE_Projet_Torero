@@ -6123,7 +6123,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "4.7n"
+		(property "Value" "4n7"
 			(at 122.174 36.068 0)
 			(effects
 				(font
@@ -8172,7 +8172,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1µF"
+		(property "Value" "1u"
 			(at 57.912 73.66 90)
 			(effects
 				(font
