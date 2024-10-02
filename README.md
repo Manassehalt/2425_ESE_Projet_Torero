@@ -8,6 +8,16 @@ Ci dessous le schéma architectural donnant les grande ligne du projet.
 
 [Schéma architectural.pdf](https://github.com/user-attachments/files/17220902/Schema.architectural.pdf)
 
+Cahier des charges: 
+-Le robot doit etre capable de ce déplacer sur une table sans tomber (absence de bord et de marquage)
+-Le robot doit etre capable de detecter l'autre robot present sur la table pour le fuir ou le chasser en fonction de son role dans la partie.
+-Le robot doit etre capable de detecter un contact meme leger avec le robot adverse et changer son comportement d'un role vers l'autre.
+
+Objectif annexe:
+-Le robot peut realiser une odometrie simple pour suivre le bord de table lorsqu'il debute en souris
+-Le robot peut realiser une odometrie simple pour se positionner au centre de la table avant de commencer la traque lorsqu'il debute en chat
+-Le robot peut declencher un brusque changement de direction si il detecte un robot approchant rapidement en mode souris
+
 Methode si nouvel ordinateur : ssh-keygen(penser a mettre "y" pour overwrite)cat ~/.ssh/id_ed25519.pub
 
 Dossier contenant les Datasheets : https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/Datasheet
