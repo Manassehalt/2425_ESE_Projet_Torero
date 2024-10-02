@@ -47,6 +47,26 @@
 	)
 	(wire
 		(pts
+			(xy 92.71 82.55) (xy 102.87 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "42bf6639-0841-4b3e-b15c-34a9daa82c06")
+	)
+	(wire
+		(pts
+			(xy 214.63 69.85) (xy 223.52 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4b2853a1-7dcd-4a12-8d7b-877de0d32d0b")
+	)
+	(wire
+		(pts
 			(xy 24.13 69.85) (xy 30.48 69.85)
 		)
 		(stroke
@@ -74,6 +94,26 @@
 			(type default)
 		)
 		(uuid "ab1617ef-30bc-4d18-9f67-9525cb69d337")
+	)
+	(wire
+		(pts
+			(xy 92.71 69.85) (xy 102.87 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e607f1f9-585f-4f86-8d82-b745551ba353")
+	)
+	(wire
+		(pts
+			(xy 214.63 82.55) (xy 223.52 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f445eb38-1fdb-453b-ac58-01da5b53ed8e")
 	)
 	(polyline
 		(pts
@@ -104,6 +144,18 @@
 			)
 		)
 		(uuid "9ab0192e-7cfe-405a-892a-9e8c151df091")
+	)
+	(hierarchical_label "EncodeurA_Droite"
+		(shape input)
+		(at 223.52 69.85 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "010c9d89-cdce-4235-9a85-526c2e6e7063")
 	)
 	(hierarchical_label "FWDD"
 		(shape input)
@@ -141,6 +193,18 @@
 		)
 		(uuid "66066111-67a1-4883-af18-3895bfa9f73a")
 	)
+	(hierarchical_label "EncodeurB_Gauche"
+		(shape input)
+		(at 102.87 82.55 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b69506de-2910-436d-bb52-f61babad064d")
+	)
 	(hierarchical_label "REVG"
 		(shape input)
 		(at 24.13 82.55 180)
@@ -152,6 +216,30 @@
 			(justify right)
 		)
 		(uuid "d478d2f9-0fe4-44c2-822b-1f110601738f")
+	)
+	(hierarchical_label "EncodeurB_Droite"
+		(shape input)
+		(at 223.52 82.55 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "dfd95a41-303a-462f-88f1-be4c17452d66")
+	)
+	(hierarchical_label "EncodeurA_Gauche"
+		(shape input)
+		(at 102.87 69.85 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "e0987368-2a46-4086-87d2-02d01e80500e")
 	)
 	(sheet
 		(at 30.48 50.8)
