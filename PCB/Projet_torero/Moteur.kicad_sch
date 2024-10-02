@@ -868,16 +868,16 @@
 		(uuid "51a30860-2deb-4f99-ba78-47b7701f5c50")
 	)
 	(junction
+		(at 167.64 63.5)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "66b9e2bf-fbe3-4dc1-b12e-e6eeb3ab9aa6")
+	)
+	(junction
 		(at 137.16 39.37)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "979d4216-8c24-4fab-98b6-010d7646c789")
-	)
-	(junction
-		(at 162.56 63.5)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "da794a86-eaab-402b-b183-e52421b765db")
 	)
 	(junction
 		(at 137.16 45.72)
@@ -943,6 +943,16 @@
 	)
 	(wire
 		(pts
+			(xy 162.56 69.85) (xy 162.56 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d1b1bc3-8b50-48e1-ad7d-c101483b87f3")
+	)
+	(wire
+		(pts
 			(xy 137.16 39.37) (xy 142.24 39.37)
 		)
 		(stroke
@@ -963,23 +973,13 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 63.5) (xy 185.42 63.5)
+			(xy 162.56 63.5) (xy 167.64 63.5)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "731313e4-0b8b-4403-b566-14a8afc512af")
-	)
-	(wire
-		(pts
-			(xy 162.56 69.85) (xy 162.56 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "87931978-9431-4472-9f4b-951305e88617")
 	)
 	(wire
 		(pts
@@ -1093,7 +1093,7 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 63.5) (xy 162.56 64.77)
+			(xy 167.64 63.5) (xy 167.64 64.77)
 		)
 		(stroke
 			(width 0)
@@ -1120,6 +1120,26 @@
 			(type default)
 		)
 		(uuid "e99618f6-cf1c-49af-bc37-38acfe8f097d")
+	)
+	(wire
+		(pts
+			(xy 167.64 63.5) (xy 185.42 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ec1a33a1-ae77-483d-ab12-905f71ffc8cd")
+	)
+	(wire
+		(pts
+			(xy 167.64 69.85) (xy 162.56 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f5b69869-8b8c-453d-917f-a23a59b8fe46")
 	)
 	(text "Connecteur moteur"
 		(exclude_from_sim no)
@@ -1274,7 +1294,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 162.56 67.31 0)
+		(at 167.64 67.31 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1282,7 +1302,7 @@
 		(dnp no)
 		(uuid "2a3fbef3-a004-4d5b-ac17-9e1560351218")
 		(property "Reference" "C603"
-			(at 158.496 67.564 90)
+			(at 163.576 67.564 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1290,7 +1310,7 @@
 			)
 		)
 		(property "Value" "1u"
-			(at 155.956 67.564 90)
+			(at 161.036 67.564 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1298,7 +1318,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 162.56 67.31 0)
+			(at 167.64 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1307,7 +1327,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 162.56 67.31 0)
+			(at 167.64 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1316,7 +1336,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 162.56 67.31 0)
+			(at 167.64 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
