@@ -622,7 +622,7 @@
 		)
 		(uuid "bbe72e3c-b3bd-4089-9644-9432dad834a5")
 	)
-	(hierarchical_label "ANALOG_OUTPUT_CAPT_BORD_2"
+	(hierarchical_label "ANALOG_OUTPUT_CAPT_BORD_D"
 		(shape input)
 		(at 66.04 107.95 180)
 		(fields_autoplaced yes)
@@ -651,7 +651,7 @@
 				)
 			)
 		)
-		(property "Value" "300R"
+		(property "Value" "300"
 			(at 67.056 112.776 90)
 			(effects
 				(font
@@ -718,7 +718,7 @@
 				)
 			)
 		)
-		(property "Value" "15.3k"
+		(property "Value" "15k3"
 			(at 78.74 87.376 90)
 			(effects
 				(font
