@@ -2384,6 +2384,16 @@
 				(justify left top)
 			)
 		)
+		(pin "ANALOG_OUTPUT_CAPT_BORD_2" input
+			(at 226.06 57.15 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "e666bca4-dcb5-495a-aaf6-80c46a7da246")
+		)
 		(instances
 			(project "Projet_torero"
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/15f7fbe2-20f5-4588-8b16-1e568ab2921c"
@@ -2421,6 +2431,16 @@
 				)
 				(justify left top)
 			)
+		)
+		(pin "ANALOG_OUTPUT_CAPT_BORD_1" input
+			(at 170.18 57.15 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "f7e7e993-2b54-4f15-b455-c084e922f748")
 		)
 		(instances
 			(project "Projet_torero"

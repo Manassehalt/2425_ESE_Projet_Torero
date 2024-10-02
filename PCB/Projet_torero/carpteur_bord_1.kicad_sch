@@ -528,16 +528,6 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 52.07) (xy 73.66 52.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "29470aa4-8efb-4072-a91a-9a117758582e")
-	)
-	(wire
-		(pts
 			(xy 69.85 49.53) (xy 69.85 52.07)
 		)
 		(stroke
@@ -545,6 +535,26 @@
 			(type default)
 		)
 		(uuid "343187e0-027e-4c3c-9646-d53585859776")
+	)
+	(wire
+		(pts
+			(xy 58.42 64.77) (xy 63.5 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bc1da9b0-ebd1-423c-8c99-67d534be7940")
+	)
+	(wire
+		(pts
+			(xy 63.5 68.58) (xy 63.5 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f8fbd6b7-0260-46ab-a914-60fd8ed528e1")
 	)
 	(text "15.3k pour QRD1113\n4.6k pour QRD1114\n"
 		(exclude_from_sim no)
@@ -588,7 +598,7 @@
 	)
 	(text "Collector"
 		(exclude_from_sim no)
-		(at 57.658 72.39 0)
+		(at 57.658 76.2 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -596,21 +606,21 @@
 		)
 		(uuid "8c05d6f4-eac9-450d-82de-a53a04cab49a")
 	)
-	(hierarchical_label "ANALOG_OUTPUT_2"
+	(hierarchical_label "ANALOG_OUTPUT_CAPT_BORD_1"
 		(shape input)
-		(at 73.66 52.07 0)
+		(at 58.42 64.77 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
-		(uuid "fbce6da8-607b-4770-8a26-ef03f90e1186")
+		(uuid "f7831200-b027-416a-b9de-5e83e02d2645")
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 63.5 67.31 180)
+		(at 63.5 71.12 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -618,7 +628,7 @@
 		(dnp no)
 		(uuid "49a6af68-d1c5-4d96-90ea-31229a724563")
 		(property "Reference" "R803"
-			(at 58.42 67.31 90)
+			(at 58.42 71.12 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -626,7 +636,7 @@
 			)
 		)
 		(property "Value" "300R"
-			(at 60.706 67.056 90)
+			(at 60.706 70.866 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -634,7 +644,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 63.5 67.31 0)
+			(at 63.5 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -643,7 +653,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 63.5 67.31 0)
+			(at 63.5 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -652,7 +662,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 63.5 67.31 0)
+			(at 63.5 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -754,7 +764,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 63.5 69.85 180)
+		(at 63.5 73.66 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -763,7 +773,7 @@
 		(fields_autoplaced yes)
 		(uuid "74b8fa82-781f-4e07-a9a4-b62ad0fcdb9e")
 		(property "Reference" "#PWR0806"
-			(at 63.5 66.04 0)
+			(at 63.5 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -772,7 +782,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 63.4999 73.66 90)
+			(at 63.4999 77.47 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -781,7 +791,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 63.5 69.85 0)
+			(at 63.5 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -790,7 +800,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 63.5 69.85 0)
+			(at 63.5 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -799,7 +809,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 63.5 69.85 0)
+			(at 63.5 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)

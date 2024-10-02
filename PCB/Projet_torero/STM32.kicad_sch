@@ -5259,7 +5259,7 @@
 		)
 		(uuid "a5138eeb-b36d-4c0d-893b-0ea026ecf60f")
 	)
-	(hierarchical_label "ANALOG_OUTPUT_2"
+	(hierarchical_label "ANALOG_OUTPUT_CAPT_BORD_2"
 		(shape input)
 		(at 77.47 111.76 180)
 		(fields_autoplaced yes)
@@ -5355,7 +5355,7 @@
 		)
 		(uuid "d4f31769-bcb7-437a-bdb1-0f6f8cf9e61d")
 	)
-	(hierarchical_label "ANALOG_OUTPUT_1"
+	(hierarchical_label "ANALOG_OUTPUT_CAPT_BORD_1"
 		(shape input)
 		(at 77.47 109.22 180)
 		(fields_autoplaced yes)
