@@ -6613,7 +6613,7 @@
 				)
 			)
 		)
-		(property "Value" "R_Small"
+		(property "Value" "10k"
 			(at 26.416 132.08 90)
 			(effects
 				(font
