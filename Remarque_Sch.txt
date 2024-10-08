@@ -21,3 +21,8 @@ Rendre l'ensemble plus clair (label et autre) OK
 Description du PCB :
 PCB 54mm x 57mm
 4 trou de fixation a 4mm du bord Taille M3 
+condo proche
+reverifier empreinte condo imperial
+mettre port ldidar a coté
+orientaion serio j201
+en dernier les gpio
