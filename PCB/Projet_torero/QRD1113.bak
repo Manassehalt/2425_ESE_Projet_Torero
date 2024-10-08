@@ -49,6 +49,32 @@
 				(hide yes)
 			)
 		)
+		(symbol "QRD1113_0_1"
+			(polyline
+				(pts
+					(xy -15.24 -1.27) (xy -15.24 -2.54)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -15.24 1.27) (xy -15.24 2.54)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
 		(symbol "QRD1113_1_1"
 			(rectangle
 				(start -17.78 3.81)
@@ -75,18 +101,6 @@
 			)
 			(polyline
 				(pts
-					(xy -15.24 3.81) (xy -15.24 1.27) (xy -13.97 0) (xy -15.24 -1.27) (xy -15.24 -3.81) (xy -15.24 -1.27)
-				)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(polyline
-				(pts
 					(xy -13.97 1.27) (xy -13.97 -1.27) (xy -13.97 0) (xy -15.24 -1.27) (xy -13.97 0) (xy -15.24 1.27)
 				)
 				(stroke
@@ -99,8 +113,8 @@
 			)
 			(polyline
 				(pts
-					(xy -8.89 3.81) (xy -8.89 1.27) (xy -7.62 1.27) (xy -8.89 -1.27) (xy -10.16 1.27) (xy -8.89 1.27)
-					(xy -7.62 1.27) (xy -8.89 -1.27) (xy -10.16 -1.27) (xy -7.62 -1.27) (xy -8.89 -1.27) (xy -8.89 -3.81)
+					(xy -8.89 2.54) (xy -8.89 1.27) (xy -7.62 1.27) (xy -8.89 -1.27) (xy -10.16 1.27) (xy -8.89 1.27)
+					(xy -7.62 1.27) (xy -8.89 -1.27) (xy -10.16 -1.27) (xy -7.62 -1.27) (xy -8.89 -1.27) (xy -8.89 -2.54)
 				)
 				(stroke
 					(width 0)
@@ -111,34 +125,16 @@
 				)
 			)
 			(pin bidirectional line
-				(at -8.89 3.81 90)
+				(at -15.24 -3.81 270)
 				(length 2.54)
-				(name "Anode"
+				(name ""
 					(effects
 						(font
 							(size 1.27 1.27)
 						)
 					)
 				)
-				(number ""
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin bidirectional line
-				(at -8.89 -3.81 270)
-				(length 2.54)
-				(name "Cathode"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number ""
+				(number "1"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -149,14 +145,14 @@
 			(pin bidirectional line
 				(at -15.24 3.81 90)
 				(length 2.54)
-				(name "Collecteur"
+				(name ""
 					(effects
 						(font
 							(size 1.27 1.27)
 						)
 					)
 				)
-				(number ""
+				(number "2"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -165,16 +161,34 @@
 				)
 			)
 			(pin bidirectional line
-				(at -15.24 -3.81 270)
+				(at -8.89 3.81 90)
 				(length 2.54)
-				(name "Emetteur"
+				(name ""
 					(effects
 						(font
 							(size 1.27 1.27)
 						)
 					)
 				)
-				(number ""
+				(number "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin bidirectional line
+				(at -8.89 -3.81 270)
+				(length 2.54)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "4"
 					(effects
 						(font
 							(size 1.27 1.27)
