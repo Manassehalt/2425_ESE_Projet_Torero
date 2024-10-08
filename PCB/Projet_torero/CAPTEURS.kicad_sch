@@ -1130,16 +1130,16 @@
 		(uuid "0cedf537-4cdd-45b2-9a9c-47858343b456")
 	)
 	(junction
+		(at 63.5 49.53)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "57fbcd8e-2402-47b0-99ad-74f10ef95f40")
+	)
+	(junction
 		(at 58.42 76.2)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f4769b53-b2c9-4cb3-b989-2c1b39f6cdf5")
-	)
-	(junction
-		(at 63.5 49.53)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "fd07674a-547c-4f4e-8742-edbc269f1b5d")
 	)
 	(no_connect
 		(at 134.62 44.45)
@@ -1188,6 +1188,16 @@
 			(type default)
 		)
 		(uuid "2c06da76-97ce-4056-8d7a-d8a112133278")
+	)
+	(wire
+		(pts
+			(xy 63.5 49.53) (xy 63.5 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4efb77cd-4bfc-4a1d-9869-df8a28c541c1")
 	)
 	(polyline
 		(pts
@@ -1251,23 +1261,13 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 49.53) (xy 63.5 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a86de7bb-5f6a-463e-8e34-f10d0283cc88")
-	)
-	(wire
-		(pts
 			(xy 63.5 45.72) (xy 63.5 49.53)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c7bdf8cc-8cc0-466a-8e08-86cfab346068")
+		(uuid "a86de7bb-5f6a-463e-8e34-f10d0283cc88")
 	)
 	(wire
 		(pts
@@ -1604,7 +1604,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 60.96 35.56 0)
 			(effects
 				(font
@@ -1740,7 +1740,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_JST:JST_XH_S8B-XH-A_1x08_P2.50mm_Horizontal"
 			(at 139.7 52.07 0)
 			(effects
 				(font
@@ -1934,7 +1934,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 66.04 49.53 90)
+		(at 66.04 49.53 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1942,7 +1942,7 @@
 		(dnp no)
 		(uuid "5c1f7156-0b5e-4b13-928f-a3a5044601b2")
 		(property "Reference" "C402"
-			(at 72.644 41.656 90)
+			(at 59.436 57.404 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1950,14 +1950,14 @@
 			)
 		)
 		(property "Value" "100n"
-			(at 67.564 45.974 90)
+			(at 64.516 53.086 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 66.04 49.53 0)
 			(effects
 				(font
