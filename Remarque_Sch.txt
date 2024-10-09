@@ -21,6 +21,7 @@ Rendre l'ensemble plus clair (label et autre) OK
 Description du PCB :
 PCB 54mm x 57mm
 4 trou de fixation a 4mm du bord Taille M3 OK
+Remplacer l'empreinte de l'interrupteur pour le deporter hors du PCB OK
 condo proche OK
 reverifier empreinte condo imperial OK
 mettre port ldidar a coté de l'alimentation 5V
