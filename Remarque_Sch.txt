@@ -20,9 +20,11 @@ Rendre l'ensemble plus clair (label et autre) OK
 
 Description du PCB :
 PCB 54mm x 57mm
-4 trou de fixation a 4mm du bord Taille M3 
+4 trou de fixation a 4mm du bord Taille M3 OK
 condo proche OK
 reverifier empreinte condo imperial OK
-mettre port ldidar a coté 
-orientaion serio j201 OK
-en dernier les gpio
+mettre port ldidar a coté de l'alimentation 5V
+orientation serio j201 OK
+en dernier les gpio pour le routage
+
+
