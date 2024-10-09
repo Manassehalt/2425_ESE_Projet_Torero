@@ -8,6 +8,9 @@ Ci dessous le schéma architectural donnant les grande ligne du projet.
 
 [Schéma architectural.pdf](https://github.com/user-attachments/files/17220902/Schema.architectural.pdf)
 
+
+Environnement:
+Table de 2
 Cahier des charges: 
 -Le robot doit etre capable de ce déplacer sur une table sans tomber (absence de bord et de marquage)
 -Le robot doit etre capable de detecter l'autre robot present sur la table pour le fuir ou le chasser en fonction de son role dans la partie.
@@ -17,6 +20,9 @@ Objectif annexe:
 -Le robot peut realiser une odometrie simple pour suivre le bord de table lorsqu'il debute en souris
 -Le robot peut realiser une odometrie simple pour se positionner au centre de la table avant de commencer la traque lorsqu'il debute en chat
 -Le robot peut declencher un brusque changement de direction si il detecte un robot approchant rapidement en mode souris
+-Le robot peut effectuer des prédiction de trajectoire et effectuer des trajectoires de collision en prévision du deplacement adverse en mode chat
+-Le robot evite de prendre des directions ou il serait acculé dans un angle de table
+
 
 Methode si nouvel ordinateur : ssh-keygen(penser a mettre "y" pour overwrite)cat ~/.ssh/id_ed25519.pub
 
