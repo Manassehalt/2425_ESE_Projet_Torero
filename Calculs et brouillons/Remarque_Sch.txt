@@ -27,6 +27,7 @@ reverifier empreinte condo imperial OK
 mettre port ldidar a coté de l'alimentation 5V
 orientation serio j201 OK
 en dernier les gpio pour le routage
+router en premier les signaux rapides comme oscillateur, puis connecteur j201
 plan de masse unique ideal
 plan alim en 3,3V
 changer empreinte grosse bobine
