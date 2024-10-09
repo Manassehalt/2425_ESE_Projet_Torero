@@ -363,22 +363,22 @@
 				)
 			)
 		)
-		(symbol "Connector_Generic:Conn_02x02_Odd_Even"
+		(symbol "Connector_Generic:Conn_01x03"
 			(pin_names
 				(offset 1.016) hide)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "J"
-				(at 1.27 2.54 0)
+				(at 0 5.08 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "Conn_02x02_Odd_Even"
-				(at 1.27 -5.08 0)
+			(property "Value" "Conn_01x03"
+				(at 0 -5.08 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -403,7 +403,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Generic connector, double row, 02x02, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
 				(at 0 0 0)
 				(effects
 					(font
@@ -421,7 +421,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "Connector*:*_2x??_*"
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -430,7 +430,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "Conn_02x02_Odd_Even_1_1"
+			(symbol "Conn_01x03_1_1"
 				(rectangle
 					(start -1.27 -2.413)
 					(end 0 -2.667)
@@ -454,8 +454,19 @@
 					)
 				)
 				(rectangle
-					(start -1.27 1.27)
-					(end 3.81 -3.81)
+					(start -1.27 2.667)
+					(end 0 2.413)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 3.81)
+					(end 1.27 -3.81)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -464,30 +475,8 @@
 						(type background)
 					)
 				)
-				(rectangle
-					(start 3.81 -2.413)
-					(end 2.54 -2.667)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 3.81 0.127)
-					(end 2.54 -0.127)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
 				(pin passive line
-					(at -5.08 0 0)
+					(at -5.08 2.54 0)
 					(length 3.81)
 					(name "Pin_1"
 						(effects
@@ -505,7 +494,7 @@
 					)
 				)
 				(pin passive line
-					(at 7.62 0 180)
+					(at -5.08 0 0)
 					(length 3.81)
 					(name "Pin_2"
 						(effects
@@ -533,24 +522,6 @@
 						)
 					)
 					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 7.62 -2.54 180)
-					(length 3.81)
-					(name "Pin_4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1764,10 +1735,6 @@
 		(color 0 0 0 0)
 		(uuid "fec3dbb9-1e50-47cb-a2f7-1212c902ff85")
 	)
-	(no_connect
-		(at 46.99 40.64)
-		(uuid "ac669276-c623-4d5c-b221-ed9661f1fd8f")
-	)
 	(polyline
 		(pts
 			(xy 104.14 11.43) (xy 104.14 90.17)
@@ -2000,6 +1967,16 @@
 	)
 	(wire
 		(pts
+			(xy 50.8 38.1) (xy 50.8 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "55070715-2d14-4c99-8648-877a07f4c28d")
+	)
+	(wire
+		(pts
 			(xy 127 156.21) (xy 127 161.29)
 		)
 		(stroke
@@ -2070,26 +2047,6 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 40.64) (xy 63.5 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8d63f0be-83d0-403c-a931-9b5ca9c552db")
-	)
-	(wire
-		(pts
-			(xy 59.69 38.1) (xy 66.04 38.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8dcf7283-2d8c-4ab9-88db-2cc1f6f42994")
-	)
-	(wire
-		(pts
 			(xy 115.57 153.67) (xy 115.57 156.21)
 		)
 		(stroke
@@ -2100,7 +2057,7 @@
 	)
 	(wire
 		(pts
-			(xy 40.64 38.1) (xy 46.99 38.1)
+			(xy 40.64 38.1) (xy 50.8 38.1)
 		)
 		(stroke
 			(width 0)
@@ -2157,6 +2114,16 @@
 			(type default)
 		)
 		(uuid "b0d975f8-03f9-417c-91bc-5039eb12eef8")
+	)
+	(wire
+		(pts
+			(xy 53.34 40.64) (xy 63.5 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b287a3da-adcc-4db1-822b-9fa3bfdb53c5")
 	)
 	(wire
 		(pts
@@ -2248,6 +2215,16 @@
 		)
 		(uuid "ceeb20a8-0afe-4023-8c5a-533f65ad0654")
 	)
+	(wire
+		(pts
+			(xy 55.88 38.1) (xy 66.04 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d1cff6b7-5fcb-4169-a053-682a62eebe96")
+	)
 	(polyline
 		(pts
 			(xy 153.67 166.37) (xy 153.67 90.17)
@@ -2280,6 +2257,16 @@
 	)
 	(wire
 		(pts
+			(xy 55.88 36.83) (xy 55.88 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "db52f59d-0acc-4bdf-a8e8-9104aa31f905")
+	)
+	(wire
+		(pts
 			(xy 71.12 147.32) (xy 71.12 152.4)
 		)
 		(stroke
@@ -2287,6 +2274,16 @@
 			(type default)
 		)
 		(uuid "dea0115b-be0a-462e-b162-7f503def75a6")
+	)
+	(wire
+		(pts
+			(xy 53.34 36.83) (xy 53.34 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e2ae4956-6ead-47e3-b77e-cb39033ed92c")
 	)
 	(wire
 		(pts
@@ -3790,33 +3787,35 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_02x02_Odd_Even")
-		(at 52.07 38.1 0)
+		(lib_id "Connector_Generic:Conn_01x03")
+		(at 53.34 31.75 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "8524ec9a-1c11-495b-a901-61d5557ad3bc")
-		(property "Reference" "J202"
-			(at 53.34 31.75 0)
+		(uuid "806d60be-b83a-435c-bd64-309c2bb9407f")
+		(property "Reference" "J502"
+			(at 58.42 30.4799 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Value" "Conn_02x02_Odd_Even"
-			(at 53.34 34.29 0)
+		(property "Value" "Conn_01x03"
+			(at 58.42 33.0199 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 52.07 38.1 0)
+			(at 53.34 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3825,7 +3824,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 52.07 38.1 0)
+			(at 53.34 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3833,31 +3832,28 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Generic connector, double row, 02x02, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 52.07 38.1 0)
+		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 53.34 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
-		)
-		(pin "3"
-			(uuid "3f27a790-6aa3-461e-9efa-d722d0e21ad9")
-		)
-		(pin "4"
-			(uuid "5d855d8e-c31b-4a42-ba83-5359f0ceea1a")
-		)
-		(pin "2"
-			(uuid "f659984c-e488-4895-8afd-5d253455b2c3")
 		)
 		(pin "1"
-			(uuid "7e53b9c0-4eb6-42f6-9482-91099cf7b931")
+			(uuid "3bd35227-88df-44eb-a432-5186cf9a6312")
+		)
+		(pin "2"
+			(uuid "25fddeff-80f3-462a-8eca-53258a38576f")
+		)
+		(pin "3"
+			(uuid "c020675c-d3ab-4a97-a2a9-4599623d8c36")
 		)
 		(instances
 			(project ""
 				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/b3b2826c-2e3c-42fe-bcd6-22fcd6249c25"
-					(reference "J202")
+					(reference "J502")
 					(unit 1)
 				)
 			)
