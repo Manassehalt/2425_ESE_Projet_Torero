@@ -631,7 +631,8 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, INT2_ACC_Pin|LED_SE_Pin|LED_SW_Pin|Status_LED_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, INT2_ACC_Pin|LED_SE_Pin|LED_SW_Pin|Status_LED_Pin
+                          |Status_LED_debbug_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, CS_ACC_Pin|LED_NE_Pin|INT1_ACC_Pin|DEV_EN_LIDAR_Pin, GPIO_PIN_RESET);
@@ -640,8 +641,10 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOB, M_EN_LIDAR_Pin|LED_NW_Pin|LED_W_Pin|LED_N_Pin
                           |LED_E_Pin|LED_S_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : INT2_ACC_Pin LED_SE_Pin LED_SW_Pin Status_LED_Pin */
-  GPIO_InitStruct.Pin = INT2_ACC_Pin|LED_SE_Pin|LED_SW_Pin|Status_LED_Pin;
+  /*Configure GPIO pins : INT2_ACC_Pin LED_SE_Pin LED_SW_Pin Status_LED_Pin
+                           Status_LED_debbug_Pin */
+  GPIO_InitStruct.Pin = INT2_ACC_Pin|LED_SE_Pin|LED_SW_Pin|Status_LED_Pin
+                          |Status_LED_debbug_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

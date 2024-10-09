@@ -95,6 +95,8 @@ void Error_Handler(void);
 #define DEV_EN_LIDAR_GPIO_Port GPIOA
 #define Status_LED_Pin GPIO_PIN_10
 #define Status_LED_GPIO_Port GPIOC
+#define Status_LED_debbug_Pin GPIO_PIN_11
+#define Status_LED_debbug_GPIO_Port GPIOC
 #define LED_W_Pin GPIO_PIN_4
 #define LED_W_GPIO_Port GPIOB
 #define LED_N_Pin GPIO_PIN_5
