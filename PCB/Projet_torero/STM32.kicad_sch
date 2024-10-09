@@ -4285,16 +4285,6 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 48.26) (xy 90.17 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "715a39a1-8e45-4555-a65b-cf63e8a8cbc2")
-	)
-	(wire
-		(pts
 			(xy 95.25 36.83) (xy 95.25 53.34)
 		)
 		(stroke
@@ -8044,78 +8034,6 @@
 			(project "STM32"
 				(path "/ce23f9ec-69da-4971-88ea-98d53a12dc3f"
 					(reference "L?")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 90.17 48.26 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "8200721c-b380-4fd4-a429-4227179052ab")
-		(property "Reference" "#PWR0209"
-			(at 90.17 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 86.868 43.942 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 90.17 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 90.17 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 90.17 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b2de977a-e4f1-4528-93d0-c4fe3cd155fd")
-		)
-		(instances
-			(project ""
-				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/6473f9d2-6a99-4702-8d30-7daa8ce98486"
-					(reference "#PWR0209")
-					(unit 1)
-				)
-			)
-			(project "STM32"
-				(path "/ce23f9ec-69da-4971-88ea-98d53a12dc3f"
-					(reference "#PWR?")
 					(unit 1)
 				)
 			)
