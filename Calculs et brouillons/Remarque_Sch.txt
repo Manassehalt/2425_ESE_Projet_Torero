@@ -30,7 +30,7 @@ en dernier les gpio pour le routage
 router en premier les signaux rapides comme oscillateur, puis connecteur j201
 plan de masse unique ideal
 plan alim en 3,3V
-changer empreinte grosse bobine
-7.2V refaire connection (pas le meme tag)
-interrupteur a refaire empeinte plus petite
-refaire alim en suivant doc conseillé / 3 via 
+changer empreinte grosse bobine OK
+7.2V refaire connection (pas le meme tag) OK
+interrupteur a refaire empeinte plus petite OK
+refaire alim en suivant doc conseillé / 3 via OK
