@@ -363,174 +363,6 @@
 				)
 			)
 		)
-		(symbol "Connector_Generic:Conn_01x03"
-			(pin_names
-				(offset 1.016) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "J"
-				(at 0 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "Conn_01x03"
-				(at 0 -5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "connector"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "Connector*:*_1x??_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Conn_01x03_1_1"
-				(rectangle
-					(start -1.27 -2.413)
-					(end 0 -2.667)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 0.127)
-					(end 0 -0.127)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 2.667)
-					(end 0 2.413)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 3.81)
-					(end 1.27 -3.81)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin passive line
-					(at -5.08 2.54 0)
-					(length 3.81)
-					(name "Pin_1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 3.81)
-					(name "Pin_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -2.54 0)
-					(length 3.81)
-					(name "Pin_3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "Device:C_Small"
 			(pin_numbers hide)
 			(pin_names
@@ -1729,11 +1561,19 @@
 		(color 0 0 0 0)
 		(uuid "e0cdffee-8adf-4fb4-8039-c07d0bb555df")
 	)
-	(junction
-		(at 57.15 44.45)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "fec3dbb9-1e50-47cb-a2f7-1212c902ff85")
+	(no_connect
+		(at 55.88 36.83)
+		(uuid "ef60ec0a-384f-4f5e-9b70-4c6d16fe6998")
+	)
+	(wire
+		(pts
+			(xy 66.04 38.1) (xy 53.34 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "048cb237-57ab-4402-a276-0151b29fda5f")
 	)
 	(polyline
 		(pts
@@ -1744,16 +1584,6 @@
 			(type default)
 		)
 		(uuid "05784491-5ff7-48d9-8410-f0f390e9e8ee")
-	)
-	(wire
-		(pts
-			(xy 63.5 40.64) (xy 63.5 44.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "05ddb34d-b1e9-4983-83f2-6dc39a6d9c19")
 	)
 	(wire
 		(pts
@@ -1927,13 +1757,13 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 44.45) (xy 57.15 44.45)
+			(xy 53.34 38.1) (xy 53.34 36.83)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "49862d2d-2af0-4534-a699-a50b1a47864d")
+		(uuid "46fb0e8f-7421-4a5c-b605-f879c6e352e7")
 	)
 	(wire
 		(pts
@@ -2117,16 +1947,6 @@
 	)
 	(wire
 		(pts
-			(xy 53.34 40.64) (xy 63.5 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b287a3da-adcc-4db1-822b-9fa3bfdb53c5")
-	)
-	(wire
-		(pts
 			(xy 205.74 123.19) (xy 207.01 123.19)
 		)
 		(stroke
@@ -2215,16 +2035,6 @@
 		)
 		(uuid "ceeb20a8-0afe-4023-8c5a-533f65ad0654")
 	)
-	(wire
-		(pts
-			(xy 55.88 38.1) (xy 66.04 38.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d1cff6b7-5fcb-4169-a053-682a62eebe96")
-	)
 	(polyline
 		(pts
 			(xy 153.67 166.37) (xy 153.67 90.17)
@@ -2257,16 +2067,6 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 36.83) (xy 55.88 38.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "db52f59d-0acc-4bdf-a8e8-9104aa31f905")
-	)
-	(wire
-		(pts
 			(xy 71.12 147.32) (xy 71.12 152.4)
 		)
 		(stroke
@@ -2274,16 +2074,6 @@
 			(type default)
 		)
 		(uuid "dea0115b-be0a-462e-b162-7f503def75a6")
-	)
-	(wire
-		(pts
-			(xy 53.34 36.83) (xy 53.34 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e2ae4956-6ead-47e3-b77e-cb39033ed92c")
 	)
 	(wire
 		(pts
@@ -2855,7 +2645,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 46.99 148.59 0)
 			(effects
 				(font
@@ -3204,7 +2994,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
+		(property "Footprint" "Inductor_SMD:L_Wuerth_WE-TPC-3816"
 			(at 110.49 138.43 0)
 			(effects
 				(font
@@ -3787,79 +3577,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x03")
-		(at 53.34 31.75 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "806d60be-b83a-435c-bd64-309c2bb9407f")
-		(property "Reference" "J502"
-			(at 58.42 30.4799 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "Conn_01x03"
-			(at 58.42 33.0199 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Connector_JST:JST_XH_S3B-XH-A_1x03_P2.50mm_Horizontal"
-			(at 53.34 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 53.34 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 53.34 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3bd35227-88df-44eb-a432-5186cf9a6312")
-		)
-		(pin "2"
-			(uuid "25fddeff-80f3-462a-8eca-53258a38576f")
-		)
-		(pin "3"
-			(uuid "c020675c-d3ab-4a97-a2a9-4599623d8c36")
-		)
-		(instances
-			(project ""
-				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/b3b2826c-2e3c-42fe-bcd6-22fcd6249c25"
-					(reference "J502")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 57.15 49.53 0)
 		(unit 1)
@@ -4261,6 +3978,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector_Generic:Conn_01x02")
+		(at 50.8 31.75 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bf50d425-d3f5-4c4a-93e2-6fdb8ded9977")
+		(property "Reference" "J502"
+			(at 55.88 30.4799 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "Conn_01x02"
+			(at 55.88 33.0199 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Connector_JST:JST_XH_S2B-XH-A_1x02_P2.50mm_Horizontal"
+			(at 50.8 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 50.8 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 50.8 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5e12cac5-0cbf-47b7-8963-844d03429a28")
+		)
+		(pin "2"
+			(uuid "e87a705b-dfa6-4df1-ae93-a3f988443c75")
+		)
+		(instances
+			(project "Projet_torero"
+				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/b3b2826c-2e3c-42fe-bcd6-22fcd6249c25"
+					(reference "J502")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_Small")
 		(at 97.79 144.78 270)
 		(unit 1)
@@ -4485,7 +4272,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 127 153.67 0)
 			(effects
 				(font

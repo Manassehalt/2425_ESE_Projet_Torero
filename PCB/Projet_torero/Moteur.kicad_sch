@@ -1151,7 +1151,7 @@
 		)
 		(uuid "0f58184f-4d8b-4b08-b697-b29c5ca23c23")
 	)
-	(global_label "V7.2"
+	(global_label "7.2V"
 		(shape input)
 		(at 142.24 35.56 90)
 		(fields_autoplaced yes)

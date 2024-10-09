@@ -3738,10 +3738,6 @@
 		(uuid "4afcc5e1-0468-44bb-be6e-b7631e79deef")
 	)
 	(no_connect
-		(at 77.47 96.52)
-		(uuid "6c33cd14-c861-468c-bb01-e16dded8f2fc")
-	)
-	(no_connect
 		(at 207.01 36.83)
 		(uuid "6f744182-0995-47cf-976e-0bdef064df14")
 	)
@@ -4042,6 +4038,16 @@
 			(type default)
 		)
 		(uuid "4658afe8-474a-4dfa-9dd4-29cec94acfaa")
+	)
+	(wire
+		(pts
+			(xy 213.36 86.36) (xy 213.36 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "47650de0-58af-44eb-905d-fe0134e25ba0")
 	)
 	(wire
 		(pts
@@ -4943,6 +4949,17 @@
 		)
 		(uuid "fb033dbe-e6af-4655-b63f-8b79d5659e91")
 	)
+	(label "USER_BTN"
+		(at 31.75 129.54 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 0.635 0.635)
+			)
+			(justify left bottom)
+		)
+		(uuid "46cba9f3-9980-4501-a76c-f9f36b555269")
+	)
 	(global_label "SWO"
 		(shape input)
 		(at 77.47 116.84 180)
@@ -5115,6 +5132,28 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "STATUS_LED_Debug"
+		(shape input)
+		(at 77.47 96.52 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "22fcb175-74be-42e3-91b9-70d741514275")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 56.5236 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -5594,6 +5633,28 @@
 		(uuid "db3b064f-4668-4747-bc88-37bb7adc8582")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 120.2485 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "STATUS_LED_Debug"
+		(shape input)
+		(at 213.36 76.2 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "f1732416-74ca-442e-837d-1eec2a9c01d6")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 213.36 55.2536 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6664,6 +6725,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_Small")
+		(at 213.36 83.82 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "305863df-a04a-4f0f-99fc-3c61d5ff09b3")
+		(property "Reference" "R314"
+			(at 215.9 82.5499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "140"
+			(at 215.9 85.0899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 213.36 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 213.36 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 213.36 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a17fe068-56b7-4503-9f18-e9c710f50eee")
+		)
+		(pin "2"
+			(uuid "6763f4e2-cff6-4d47-a595-d0c4459df4b1")
+		)
+		(instances
+			(project "Projet_torero"
+				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/6473f9d2-6a99-4702-8d30-7daa8ce98486"
+					(reference "R314")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Small")
 		(at 127 63.5 90)
 		(unit 1)
@@ -6765,7 +6896,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 121.92 120.65 0)
 			(effects
 				(font
@@ -7916,7 +8047,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_Wuerth_WE-TPC-3816"
+		(property "Footprint" "Inductor_SMD:L_0603_1608Metric"
 			(at 100.33 58.42 0)
 			(effects
 				(font
@@ -8260,6 +8391,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:LED_Small")
+		(at 213.36 78.74 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ad1abbed-47f6-459c-805c-d464a975512d")
+		(property "Reference" "D1"
+			(at 215.9 77.4065 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "Red"
+			(at 215.9 79.9465 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
+			(at 213.36 78.74 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 213.36 78.74 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 213.36 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4e6356e7-0507-49b9-a114-046606c60c1f")
+		)
+		(pin "2"
+			(uuid "629297bc-ad61-4995-a9e9-ebac3e52596e")
+		)
+		(instances
+			(project "Projet_torero"
+				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/6473f9d2-6a99-4702-8d30-7daa8ce98486"
+					(reference "D1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Switch:SW_Push")
 		(at 49.53 81.28 90)
 		(unit 1)
@@ -8360,7 +8561,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Crystal:Crystal_SMD_EuroQuartz_X22-4Pin_2.5x2.0mm"
+		(property "Footprint" "Crystal:Crystal_SMD_EuroQuartz_MT-4Pin_3.2x2.5mm"
 			(at 127 127 0)
 			(effects
 				(font
@@ -8964,6 +9165,72 @@
 			(project "STM32"
 				(path "/ce23f9ec-69da-4971-88ea-98d53a12dc3f"
 					(reference "SW?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 213.36 87.63 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "df41d4ed-772f-4cfd-ac7f-39dd4850cdd7")
+		(property "Reference" "#PWR02"
+			(at 213.36 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 213.36 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 213.36 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 213.36 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 213.36 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3fc9efbe-fb03-4eaf-bbdf-e926918bb1a7")
+		)
+		(instances
+			(project "Projet_torero"
+				(path "/04e1eb47-a2c4-462b-bef7-377d9515a2c0/6473f9d2-6a99-4702-8d30-7daa8ce98486"
+					(reference "#PWR02")
 					(unit 1)
 				)
 			)
