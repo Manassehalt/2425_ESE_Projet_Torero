@@ -65,5 +65,5 @@ Générer une clé SSH
 - Renommer avec le nom du PC pour savoir à quoi la clé correpond
   ex : jeanp@HP-Pavilion-JP
 
-## Ligne pour utiliser le port 443 (https) au lieu du port 22, si bug sur la connexion:
-git clone ssh://git@ssh.github.com:443/Jeype07/TP_Bus_Reseaux.git
+## Ligne pour cloner un répertoire en utilisant le port 443 (https) au lieu du port 22, si bug sur la connexion:
+git clone ssh://git@ssh.github.com:443/username/Repositority_name.git
