@@ -1,4 +1,4 @@
-23837902446271712
+23844816419356202
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -13,6 +13,13 @@ audio belton reverb
 0
 7
 7
+BU33
+SOT95P280X125-5N
+BD45232G-TR-SSOP5
+Power Supply
+0
+5
+5
 Battery
 BatteryClip_Keystone_54_D16-19mm
 Battery clip for batteries with a diameter between 16-19 mm: https://www.keyelco.com/product.cfm/product_id/826
@@ -63496,6 +63503,13 @@ solder jumper open
 0
 5
 3
+KiCad
+SOT95P280X125-5N
+BD45232G-TR-SSOP5
+Power Supply
+0
+5
+5
 LED_SMD
 LED-APA102-2020
 http://www.led-color.com/upload/201604/APA102-2020%20SMD%20LED.pdf
@@ -67283,6 +67297,13 @@ Mounting 4.5mm 9774100982
 0
 8
 1
+Mp
+SOT65P280X100-8N
+TSOT23-8
+Integrated Circuit
+0
+8
+8
 NetTie
 NetTie-2_SMD_Pad0.5mm
 Net tie, 2 pin, 0.5mm square SMD pads
@@ -88976,6 +88997,13 @@ rotary encoder illuminated switch vertical
 0
 9
 8
+SW_DPDT_x2
+SW_DPDT_x2
+
+
+0
+3
+3
 Sensor
 ASAIR_AM2302_P2.54mm_Lead2.75mm_TabDown
 Temperature and humidity module, http://akizukidenshi.com/download/ds/aosong/AM2302.pdf

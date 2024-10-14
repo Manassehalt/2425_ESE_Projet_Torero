@@ -34,3 +34,8 @@ changer empreinte grosse bobine OK
 7.2V refaire connection (pas le meme tag) OK
 interrupteur a refaire empeinte plus petite OK
 refaire alim en suivant doc conseillé / 3 via OK
+
+Routage :
+Changement règle du CI -> diamètre mini via 0.45
+		       -> diamètre mini anneaux 0.075
+		       -> voir avec prof pour confirmer modifs (via copié depuis 				  correction fiack)
