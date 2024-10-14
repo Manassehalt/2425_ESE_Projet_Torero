@@ -1,3 +1,5 @@
+<p align="center"> <img src="logo ENSEA.png" width="25%" height="auto" /> </p>
+
 # 2425_ESE_Projet_Torero
 
 ## Projet de ESE de 3éme année de JACQUOT Nolan, GUIFFAULT Gabriel, BOULOT Paul et THOMAR Jean-Philippe
