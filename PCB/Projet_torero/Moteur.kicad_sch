@@ -903,6 +903,16 @@
 	)
 	(wire
 		(pts
+			(xy 149.86 66.04) (xy 154.94 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "08bb807e-3ad4-44a4-b7bd-667e1b716ab8")
+	)
+	(wire
+		(pts
 			(xy 162.56 71.12) (xy 185.42 71.12)
 		)
 		(stroke
@@ -923,6 +933,16 @@
 	)
 	(wire
 		(pts
+			(xy 158.75 73.66) (xy 185.42 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "32fcc9bd-b0c1-4138-ae4a-187b2dc4b368")
+	)
+	(wire
+		(pts
 			(xy 181.61 68.58) (xy 185.42 68.58)
 		)
 		(stroke
@@ -933,13 +953,13 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 60.96) (xy 185.42 60.96)
+			(xy 154.94 60.96) (xy 185.42 60.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3a114192-3f5b-4b0e-b1c5-0c11f6ca41cf")
+		(uuid "3a61e7eb-969c-4529-b0de-dbb82cd7b9ea")
 	)
 	(wire
 		(pts
@@ -950,6 +970,16 @@
 			(type default)
 		)
 		(uuid "44a0c72d-8399-4c1f-806b-f1d60213153e")
+	)
+	(wire
+		(pts
+			(xy 210.82 55.88) (xy 210.82 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5479b0e6-380f-4327-83e5-a90342c1dbb5")
 	)
 	(wire
 		(pts
@@ -993,6 +1023,56 @@
 	)
 	(wire
 		(pts
+			(xy 210.82 81.28) (xy 158.75 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7563c73f-a90e-4949-ad51-88e367001f80")
+	)
+	(wire
+		(pts
+			(xy 153.67 55.88) (xy 210.82 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "77d73411-019c-40a3-896e-8813288d434f")
+	)
+	(wire
+		(pts
+			(xy 154.94 60.96) (xy 154.94 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "810761f1-268a-48c6-bb8a-94799a2d3019")
+	)
+	(wire
+		(pts
+			(xy 153.67 55.88) (xy 153.67 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "81a638c3-1f78-47b1-af3a-fd12a6a11ad4")
+	)
+	(wire
+		(pts
+			(xy 158.75 81.28) (xy 158.75 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "848c5698-e679-460f-ac96-f84de9a4597a")
+	)
+	(wire
+		(pts
 			(xy 123.19 66.04) (xy 129.54 66.04)
 		)
 		(stroke
@@ -1023,13 +1103,13 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 73.66) (xy 149.86 66.04)
+			(xy 149.86 60.96) (xy 153.67 60.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c3dcc24b-7a6b-4241-9c1b-cd2fb7d0e528")
+		(uuid "bfa52960-86d6-41e4-9aad-665c8181f020")
 	)
 	(wire
 		(pts
@@ -1113,16 +1193,6 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 73.66) (xy 185.42 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e99618f6-cf1c-49af-bc37-38acfe8f097d")
-	)
-	(wire
-		(pts
 			(xy 167.64 63.5) (xy 185.42 63.5)
 		)
 		(stroke
@@ -1161,15 +1231,27 @@
 		)
 		(uuid "f5b69869-8b8c-453d-917f-a23a59b8fe46")
 	)
-	(text "Connecteur moteur"
-		(exclude_from_sim no)
-		(at 165.354 59.944 0)
+	(label "Connecteur Moteur"
+		(at 154.94 55.88 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
+			(justify left bottom)
 		)
-		(uuid "0f58184f-4d8b-4b08-b697-b29c5ca23c23")
+		(uuid "22c5512e-1ec1-4a7b-a75c-fb35bd1dfd63")
+	)
+	(label "Commande moteur"
+		(at 168.91 60.96 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e5d5c756-af5c-43d8-b291-c3f9ebe1a8ba")
 	)
 	(global_label "7.2V"
 		(shape input)
@@ -1249,7 +1331,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "1d64dfe1-32c8-4ea6-954b-4c96c15d1154")
 		(property "Reference" "#PWR0605"
 			(at 166.37 71.12 0)
@@ -1261,7 +1342,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 158.75 71.1199 90)
+			(at 162.052 69.342 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1833,7 +1914,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "ca992557-357d-469b-b9cc-d0d64daa8ed5")
 		(property "Reference" "U601"
 			(at 141.8941 71.12 0)
@@ -1845,7 +1925,7 @@
 			)
 		)
 		(property "Value" "ZXBM5210-SP"
-			(at 141.8941 73.66 0)
+			(at 141.986 74.676 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1928,7 +2008,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "d9c35082-ed19-4ecb-8444-012f53de771e")
 		(property "Reference" "#PWR0604"
 			(at 156.21 63.5 0)
@@ -1940,7 +2019,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 158.75 63.4999 90)
+			(at 160.02 65.532 90)
 			(effects
 				(font
 					(size 1.27 1.27)

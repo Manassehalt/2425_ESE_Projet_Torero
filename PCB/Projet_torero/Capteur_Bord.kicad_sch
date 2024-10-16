@@ -960,7 +960,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a4b7d890-32db-4da1-bc3f-d3934f8c1f28")
-		(property "Reference" "#PWR03"
+		(property "Reference" "#PWR04"
 			(at 170.18 92.71 0)
 			(effects
 				(font

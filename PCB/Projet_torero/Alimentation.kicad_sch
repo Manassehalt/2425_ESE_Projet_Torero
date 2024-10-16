@@ -1657,16 +1657,6 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 138.43) (xy 102.87 138.43)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "210a39f3-b0a8-43cc-a3e1-eb3e01d580ac")
-	)
-	(wire
-		(pts
 			(xy 128.27 40.64) (xy 132.08 40.64)
 		)
 		(stroke
@@ -1834,6 +1824,16 @@
 			(type default)
 		)
 		(uuid "7835c203-2ed4-454a-829b-4fb7e3242485")
+	)
+	(wire
+		(pts
+			(xy 93.98 138.43) (xy 102.87 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7d11561c-511a-412a-9700-e501a3c1ef11")
 	)
 	(wire
 		(pts
@@ -2244,6 +2244,17 @@
 			)
 		)
 		(uuid "ba029e3f-66e7-40d1-b274-c5192c630597")
+	)
+	(label "Sortie Régulateur 5V"
+		(at 93.98 138.43 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7d1f6213-e5af-47e1-a933-5847f705fb1a")
 	)
 	(global_label "7.2V"
 		(shape input)
@@ -2977,7 +2988,7 @@
 		(dnp no)
 		(uuid "48769b1f-9e73-450a-9083-70dc7d5d7fa9")
 		(property "Reference" "L501"
-			(at 107.95 139.954 90)
+			(at 112.014 134.366 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2986,7 +2997,7 @@
 			)
 		)
 		(property "Value" "4u7"
-			(at 108.204 141.732 90)
+			(at 112.268 136.144 90)
 			(effects
 				(font
 					(size 1.27 1.27)
