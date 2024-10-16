@@ -1,4 +1,4 @@
-!! LISTE A FAIRE !!
+e!! LISTE A FAIRE !!
 
 
 LISTE FAIT : 
@@ -34,7 +34,14 @@ changer empreinte grosse bobine OK
 7.2V refaire connection (pas le meme tag) OK
 interrupteur a refaire empeinte plus petite OK
 refaire alim en suivant doc conseillé / 3 via OK
-
+Inverser pin driver moteur +zone de connexion plutot que piste
+rapprocher pastilles de ground et alim des vias associé
+aligner les composants
+Rapprocher la partie puissance (driver moteur)
+regarder plan pour retirer les antennes
+découplage
+plan sur grosse bobine
+agrandir piste gros courant
 Routage :
 Changement règle du CI -> diamètre mini via 0.45
 		       -> diamètre mini anneaux 0.075
