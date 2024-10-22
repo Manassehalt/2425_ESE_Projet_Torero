@@ -42,6 +42,9 @@ https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/BOM.xlsx
 ### INFO PCB : 
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/PCB/info_PCB.docx
 
+### Apercu serigraphie :
+<p align="center"> <img src="PCB carte 3d.PNG" width="80%" height="auto" /> </p>
+
 ### DOSSIER PCB : 
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/PCB
 
