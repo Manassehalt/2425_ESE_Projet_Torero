@@ -1,4 +1,5 @@
-<p align="center"> <img src="logo ENSEA.png" width="25%" height="auto" /> </p>
+<p align="left"> <img src="logo ENSEA.png" width="25%" height="auto" /> </p>
+<p align="center"> <img src="Torero-Logo.png" width="25%" height="auto" /> </p>
 
 # 2425_ESE_Projet_Torero
 
