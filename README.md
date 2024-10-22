@@ -27,38 +27,38 @@ Objectif annexe:
 
 
 
-## Dossier contenant les Datasheets : 
+### Dossier contenant les Datasheets : 
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/Datasheet
 
-## LISTE des choses faite ou a faire : 
+### LISTE des choses faite ou a faire : 
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Remarque_Sch.txt
 
-## Lien utile : 
+### Lien utile : 
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Liens.xlsx
 
-## BOM : 
+### BOM : 
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/BOM.xlsx
 
-## INFO PCB : 
+### INFO PCB : 
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/PCB/info_PCB.docx
 
-## DOSSIER PCB : 
+### DOSSIER PCB : 
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/PCB
 
-## Shematics_torero : 
+### Shematics_torero : 
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/PCB/Projet_torero/Projet_torero.kicad_sch
 
-## DOSSIER CODE STM32 : 
+### DOSSIER CODE STM32 : 
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/Projet_ESE_STM32/Projet_ESE_Torero/STM32G431CBU6
 
-## DOSSIER CALCULS : 
+### DOSSIER CALCULS : 
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/8892ed05e16a1e8a040fe9dc08f9f57ab23dc9e8/Calculs%20et%20brouillons
 
 
 
 
 
-## Methode si nouvel ordinateur : 
+### Methode si nouvel ordinateur : 
 Générer une clé SSH
 - Taper ssh-keygen puis Entrer
 - Appuyer sur y pour overwrite et sur Entrer pour passer les étapes (if no passphrase)
@@ -67,5 +67,5 @@ Générer une clé SSH
 - Renommer avec le nom du PC pour savoir à quoi la clé correpond
   ex : jeanp@HP-Pavilion-JP
 
-## Ligne pour cloner un répertoire en utilisant le port 443 (https) au lieu du port 22, si bug sur la connexion:
+### Ligne pour cloner un répertoire en utilisant le port 443 (https) au lieu du port 22, si bug sur la connexion:
 git clone ssh://git@ssh.github.com:443/username/Repositority_name.git
