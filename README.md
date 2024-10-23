@@ -1,5 +1,5 @@
-<p align="left"> <img src="logo ENSEA.png" width="25%" height="auto" /> </p>
-<p align="center"> <img src="Torero-Logo.png" width="25%" height="auto" /> </p>
+<p align="left"> <img src="Graphique_Logo/logo ENSEA.png" width="15%" height="auto" /> </p>
+<p align="center"> <img src="Graphique_Logo/Torero-Logo.png" width="30%" height="auto" /> </p>
 
 # 2425_ESE_Projet_Torero
 
@@ -8,12 +8,16 @@
 Ce projet contient toute les ressources de l'élaboration d'un robot capable de jouer au chat et a la souris.
 Les liens vers les differentes ressources sont énuméré avec un court intitulé a la FIN du README.
 Ci dessous le schéma architectural donnant les grandes lignes du projet.
-<p align="center"> <img src="Schema_archi.png" width="80%" height="auto" /> </p>
-[Schéma architectural.pdf](https://github.com/user-attachments/files/17220902/Schema.architectural.pdf)
+<p align="center"> <img src="Graphique_Logo/Schema_archi.png" width="80%" height="auto" /> </p>
+[Schéma architectural](https://github.com/user-attachments/files/17220902/Schema.architectural.pdf)
 
 
 ## Environnement:
-Table de 200cm x 160cm 
+
+Table de 200cm x 160cm
+
+Robot assimilable a un cylindre de 17 cm de diametre et 15 cm de hauteur 
+
 ## Cahier des charges: 
 - Le robot doit etre capable de ce déplacer sur une table sans tomber (absence de bord et de marquage)
 - Le robot doit etre capable de detecter l'autre robot present sur la table pour le fuir ou le chasser en fonction de son role dans la partie.
@@ -32,10 +36,10 @@ Objectif annexe:
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/Datasheet
 
 ### LISTE des choses faite ou a faire : 
-https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Remarque_Sch.txt
+https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Calculs%20et%20brouillons/Remarque_Sch.txt
 
 ### Lien utile : 
-https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Liens.xlsx
+https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Calculs%20et%20brouillons/Liens.xlsx
 
 ### BOM : 
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/BOM.xlsx
@@ -44,7 +48,8 @@ https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/BOM.xlsx
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/PCB/info_PCB.docx
 
 ### Apercu serigraphie :
-<p align="center"> <img src="PCB carte 3d.PNG" width="80%" height="auto" /> </p>
+<p align="center"> <img src="Graphique_Logo/PCB carte 3d.PNG" width="100%" height="auto" /> </p>
+[view PCB 3D](https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Graphique_Logo/PCB%20carte%203d.PNG)
 
 ### DOSSIER PCB : 
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/PCB

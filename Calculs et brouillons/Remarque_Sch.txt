@@ -34,15 +34,33 @@ changer empreinte grosse bobine OK
 7.2V refaire connection (pas le meme tag) OK
 interrupteur a refaire empeinte plus petite OK
 refaire alim en suivant doc conseillé / 3 via OK
-Inverser pin driver moteur +zone de connexion plutot que piste
-rapprocher pastilles de ground et alim des vias associé
-aligner les composants
-Rapprocher la partie puissance (driver moteur)
-regarder plan pour retirer les antennes
-découplage
-plan sur grosse bobine
-agrandir piste gros courant
+Inverser pin driver moteur +zone de connexion plutot que piste OK
+rapprocher pastilles de ground et alim des vias associé OK
+aligner les composants OK
+Rapprocher la partie puissance (driver moteur) OK
+regarder plan pour retirer les antennes OK
+découplage OK
+plan sur grosse bobine OK
+agrandir piste gros courant OK
 Routage :
 Changement règle du CI -> diamètre mini via 0.45
 		       -> diamètre mini anneaux 0.075
-		       -> voir avec prof pour confirmer modifs (via copié depuis 				  correction fiack)
+		       -> voir avec prof pour confirmer modifs (via copié depuis   correction fiack)
+
+TESTER LES CONNECTIONS
+
+MECANIQUE:
+designer le parchoc qui porte les capteur de bord 
+designer les support ajustable
+imprimer les pieces du robot
+
+SOFTWARE:
+piloter les driver moteurs
+piloter le lidar
+recevoir les donnés du lidar et les interpréter
+recevoir les donnés de l'accelerometre
+recevoir les donnés des capteurs de bords
+realiser les comportement en odometrie
+coder les comportement de fuite/evitement
+coder les comportement de chasse/collision
+
