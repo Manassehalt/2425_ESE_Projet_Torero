@@ -36,10 +36,10 @@ Objectif annexe:
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/Datasheet
 
 ### LISTE des choses faite ou a faire : 
-https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Remarque_Sch.txt
+https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Calculs et brouillons/Remarque_Sch.txt
 
 ### Lien utile : 
-https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Liens.xlsx
+https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Calculs et brouillons/Liens.xlsx
 
 ### BOM : 
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/BOM.xlsx
