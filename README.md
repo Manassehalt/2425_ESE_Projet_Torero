@@ -49,7 +49,7 @@ https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/PCB/info_PCB.doc
 
 ### Apercu serigraphie :
 <p align="center"> <img src="Graphique_Logo/PCB carte 3d.PNG" width="100%" height="auto" /> </p>
-[appercu PCB 3D](https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Graphique_Logo/PCB%20carte%203d.PNG)
+[view PCB 3D](https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Graphique_Logo/PCB%20carte%203d.PNG)
 
 ### DOSSIER PCB : 
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/PCB
