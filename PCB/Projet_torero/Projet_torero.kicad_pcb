@@ -11260,7 +11260,7 @@
 		(descr "L_Wuerth_WE-TPC-3816 StepUp generated footprint, http://katalog.we-online.de/pbs/datasheet/7440310047.pdf")
 		(tags "wurth wuerth smd inductor")
 		(property "Reference" "L501"
-			(at 0 -3 0)
+			(at 0.5 -3 0)
 			(layer "F.SilkS")
 			(uuid "8016d46a-d8ce-4758-b8a6-1b742f329057")
 			(effects
