@@ -78,6 +78,9 @@
 exemple graphe mermaid
 
 ```mermaid
+  info
+```
+```mermaid
 graph TD;
 	STM32-->MOTEUR;
 	STM32-->LED;
