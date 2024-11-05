@@ -1,5 +1,5 @@
 # !! LISTE A FAIRE !!
-<details>
+<details open>
 <summary> <ins>Schema:</ins> </summary>
 	
 - [x] Regarder pour encodeurs 
@@ -18,7 +18,7 @@
 - [x] Rendre l'ensemble plus clair (label et autre) 
 </details>
 
-<details>
+<details >
 <summary>  <ins> PCB :</ins> </summary>
 
 - [x] PCB 54mm x 57mm
@@ -50,9 +50,9 @@
 		       -> voir avec prof pour confirmer modifs (via copié depuis   correction fiack)
 - [ ] TESTER LES CONNECTIONS
       
-</details> 
+</details open> 
 
-<details>
+<details >
 <summary>  <ins> MECANIQUE: </ins></summary>
 
 
@@ -61,7 +61,7 @@
 - [ ] imprimer les pieces du robot
 
 </details>
-<details>
+<details >
 <summary>  <ins> SOFTWARE: </ins></summary>
 
 
