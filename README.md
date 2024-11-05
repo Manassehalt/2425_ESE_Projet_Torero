@@ -14,14 +14,19 @@ Ci dessous le schéma architectural donnant les grandes lignes du projet.
 
 ## Environnement:
 
-Table de 200cm x 160cm
 
-Robot assimilable a un cylindre de 17 cm de diametre et 15 cm de hauteur 
+> [!IMPORTANT]
+> Table de 200cm x 160cm
+> 
+> Table sans Bord ni marquages!
+> 
+> Robot assimilable a un cylindre de 17 cm de diametre et 15 cm de hauteur 
 
-## Cahier des charges: 
-- Le robot doit etre capable de ce déplacer sur une table sans tomber (absence de bord et de marquage)
-- Le robot doit etre capable de detecter l'autre robot present sur la table pour le fuir ou le chasser en fonction de son role dans la partie.
-- Le robot doit etre capable de detecter un contact meme leger avec le robot adverse et changer son comportement d'un role vers l'autre.
+## Cahier des charges:
+> [!IMPORTANT]
+>- Le robot doit etre capable de ce déplacer sur une table sans tomber (absence de bord et de marquage)
+>- Le robot doit etre capable de detecter l'autre robot present sur la table pour le fuir ou le chasser en fonction de son role dans la partie.
+>- Le robot doit etre capable de detecter un contact meme leger avec le robot adverse et changer son comportement d'un role vers l'autre.
 
 Objectif annexe:
 - Le robot peut realiser une odometrie simple pour suivre le bord de table lorsqu'il debute en souris
@@ -36,7 +41,7 @@ Objectif annexe:
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/Datasheet
 
 ### LISTE des choses faite ou a faire : 
-https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Calculs%20et%20brouillons/Remarque_Sch.txt
+https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Calculs%20et%20brouillons/Remarque_Sch.md
 
 ### Lien utile : 
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Calculs%20et%20brouillons/Liens.xlsx
@@ -68,13 +73,15 @@ https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/8892ed05e16a1e8a040fe
 
 
 ### Methode si nouvel ordinateur : 
-Générer une clé SSH
-- Taper ssh-keygen puis Entrer
-- Appuyer sur y pour overwrite et sur Entrer pour passer les étapes (if no passphrase)
-- Taper cat ~/.ssh/id_ed25519.pub puis Entrer
-- Copier puis coller la clé dans GitHub Setting > SSH and GPG keys > SSH keys
-- Renommer avec le nom du PC pour savoir à quoi la clé correpond
-  ex : jeanp@HP-Pavilion-JP
+> [!TIP]
+>Générer une clé SSH
+>- Taper ssh-keygen puis Entrer
+>- Appuyer sur y pour overwrite et sur Entrer pour passer les étapes (if no passphrase)
+>- Taper cat ~/.ssh/id_ed25519.pub puis Entrer
+>- Copier puis coller la clé dans GitHub Setting > SSH and GPG keys > SSH keys
+>- Renommer avec le nom du PC pour savoir à quoi la clé correpond
+>  ex : jeanp@HP-Pavilion-JP
 
 ### Ligne pour cloner un répertoire en utilisant le port 443 (https) au lieu du port 22, si bug sur la connexion:
-git clone ssh://git@ssh.github.com:443/username/Repositority_name.git
+> [!TIP]
+>git clone ssh://git@ssh.github.com:443/username/Repositority_name.git
