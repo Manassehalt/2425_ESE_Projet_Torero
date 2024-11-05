@@ -74,7 +74,9 @@
 - [ ] coder les comportement de fuite/evitement
 - [ ] coder les comportement de chasse/collision
 </details>
+
 exemple graphe mermaid
+
 ```mermaid
 graph TD;
 	STM32-->MOTEUR;
