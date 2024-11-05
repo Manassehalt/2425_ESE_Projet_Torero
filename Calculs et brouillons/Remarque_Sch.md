@@ -1,5 +1,7 @@
 # !! LISTE A FAIRE !!
-
+<details>
+<summary> <ins>Schema:</ins> </summary>
+	
 - [x] Regarder pour encodeurs 
 - [x] Reprendre régulateur 5V (entrée à gauche et sortie à droite) 
 - [x] VDDA pas alimenté 
@@ -14,8 +16,10 @@
 - [x] valeur R 2k3 plutôt que 2.3k  
 - [x] valeur C 100n plutôt que 0.1µF  
 - [x] Rendre l'ensemble plus clair (label et autre) 
+</details>
 
-### Description du PCB :
+<details>
+<summary>  <ins> PCB :</ins> </summary>
 
 - [x] PCB 54mm x 57mm
 - [x] 4 trou de fixation a 4mm du bord Taille M3 
@@ -45,14 +49,21 @@
 		       -> diamètre mini anneaux 0.075
 		       -> voir avec prof pour confirmer modifs (via copié depuis   correction fiack)
 - [ ] TESTER LES CONNECTIONS
+      
+</details> 
 
-### MECANIQUE:
+<details>
+<summary>  <ins> MECANIQUE: </ins></summary>
+
 
 - [ ] designer le parchoc qui porte les capteur de bord 
 - [ ] designer les support ajustable
 - [ ] imprimer les pieces du robot
 
-### SOFTWARE:
+</details>
+<details>
+<summary>  <ins> SOFTWARE: </ins></summary>
+
 
 - [ ] piloter les driver moteurs
 - [ ] piloter le lidar
@@ -62,4 +73,4 @@
 - [ ] realiser les comportement en odometrie
 - [ ] coder les comportement de fuite/evitement
 - [ ] coder les comportement de chasse/collision
-
+</details>
