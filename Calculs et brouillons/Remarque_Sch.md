@@ -74,3 +74,13 @@
 - [ ] coder les comportement de fuite/evitement
 - [ ] coder les comportement de chasse/collision
 </details>
+exemple graphe mermaid
+```mermaid
+graph TD;
+	STM32-->MOTEUR;
+	STM32-->LED;
+	MOTEUR-->STM32;
+	CapteurBord-->STM32;
+	Accelerometre-->STM32;
+	LIDAR-->STM32;
+```
