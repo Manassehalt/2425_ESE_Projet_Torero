@@ -15,43 +15,45 @@
 - [x] valeur C 100n plutôt que 0.1µF  
 - [x] Rendre l'ensemble plus clair (label et autre) 
 
-Description du PCB :
+### Description du PCB :
+
 - [x] PCB 54mm x 57mm
-- [x] 4 trou de fixation a 4mm du bord Taille M3 OK
-- [x] Remplacer l'empreinte de l'interrupteur pour le deporter hors du PCB OK
-- [x] condo proche OK
-- [x] reverifier empreinte condo imperial OK
+- [x] 4 trou de fixation a 4mm du bord Taille M3 
+- [x] Remplacer l'empreinte de l'interrupteur pour le deporter hors du PCB 
+- [x] condo proche 
+- [x] reverifier empreinte condo imperial 
 - [x] mettre port ldidar a coté de l'alimentation 5V
-- [x] orientation serio j201 OK
+- [x] orientation serio j201 
 - [x] en dernier les gpio pour le routage
 - [x] router en premier les signaux rapides comme oscillateur, puis connecteur j201
 - [x] plan de masse unique ideal
 - [x] plan alim en 3,3V
-- [x] changer empreinte grosse bobine OK
-- [x] 7.2V refaire connection (pas le meme tag) OK
-- [x] interrupteur a refaire empeinte plus petite OK
-- [x] refaire alim en suivant doc conseillé / 3 via OK
-- [x] Inverser pin driver moteur +zone de connexion plutot que piste OK
-- [x] rapprocher pastilles de ground et alim des vias associé OK
-- [x] aligner les composants OK
-- [x] Rapprocher la partie puissance (driver moteur) OK
-- [x] regarder plan pour retirer les antennes OK
-- [x] découplage OK
-- [x] plan sur grosse bobine OK
-- [x] agrandir piste gros courant OK
+- [x] changer empreinte grosse bobine 
+- [x] 7.2V refaire connection (pas le meme tag) 
+- [x] interrupteur a refaire empeinte plus petite 
+- [x] refaire alim en suivant doc conseillé / 3 via 
+- [x] Inverser pin driver moteur +zone de connexion plutot que piste 
+- [x] rapprocher pastilles de ground et alim des vias associé 
+- [x] aligner les composants 
+- [x] Rapprocher la partie puissance (driver moteur) 
+- [x] regarder plan pour retirer les antennes 
+- [x] découplage 
+- [x] plan sur grosse bobine 
+- [x] agrandir piste gros courant 
   Routage :
 - [x] Changement règle du CI -> diamètre mini via 0.45
 		       -> diamètre mini anneaux 0.075
 		       -> voir avec prof pour confirmer modifs (via copié depuis   correction fiack)
+- [ ] TESTER LES CONNECTIONS
 
-TESTER LES CONNECTIONS
+### MECANIQUE:
 
-MECANIQUE:
 - [ ] designer le parchoc qui porte les capteur de bord 
 - [ ] designer les support ajustable
 - [ ] imprimer les pieces du robot
 
-SOFTWARE:
+### SOFTWARE:
+
 - [ ] piloter les driver moteurs
 - [ ] piloter le lidar
 - [ ] recevoir les donnés du lidar et les interpréter
