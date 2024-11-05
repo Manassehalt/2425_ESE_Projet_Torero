@@ -1,6 +1,6 @@
 # !! LISTE A FAIRE !!
 <details open>
-<summary> <ins>Schema:</ins> </summary>
+<summary> <strong><ins>Schema:</ins></strong> </summary>
 	
 - [x] Regarder pour encodeurs 
 - [x] Reprendre régulateur 5V (entrée à gauche et sortie à droite) 
@@ -19,7 +19,7 @@
 </details>
 
 <details >
-<summary>  <ins> PCB :</ins> </summary>
+<summary>  <strong><ins> PCB :</ins></strong> </summary>
 
 - [x] PCB 54mm x 57mm
 - [x] 4 trou de fixation a 4mm du bord Taille M3 
@@ -53,7 +53,7 @@
 </details open> 
 
 <details >
-<summary>  <ins> MECANIQUE: </ins></summary>
+<summary> <strong> <ins> MECANIQUE: </ins></strong></summary>
 
 
 - [ ] designer le parchoc qui porte les capteur de bord 
@@ -62,7 +62,7 @@
 
 </details>
 <details >
-<summary>  <ins> SOFTWARE: </ins></summary>
+<summary>  <strong><ins> SOFTWARE: </ins></strong></summary>
 
 
 - [ ] piloter les driver moteurs
