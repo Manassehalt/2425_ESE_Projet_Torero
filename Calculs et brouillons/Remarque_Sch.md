@@ -2,20 +2,20 @@ e!! LISTE A FAIRE !!
 
 
 LISTE FAIT : 
-Regarder pour encodeurs OK
-Reprendre régulateur 5V (entrée à gauche et sortie à droite) OK
-VDDA pas alimenté OK
-Calculer valeur R pour les leds d'état OK
-supprimer label hiérarchique 7.2V OK
-Merge les feuilles pour moteur afin de modifier les deux à la fois OK
-faire symbole tof OK?
-remplir valeur composants OK?
-Renommer comme il faut pins de communication accélero OK?
-Remplir le readme avec les schémas + calculs + présentation globale (ne pas avoir à aller chercher les fichiers à gauche à droite)OK
-Mettre texte descriptif pour définir connections
-valeur R 2k3 plutôt que 2.3k  OK
-valeur C 100n plutôt que 0.1µF  OK
-Rendre l'ensemble plus clair (label et autre) OK
+- [x] Regarder pour encodeurs OK
+- [x] Reprendre régulateur 5V (entrée à gauche et sortie à droite) OK
+- [x] VDDA pas alimenté OK
+- [x] Calculer valeur R pour les leds d'état OK
+- [x] supprimer label hiérarchique 7.2V OK
+- [x] Merge les feuilles pour moteur afin de modifier les deux à la fois OK
+- [x] faire symbole tof OK?
+- [x] remplir valeur composants OK?
+- [x] Renommer comme il faut pins de communication accélero OK?
+- [x] Remplir le readme avec les schémas + calculs + présentation globale (ne pas avoir à aller chercher les fichiers à gauche à droite)OK
+- [x] Mettre texte descriptif pour définir connections
+- [x] valeur R 2k3 plutôt que 2.3k  OK
+- [x] valeur C 100n plutôt que 0.1µF  OK
+- [x] Rendre l'ensemble plus clair (label et autre) OK
 
 
 Description du PCB :
