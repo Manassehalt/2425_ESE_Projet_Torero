@@ -82,9 +82,13 @@ exemple graphe mermaid
 ```
 ```mermaid
 graph TD;
-	STM32-->MOTEUR;
+	STM32-->MOTEURG;
+	STM32-->MOTEURD;
 	STM32-->LED;
-	MOTEUR-->STM32;
+	STM32-->LIDAR;
+	STM32-->Accelerometre;
+	MOTEURG-->STM32;
+	MOTEURD-->STM32;
 	CapteurBord-->STM32;
 	Accelerometre-->STM32;
 	LIDAR-->STM32;
