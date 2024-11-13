@@ -89,7 +89,9 @@ graph TD;
 	STM32-->Accelerometre;
 	MOTEURG-->STM32;
 	MOTEURD-->STM32;
-	CapteurBord-->STM32;
+	CapteurBordG-->STM32;
+	CapteurBordD-->STM32;
 	Accelerometre-->STM32;
+	Switchstate-->STM32;
 	LIDAR-->STM32;
 ```
