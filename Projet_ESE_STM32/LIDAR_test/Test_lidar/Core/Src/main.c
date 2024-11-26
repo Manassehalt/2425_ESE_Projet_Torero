@@ -32,7 +32,9 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 #define DATA_SIZE_LIDAR 1000
-#define SCAN_CMD_LIDAR 0xA560
+#define START_CMD_LIDAR 0xA5
+#define SCAN_CMD_LIDAR 0x60
+#define GET_INFO_CMD_LIDAR 0x90
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -48,8 +50,8 @@ UART_HandleTypeDef huart3;
 DMA_HandleTypeDef hdma_usart3_rx;
 
 /* USER CODE BEGIN PV */
-uint8_t data_lidar[DATA_SIZE_LIDAR];
-uint16_t lidar_command[1];
+uint64_t data_lidar[DATA_SIZE_LIDAR];
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -84,10 +86,10 @@ void get_lidar_data(){
 }
 
 int lidar_Start(){
-	lidar_command[0] = SCAN_CMD_LIDAR;
-	if(HAL_UART_Transmit(&huart3, lidar_command, 1, HAL_MAX_DELAY)== HAL_OK){
-		HAL_UART_Receive(&huart3, data_lidar, DATA_SIZE_LIDAR, (uint32_t) 1000);
-		printf(" data lidar : %d\r\n", data_lidar[1]);
+	uint8_t lidar_command[2] = {START_CMD_LIDAR, SCAN_CMD_LIDAR};
+	if(HAL_UART_Transmit(&huart3, lidar_command, 1, (uint8_t)1000)== HAL_OK){
+		HAL_UART_Receive(&huart3, data_lidar, DATA_SIZE_LIDAR, (uint8_t)1000);
+		printf(" data lidar : %d\r\n", data_lidar[0]);
 		return 1;
 	}
 	else{
