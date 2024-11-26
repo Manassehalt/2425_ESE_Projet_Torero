@@ -8,7 +8,7 @@
 Ce projet contient toute les ressources de l'élaboration d'un robot capable de jouer au chat et a la souris.
 Les liens vers les differentes ressources sont énuméré avec un court intitulé a la FIN du README.
 Ci dessous le schéma architectural donnant les grandes lignes du projet.
-<p align="center"> <img src="Graphique_Logo/Schema_archi.png" width="80%" height="auto" /> </p>
+<p align="center"> <img src="Graphique_Logo/Schema_ArchiV2.png" width="80%" height="auto" /> </p>
 [Schéma architectural](https://github.com/user-attachments/files/17220902/Schema.architectural.pdf)
 
 
