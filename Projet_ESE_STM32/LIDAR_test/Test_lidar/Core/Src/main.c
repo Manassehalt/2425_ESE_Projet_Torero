@@ -47,23 +47,21 @@ TIM_HandleTypeDef htim4;
 
 UART_HandleTypeDef huart2;
 UART_HandleTypeDef huart3;
-DMA_HandleTypeDef hdma_usart3_rx;
 
 /* USER CODE BEGIN PV */
-uint64_t data_lidar[DATA_SIZE_LIDAR];
+uint8_t data_lidar[DATA_SIZE_LIDAR];
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_DMA_Init(void);
 static void MX_TIM4_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
-void lidar_init(void);
-void get_lidar_data(void);
+
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -87,16 +85,20 @@ void get_lidar_data(){
 
 int lidar_Start(){
 	uint8_t lidar_command[2] = {START_CMD_LIDAR, SCAN_CMD_LIDAR};
-	if(HAL_UART_Transmit(&huart3, lidar_command, 1, (uint8_t)1000)== HAL_OK){
-		HAL_UART_Receive(&huart3, data_lidar, DATA_SIZE_LIDAR, (uint8_t)1000);
-		printf(" data lidar : %d\r\n", data_lidar[0]);
+	HAL_UART_Transmit(&huart3, lidar_command, 2, 2000);
+	if(HAL_UART_Receive(&huart3, data_lidar, DATA_SIZE_LIDAR, 2000)==HAL_OK){
+		for (int i = 0; i < 10; i++) {
+//		    printf("Data lidar%d : %d\r\n", i + 1, data_lidar[i]);
+		}
 		return 1;
 	}
 	else{
-		printf("Erreur de com lidar\r\n");
+//		printf("Erreur\r\n");
 		return 0;
 	}
 }
+
+
 /* USER CODE END 0 */
 
 /**
@@ -128,13 +130,12 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
   MX_TIM4_Init();
   MX_USART3_UART_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   lidar_Init();
-  printf("==============START==============\r\n");
+//  printf("==============START==============\r\n");
 
   /* USER CODE END 2 */
 
@@ -143,7 +144,7 @@ int main(void)
   while (1)
   {
 	  lidar_Start();
-	  HAL_Delay(1000);
+	  //HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -320,7 +321,7 @@ static void MX_USART3_UART_Init(void)
   /* USER CODE END USART3_Init 1 */
   huart3.Instance = USART3;
   huart3.Init.BaudRate = 128000;
-  huart3.Init.WordLength = UART_WORDLENGTH_9B;
+  huart3.Init.WordLength = UART_WORDLENGTH_8B;
   huart3.Init.StopBits = UART_STOPBITS_1;
   huart3.Init.Parity = UART_PARITY_NONE;
   huart3.Init.Mode = UART_MODE_TX_RX;
@@ -348,23 +349,6 @@ static void MX_USART3_UART_Init(void)
   /* USER CODE BEGIN USART3_Init 2 */
 
   /* USER CODE END USART3_Init 2 */
-
-}
-
-/**
-  * Enable DMA controller clock
-  */
-static void MX_DMA_Init(void)
-{
-
-  /* DMA controller clock enable */
-  __HAL_RCC_DMAMUX1_CLK_ENABLE();
-  __HAL_RCC_DMA1_CLK_ENABLE();
-
-  /* DMA interrupt init */
-  /* DMA1_Channel1_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
 
 }
 
