@@ -48,7 +48,7 @@
 - [x] Changement règle du CI -> diamètre mini via 0.45
 		       -> diamètre mini anneaux 0.075
 		       -> voir avec prof pour confirmer modifs (via copié depuis   correction fiack)
-- [ ] TESTER LES CONNECTIONS
+- [x] TESTER LES CONNECTIONS
       
 </details open> 
 
@@ -56,8 +56,8 @@
 <summary> <strong> <ins> MECANIQUE: </ins></strong></summary>
 
 
-- [ ] designer le parchoc qui porte les capteur de bord 
-- [ ] designer les support ajustable
+- [x] designer le parchoc qui porte les capteur de bord 
+- [x] designer les support ajustable
 - [ ] imprimer les pieces du robot
 
 </details>
@@ -68,30 +68,11 @@
 - [ ] piloter les driver moteurs
 - [ ] piloter le lidar
 - [ ] recevoir les donnés du lidar et les interpréter
-- [ ] recevoir les donnés de l'accelerometre
+- [x] recevoir les donnés de l'accelerometre
 - [ ] recevoir les donnés des capteurs de bords
 - [ ] realiser les comportement en odometrie
 - [ ] coder les comportement de fuite/evitement
 - [ ] coder les comportement de chasse/collision
 </details>
 
-exemple graphe mermaid
 
-```mermaid
-  info
-```
-```mermaid
-graph TD;
-	STM32-->MOTEURG;
-	STM32-->MOTEURD;
-	STM32-->LED;
-	STM32-->LIDAR;
-	STM32-->Accelerometre;
-	MOTEURG-->STM32;
-	MOTEURD-->STM32;
-	CapteurBordG-->STM32;
-	CapteurBordD-->STM32;
-	Accelerometre-->STM32;
-	Switchstate-->STM32;
-	LIDAR-->STM32;
-```
