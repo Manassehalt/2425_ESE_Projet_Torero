@@ -9,6 +9,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include MyDrivers/YDLIDARX4_Driver/subdir.mk
 -include Drivers/STM32G4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
@@ -34,34 +35,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := STM32G431CBU6
+BUILD_ARTIFACT_NAME := Projet_Torero_STM32
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-STM32G431CBU6.elf \
+Projet_Torero_STM32.elf \
 
 MAP_FILES += \
-STM32G431CBU6.map \
+Projet_Torero_STM32.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-STM32G431CBU6.list \
+Projet_Torero_STM32.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: STM32G431CBU6.elf secondary-outputs
+main-build: Projet_Torero_STM32.elf secondary-outputs
 
 # Tool invocations
-STM32G431CBU6.elf STM32G431CBU6.map: $(OBJS) $(USER_OBJS) C:\Users\nolan\STM32CubeIDE\workspace_1.12.0\STM32G431CBU6\STM32G431CBUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "STM32G431CBU6.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\nolan\STM32CubeIDE\workspace_1.12.0\STM32G431CBU6\STM32G431CBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32G431CBU6.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Projet_Torero_STM32.elf Projet_Torero_STM32.map: $(OBJS) $(USER_OBJS) C:\Users\jeanp\Documents\ENSEA\3A\PROJET\2425_ESE_Projet_Torero\Projet_ESE_STM32\Projet_ESE_Torero\STM32G431CBU6\STM32G431CBUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Projet_Torero_STM32.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\jeanp\Documents\ENSEA\3A\PROJET\2425_ESE_Projet_Torero\Projet_ESE_STM32\Projet_ESE_Torero\STM32G431CBU6\STM32G431CBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Projet_Torero_STM32.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +71,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-STM32G431CBU6.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "STM32G431CBU6.list"
+Projet_Torero_STM32.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Projet_Torero_STM32.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) STM32G431CBU6.elf STM32G431CBU6.list STM32G431CBU6.map default.size.stdout
+	-$(RM) Projet_Torero_STM32.elf Projet_Torero_STM32.list Projet_Torero_STM32.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

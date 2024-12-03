@@ -10,7 +10,7 @@
 
 /* Includes ----------------------------------------------------------*/
 #include "ydlidarx4_header.h"
-#include "stdio.h"
+
 
 
 
