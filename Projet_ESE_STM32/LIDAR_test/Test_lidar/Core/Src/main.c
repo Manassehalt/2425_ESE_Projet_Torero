@@ -31,7 +31,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define DATA_SIZE_LIDAR 1000
+#define DATA_SIZE_LIDAR 4000
 #define START_CMD_LIDAR 0xA5
 #define SCAN_CMD_LIDAR 0x60
 #define GET_INFO_CMD_LIDAR 0x90
@@ -144,7 +144,7 @@ int main(void)
   while (1)
   {
 	  lidar_Start();
-	  //HAL_Delay(1000);
+	  HAL_Delay(5000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
