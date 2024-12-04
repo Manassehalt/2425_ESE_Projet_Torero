@@ -25,5 +25,5 @@ SUBDIRS := \
 Core/Src \
 Core/Startup \
 Drivers/STM32G4xx_HAL_Driver/Src \
-MyDrivers/YDLIDARX4_Driver \
+MyDrivers/YDLIDARX4_Driver/Src \
 
