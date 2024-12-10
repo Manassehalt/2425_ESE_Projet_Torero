@@ -2,3 +2,5 @@
 ../MyDrivers/YDLIDARX4_Driver/Src/ydlidarx4_drv.c:34:19:LIDAR_Start	2
 ../MyDrivers/YDLIDARX4_Driver/Src/ydlidarx4_drv.c:50:19:LIDAR_Stop	2
 ../MyDrivers/YDLIDARX4_Driver/Src/ydlidarx4_drv.c:65:19:LIDAR_Restart	2
+../MyDrivers/YDLIDARX4_Driver/Src/ydlidarx4_drv.c:80:19:LIDAR_Get_Info	2
+../MyDrivers/YDLIDARX4_Driver/Src/ydlidarx4_drv.c:106:19:LIDAR_Get_Health_Status	2
