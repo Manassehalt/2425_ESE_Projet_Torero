@@ -14,20 +14,62 @@
 /* Functions ---------------------------------------------------------------- */
 
 /*
- * @brief
+ * @brief Initialization of the lidar
+ * @param
  */
-int lidar_Start(LIDAR_HandleTypeDef_t * hlidar, UART_HandleTypeDef *huart){
+void LIDAR_Init(LIDAR_HandleTypeDef_t * hlidar){
+	hlidar->huart = &huart3;
+
+	HAL_GPIO_WritePin(GPIOA, DEV_EN_LIDAR_Pin, GPIO_PIN_SET);
+	// Enable M_EN lidar
+	HAL_GPIO_WritePin(M_EN_LIDAR_GPIO_Port, M_EN_LIDAR_Pin, GPIO_PIN_SET);
+
+}
+
+
+/*
+ * @brief
+ * @param
+ */
+HAL_StatusTypeDef LIDAR_Start(LIDAR_HandleTypeDef_t * hlidar){
 	uint8_t lidar_command[2] = {START_CMD_LIDAR, SCAN_CMD_LIDAR};
-	HAL_UART_Transmit(huart, lidar_command, 2, 2000);
-	if(HAL_UART_Receive(huart, hlidar->received_buff, DATA_BUFF_SIZE_LIDAR, 2000)==HAL_OK){
-		for (int i = 0; i < 10; i++) {
-//		    printf("Data lidar%d : %d\r\n", i + 1, data_lidar[i]);
-		}
-		return 1;
+	HAL_StatusTypeDef status = HAL_UART_Transmit(hlidar->huart, lidar_command, 2, 2000);
+	if(status == HAL_OK){
+		HAL_UART_Receive(hlidar->huart, hlidar->data_buff, DATA_BUFF_SIZE_LIDAR, 2000);
+		return status;
 	}
 	else{
-//		printf("Erreur\r\n");
-		return 0;
+		return status;
+	}
+}
+
+/*
+ * @brief
+ * @param
+ */
+HAL_StatusTypeDef LIDAR_Stop(LIDAR_HandleTypeDef_t * hlidar){
+	uint8_t lidar_command[2] = {START_CMD_LIDAR, STOP_CMD_LIDAR};
+	HAL_StatusTypeDef status = HAL_UART_Transmit(hlidar->huart, lidar_command, 2, 2000);
+	if(status == HAL_OK){
+		return status;
+	}
+	else{
+		return status;
+	}
+}
+
+/*
+ * @brief
+ * @param
+ */
+HAL_StatusTypeDef LIDAR_Restart(LIDAR_HandleTypeDef_t * hlidar){
+	uint8_t lidar_command[2] = {START_CMD_LIDAR, RESTART_CMD_LIDAR};
+	HAL_StatusTypeDef status = HAL_UART_Transmit(hlidar->huart, lidar_command, 2, 2000);
+	if(status == HAL_OK){
+		return status;
+	}
+	else{
+		return status;
 	}
 }
 
