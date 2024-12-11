@@ -18,10 +18,7 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include "gpio.h"
-#include "usart.h"
-#include <stdint.h>
-#include <string.h>
+#include "spi.h"
 
 /* USER CODE BEGIN 0 */
 #define ADXL343_CS_GPIO GPIOA

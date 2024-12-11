@@ -19,8 +19,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "tim.h"
-#include "gpio.h"
-
 
 /* USER CODE BEGIN 0 */
 #define PWM_MAX_DUTY_CYCLE 8499
