@@ -56,7 +56,10 @@ void MX_GPIO_Init(void)
                           |Status_LED_debbug_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, CS_ACC_Pin|LED_NE_Pin|INT1_ACC_Pin|DEV_EN_LIDAR_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(CS_ACC_GPIO_Port, CS_ACC_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, LED_NE_Pin|INT1_ACC_Pin|DEV_EN_LIDAR_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, M_EN_LIDAR_Pin|LED_NW_Pin|LED_W_Pin|LED_N_Pin

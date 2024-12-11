@@ -113,17 +113,17 @@ int main(void)
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
   Start_Motors();
+  ADXL343_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  Read_Acceleration();
+	  HAL_Delay(1000);
     /* USER CODE END WHILE */
-	  Motor_SetSpeed(20);
-	  HAL_Delay(10000);
-	  Motor_SetSpeed(100);
-	  HAL_Delay(10000);
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

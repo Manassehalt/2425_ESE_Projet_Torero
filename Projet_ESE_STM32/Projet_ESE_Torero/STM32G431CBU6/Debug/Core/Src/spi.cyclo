@@ -1,7 +1,7 @@
-../Core/Src/spi.c:34:6:MX_SPI2_Init	2
-../Core/Src/spi.c:68:6:HAL_SPI_MspInit	2
-../Core/Src/spi.c:99:6:HAL_SPI_MspDeInit	2
-../Core/Src/spi.c:124:6:SPI_Write	1
-../Core/Src/spi.c:134:9:SPI_Read	1
-../Core/Src/spi.c:146:6:Read_Acceleration	1
-../Core/Src/spi.c:172:6:ADXL343_Init	2
+../Core/Src/spi.c:35:6:MX_SPI2_Init	2
+../Core/Src/spi.c:69:6:HAL_SPI_MspInit	2
+../Core/Src/spi.c:100:6:HAL_SPI_MspDeInit	2
+../Core/Src/spi.c:125:6:SPI_Write	1
+../Core/Src/spi.c:135:9:SPI_Read	1
+../Core/Src/spi.c:147:6:Read_Acceleration	1
+../Core/Src/spi.c:173:6:ADXL343_Init	2
