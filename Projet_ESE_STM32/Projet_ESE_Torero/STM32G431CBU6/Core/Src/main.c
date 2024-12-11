@@ -115,6 +115,7 @@ int main(void)
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
   Start_Motors();
+  ADXL343_Init();
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in cmsis_os2.c) */
@@ -129,6 +130,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  Read_Acceleration();
+	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

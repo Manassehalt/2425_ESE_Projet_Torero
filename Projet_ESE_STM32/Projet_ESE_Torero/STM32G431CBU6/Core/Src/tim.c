@@ -538,12 +538,12 @@ void Motor_SetSpeed(int percentage) {
             // Motor Forward
             HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET); // Stop Reverse
             HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);   // Start Forward
-            TIM1->CCR1 = (8499 * currentSpeed) / 100;             // Ajuster le rapport cyclique sur CCR1
+            TIM1->CCR1 = (65535 * currentSpeed) / 100;             // Ajuster le rapport cyclique sur CCR1
         } else if (currentSpeed < 0) {
             // Motor Reverse
             HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_RESET); // Stop Forward
             HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);   // Start Reverse
-            TIM1->CCR2 = (8499 * -currentSpeed) / 100;            // Ajuster le rapport cyclique sur CCR2
+            TIM1->CCR2 = (65535 * -currentSpeed) / 100;            // Ajuster le rapport cyclique sur CCR2
         } else {
             // Stop both directions
             HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_RESET);
