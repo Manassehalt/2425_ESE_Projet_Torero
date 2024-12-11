@@ -15,7 +15,7 @@
 
 /*
  * @brief
- */
+ *//*
 int lidar_Start(LIDAR_HandleTypeDef_t * hlidar){
 	uint8_t lidar_command[2] = {START_CMD_LIDAR, SCAN_CMD_LIDAR};
 	HAL_UART_Transmit(&huart3, lidar_command, 2, 2000);
@@ -30,4 +30,4 @@ int lidar_Start(LIDAR_HandleTypeDef_t * hlidar){
 		return 0;
 	}
 }
-
+*/

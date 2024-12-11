@@ -102,5 +102,10 @@ void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 2 */
-
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+	if (GPIO_Pin == GPIO_PIN_10) {
+		Read_Acceleration();
+		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_10);
+	}
+}
 /* USER CODE END 2 */

@@ -32,6 +32,15 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+#define ADXL343_CS_GPIO GPIOA
+#define ADXL343_CS_PIN GPIO_PIN_5
+#define PWM_MAX_DUTY_CYCLE 8499
+#define FWD_GPIO_PIN GPIO_PIN_8  // PA8 -> FWD
+#define REV_GPIO_PIN GPIO_PIN_9  // PA9 -> REV
+#define FWD_GPIO_PORT GPIOA      // Port pour FWD
+#define REV_GPIO_PORT GPIOA      // Port pour REV
+#define UART_RX_BUFFER_SIZE 1
+#define UART_TX_BUFFER_SIZE 64
 
 /* USER CODE END PTD */
 
@@ -59,7 +68,10 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+int __io_putchar(int chr){
+	HAL_UART_Transmit(&huart2, (uint8_t*)&chr, 1, HAL_MAX_DELAY);
+	return chr;
+}
 /* USER CODE END 0 */
 
 /**
@@ -100,7 +112,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  Start_Motors();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -108,7 +120,10 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  Motor_SetSpeed(20);
+	  HAL_Delay(10000);
+	  Motor_SetSpeed(100);
+	  HAL_Delay(10000);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
