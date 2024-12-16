@@ -10,6 +10,10 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include MyDrivers/YDLIDARX4_Driver/Src/subdir.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/subdir.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/subdir.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/subdir.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/subdir.mk
 -include Drivers/STM32G4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
@@ -61,8 +65,8 @@ all: main-build
 main-build: Projet_Torero_STM32.elf secondary-outputs
 
 # Tool invocations
-Projet_Torero_STM32.elf Projet_Torero_STM32.map: $(OBJS) $(USER_OBJS) C:\Users\nolan\Documents\Torero\2425_ESE_Projet_Torero\Projet_ESE_STM32\Projet_ESE_Torero\STM32G431CBU6\STM32G431CBUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Projet_Torero_STM32.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\nolan\Documents\Torero\2425_ESE_Projet_Torero\Projet_ESE_STM32\Projet_ESE_Torero\STM32G431CBU6\STM32G431CBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Projet_Torero_STM32.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Projet_Torero_STM32.elf Projet_Torero_STM32.map: $(OBJS) $(USER_OBJS) C:\Users\jeanp\Documents\ENSEA\3A\PROJET\2425_ESE_Projet_Torero\Projet_ESE_STM32\Projet_ESE_Torero\STM32G431CBU6\STM32G431CBUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Projet_Torero_STM32.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\jeanp\Documents\ENSEA\3A\PROJET\2425_ESE_Projet_Torero\Projet_ESE_STM32\Projet_ESE_Torero\STM32G431CBU6\STM32G431CBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Projet_Torero_STM32.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
