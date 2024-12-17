@@ -52,7 +52,8 @@ void MX_TIM4_Init(void);
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 
 /* USER CODE BEGIN Prototypes */
-
+void Start_Motors(void);
+void Stop_Motors(void);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus
