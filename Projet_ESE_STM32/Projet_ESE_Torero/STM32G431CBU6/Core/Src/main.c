@@ -65,6 +65,7 @@ LIDAR_HandleTypeDef_t hlidar;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 void MX_FREERTOS_Init(void);
+void print_buffer(char Name, uint8_t *pData, uint16_t Size, int N_lines);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -74,6 +75,20 @@ void MX_FREERTOS_Init(void);
 int __io_putchar(int chr){
 	HAL_UART_Transmit(&huart2, (uint8_t*)&chr, 1, HAL_MAX_DELAY);
 	return chr;
+}
+
+void print_buffer(char Name, uint8_t *pData, uint16_t Size, int N_lines){
+	printf("%s", Name);
+	if(N_lines >= (int) Size){
+		for(int i = 0; i<Size; i++){
+			printf("%d : %d\r\n", i, pData[i]);
+		}
+	}
+	else{
+		for(int i = 0; i<N_lines; i++){
+			printf("%d : %d\r\n", i, pData[i]);
+		}
+	}
 }
 /* USER CODE END 0 */
 
@@ -118,8 +133,20 @@ int main(void)
   /* USER CODE BEGIN 2 */
   Start_Motors();
   ADXL343_Init();
+
   LIDAR_Init(&hlidar);
+  HAL_Delay(500);
+  LIDAR_Stop(&hlidar);
+  HAL_Delay(500);
+  LIDAR_Get_Health_Status(&hlidar);
+  //print_buffer("Health", hlidar->health_buff, HEALTH_BUFF_SIZE_LIDAR, HEALTH_BUFF_SIZE_LIDAR);
+  HAL_Delay(500);
+  LIDAR_Get_Info(&hlidar);
+  //print_buffer("Info", hlidar->info_buff, INFO_BUFF_SIZE_LIDAR, INFO_BUFF_SIZE_LIDAR);
   LIDAR_Start(&hlidar);
+  while(1){
+	  LIDAR_get_point(&hlidar);
+  }
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in cmsis_os2.c) */
