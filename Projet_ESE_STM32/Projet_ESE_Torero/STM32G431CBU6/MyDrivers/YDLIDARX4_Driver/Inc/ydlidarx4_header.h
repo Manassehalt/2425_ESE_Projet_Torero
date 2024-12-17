@@ -54,7 +54,7 @@ typedef struct LIDAR_ScanDataStruct{
 	uint16_t FSA; // Start angle (2B)
 	uint16_t LSA; // End Angle (2B)
 	uint16_t CS; // Check code (2B)
-	uint8_t idex; // Frame index (1B)
+	uint8_t index; // Frame index (1B)
 	uint8_t received_buff[DATA_BUFF_SIZE_LIDAR]; // received data with DMA
 	uint8_t frame_buff[FRAME_BUFF_SIZE_LIDAR];
 	int point_buff[POINT_BUFF_SIZE_LIDAR];

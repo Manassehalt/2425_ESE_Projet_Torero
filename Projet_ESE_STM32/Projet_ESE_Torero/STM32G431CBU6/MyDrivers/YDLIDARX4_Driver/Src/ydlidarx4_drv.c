@@ -35,7 +35,7 @@ HAL_StatusTypeDef LIDAR_Start(LIDAR_HandleTypeDef_t * hlidar){
 	uint8_t lidar_command[2] = {START_CMD_LIDAR, SCAN_CMD_LIDAR};
 	HAL_StatusTypeDef status = HAL_UART_Transmit(hlidar->huart, lidar_command, 2, 2000);
 	if(status == HAL_OK){
-		HAL_UART_Receive(hlidar->huart, hlidar->data_buff, DATA_BUFF_SIZE_LIDAR, 2000);
+		HAL_UART_Receive_DMA(hlidar->huart, hlidar->data_buff, DATA_BUFF_SIZE_LIDAR, 2000);
 		return status;
 	}
 	else{
@@ -137,7 +137,7 @@ void LIDAR_process_frame(LIDAR_HandleTypeDef_t * hlidar) {
     int LSN = hlidar->process_frame->LSN;     // Nombre d'échantillons dans le paquet
     int index;
 
-    for (int i = 0; i < hlidar->process_frame->idex / 2; i++) {
+    for (int i = 0; i < hlidar->process_frame->index / 2; i++) {
         // Extraction des données de distance
         Si = hlidar->process_frame->frame_buff[2 * i] | (hlidar->process_frame->frame_buff[2 * i + 1] << 8);
         Di = Si / 4.0; // Distance en mm
@@ -162,6 +162,85 @@ void LIDAR_process_frame(LIDAR_HandleTypeDef_t * hlidar) {
             hlidar->process_frame->point_buff[index] = (int)Di;
         }
     }
+}
+
+/*
+ * @brief
+ * @param
+ */
+void LIDAR_get_point(LIDAR_HandleTypeDef_t *hlidar) {
+    uint16_t frame_start = 0, frame_end = 0;
+
+    for (int i = 0; i < DATA_BUFF_SIZE_LIDAR; i++) {
+        // Réponse à la commande SCAN pour détecter le début des trames
+        if (i == 0) {
+            if ((hlidar->data_buff[i] == 0xA5) &&
+                (hlidar->data_buff[i + 1] == 0x5A) &&
+                (hlidar->data_buff[i + 2] == 0x05) &&
+                (hlidar->data_buff[i + 3] == 0x00) &&
+                (hlidar->data_buff[i + 4] == 0x00) &&
+                (hlidar->data_buff[i + 5] == 0x40) &&
+                (hlidar->data_buff[i + 6] == 0x81)) {
+                printf("Scan Command Reply\r\n");
+                hlidar->process_frame->index = 0;
+                i = 6;
+                frame_start = 7;
+                frame_end = frame_start + 4;
+            }
+        }
+
+        // Extraction des données des trames
+        if (i == frame_start) {
+            hlidar->process_frame->PH = hlidar->data_buff[i];
+        }
+        else if (i == frame_start + 1) {
+            hlidar->process_frame->PH |= (hlidar->data_buff[i] << 8);
+        }
+        else if (i == frame_start + 2) {
+            hlidar->process_frame->CT = hlidar->data_buff[i];
+        }
+        else if (i == frame_start + 3) {
+            frame_end = frame_start + 9 + 2 * hlidar->data_buff[i];
+            hlidar->process_frame->LSN = hlidar->data_buff[i];
+        }
+        else if (i == frame_start + 4) {
+            hlidar->process_frame->FSA = hlidar->data_buff[i];
+        }
+        else if (i == frame_start + 5) {
+            hlidar->process_frame->FSA |= (hlidar->data_buff[i] << 8);
+        }
+        else if (i == frame_start + 6) {
+            hlidar->process_frame->LSA = hlidar->data_buff[i];
+        }
+        else if (i == frame_start + 7) {
+            hlidar->process_frame->LSA |= (hlidar->data_buff[i] << 8);
+        }
+        else if (i == frame_start + 8) {
+            hlidar->process_frame->CS = hlidar->data_buff[i];
+        }
+        else if (i == frame_start + 9) {
+            hlidar->process_frame->CS |= (hlidar->data_buff[i] << 8);
+        }
+        else if (i == frame_end) {
+            hlidar->process_frame->frame_buff[hlidar->process_frame->index++] = hlidar->data_buff[i];
+
+            if (frame_end - frame_start > 11) {
+                // Traitement de la trame pour extraire les points
+                LIDAR_process_frame(hlidar);
+            }
+
+            hlidar->process_frame->index = 0;
+            frame_start = frame_end + 1;
+            frame_end = frame_start + 5;
+        }
+        else {
+            hlidar->process_frame->frame_buff[hlidar->process_frame->index++] = hlidar->data_buff[i];
+        }
+    }
+
+    // Gérer les indices circulaires pour les buffers
+    frame_start = frame_start - DATA_BUFF_SIZE_LIDAR;
+    frame_end = frame_end - DATA_BUFF_SIZE_LIDAR;
 }
 
 /**
