@@ -35,7 +35,7 @@ HAL_StatusTypeDef LIDAR_Start(LIDAR_HandleTypeDef_t * hlidar){
 	uint8_t lidar_command[2] = {START_CMD_LIDAR, SCAN_CMD_LIDAR};
 	HAL_StatusTypeDef status = HAL_UART_Transmit(hlidar->huart, lidar_command, 2, 2000);
 	if(status == HAL_OK){
-		HAL_UART_Receive_DMA(hlidar->huart, hlidar->data_buff, DATA_BUFF_SIZE_LIDAR, 2000);
+		HAL_UART_Receive_DMA(hlidar->huart, hlidar->data_buff, DATA_BUFF_SIZE_LIDAR);
 		return status;
 	}
 	else{

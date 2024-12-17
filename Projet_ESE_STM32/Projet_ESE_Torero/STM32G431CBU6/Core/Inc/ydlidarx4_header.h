@@ -114,7 +114,16 @@ typedef struct LIDAR_HandleStruct{
 }LIDAR_HandleTypeDef_t;
 
 /* Functions prototypes ----------------------------------------------------- */
-
+void LIDAR_Init(LIDAR_HandleTypeDef_t * hlidar);
+HAL_StatusTypeDef LIDAR_Start(LIDAR_HandleTypeDef_t * hlidar);
+HAL_StatusTypeDef LIDAR_Stop(LIDAR_HandleTypeDef_t * hlidar);
+HAL_StatusTypeDef LIDAR_Restart(LIDAR_HandleTypeDef_t * hlidar);
+HAL_StatusTypeDef LIDAR_Get_Info(LIDAR_HandleTypeDef_t * hlidar);
+HAL_StatusTypeDef LIDAR_Get_Health_Status(LIDAR_HandleTypeDef_t * hlidar);
+void LIDAR_process_frame(LIDAR_HandleTypeDef_t * hlidar);
+void LIDAR_get_point(LIDAR_HandleTypeDef_t *hlidar);
+void LIDAR_Find_Clusters(LIDAR_HandleTypeDef_t *hlidar);
+int LIDAR_Calculate_Average_Distance(int *distances, int start_index, int end_index);
 
 
 #endif /* YDLIDARX4_DRIVER_YDLIDARX4_HEADER_H_ */

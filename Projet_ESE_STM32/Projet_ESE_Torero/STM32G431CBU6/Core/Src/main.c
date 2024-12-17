@@ -53,7 +53,7 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
+LIDAR_HandleTypeDef_t hlidar;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -118,6 +118,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
   Start_Motors();
   ADXL343_Init();
+  LIDAR_Init(&hlidar);
+  LIDAR_Start(&hlidar);
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in cmsis_os2.c) */
@@ -132,8 +134,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  Read_Acceleration();
-	  HAL_Delay(1000);
+	  //Read_Acceleration();
+	  //HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
