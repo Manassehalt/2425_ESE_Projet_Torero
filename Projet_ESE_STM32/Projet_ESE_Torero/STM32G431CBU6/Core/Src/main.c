@@ -65,7 +65,7 @@ LIDAR_HandleTypeDef_t hlidar;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 void MX_FREERTOS_Init(void);
-void print_buffer(char Name, uint8_t *pData, uint16_t Size, int N_lines);
+void print_buffer(const char * Name, uint8_t *pData, uint16_t Size, int N_lines);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -77,7 +77,7 @@ int __io_putchar(int chr){
 	return chr;
 }
 
-void print_buffer(char Name, uint8_t *pData, uint16_t Size, int N_lines){
+void print_buffer(const char * Name, uint8_t *pData, uint16_t Size, int N_lines){
 	printf("%s", Name);
 	if(N_lines >= (int) Size){
 		for(int i = 0; i<Size; i++){
@@ -139,13 +139,14 @@ int main(void)
   LIDAR_Stop(&hlidar);
   HAL_Delay(500);
   LIDAR_Get_Health_Status(&hlidar);
-  //print_buffer("Health", hlidar->health_buff, HEALTH_BUFF_SIZE_LIDAR, HEALTH_BUFF_SIZE_LIDAR);
+  print_buffer("Health", hlidar.health_buff, HEALTH_BUFF_SIZE_LIDAR, HEALTH_BUFF_SIZE_LIDAR);
   HAL_Delay(500);
   LIDAR_Get_Info(&hlidar);
-  //print_buffer("Info", hlidar->info_buff, INFO_BUFF_SIZE_LIDAR, INFO_BUFF_SIZE_LIDAR);
+  print_buffer("Info", hlidar.info_buff, INFO_BUFF_SIZE_LIDAR, INFO_BUFF_SIZE_LIDAR);
   LIDAR_Start(&hlidar);
   while(1){
 	  LIDAR_get_point(&hlidar);
+	  print_buffer("points", hlidar.process_frame->point_buff, POINT_BUFF_SIZE_LIDAR, 50);
   }
   /* USER CODE END 2 */
 
