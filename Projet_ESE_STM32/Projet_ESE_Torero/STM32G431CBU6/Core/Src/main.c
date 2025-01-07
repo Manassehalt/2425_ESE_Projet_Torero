@@ -198,7 +198,8 @@ void TaskACC(void * pvParameters){
 
 void TaskMOTOR (void * pvParameters){
 	for(;;){
-		Motor_SetSpeed(100);
+		Motor_SetSpeed_L(50);
+		Motor_SetSpeed_R(-50);
 		vTaskDelay(100);
 	}
 }
@@ -263,6 +264,8 @@ int main(void)
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
 	Start_Motors();
+	Motor_SetSpeed_L(0);
+	Motor_SetSpeed_R(0);
 	ADXL343_Init();
 	LIDAR_Init(&hlidar);
 	LIDAR_Start(&hlidar);

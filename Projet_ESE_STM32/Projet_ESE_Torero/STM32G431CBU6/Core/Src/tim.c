@@ -564,7 +564,7 @@ void Reset_Encoder(TIM_HandleTypeDef *htim) {
 
 void Motor_SetSpeed_R(int percentage) {
     static int currentSpeed_R = 0;  // Maintenir la vitesse actuelle (moteur droit)
-    int step = (percentage > currentSpeed_R) ? 1 : -1; // Déterminer le pas (incrément ou décrément)
+    int step = (percentage > currentSpeed_R) ? 0.5 : -0.5; // Déterminer le pas (incrément ou décrément)
 
     // Limiter la cible au pourcentage maximal autorisé
     if (percentage > 100) percentage = 100;
@@ -593,7 +593,7 @@ void Motor_SetSpeed_R(int percentage) {
         }
 
         // Délai pour un changement progressif
-        HAL_Delay(10);
+        HAL_Delay(50);
     }
 }
 
