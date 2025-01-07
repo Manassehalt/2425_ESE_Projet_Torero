@@ -67,10 +67,10 @@ void Error_Handler(void);
 #define LED_NE_GPIO_Port GPIOA
 #define LED_SE_Pin GPIO_PIN_4
 #define LED_SE_GPIO_Port GPIOC
-#define ADC1_IN15_AN_CB_G_Pin GPIO_PIN_0
-#define ADC1_IN15_AN_CB_G_GPIO_Port GPIOB
-#define ADC1_IN12_AN_CB_D_Pin GPIO_PIN_1
-#define ADC1_IN12_AN_CB_D_GPIO_Port GPIOB
+#define CAPTEUR_G_Pin GPIO_PIN_0
+#define CAPTEUR_G_GPIO_Port GPIOB
+#define CAPTEUR_D_Pin GPIO_PIN_1
+#define CAPTEUR_D_GPIO_Port GPIOB
 #define M_EN_LIDAR_Pin GPIO_PIN_2
 #define M_EN_LIDAR_GPIO_Port GPIOB
 #define USART3_TX_LIDAR_Pin GPIO_PIN_10
@@ -103,8 +103,6 @@ void Error_Handler(void);
 #define LED_E_GPIO_Port GPIOB
 #define LED_S_Pin GPIO_PIN_7
 #define LED_S_GPIO_Port GPIOB
-#define BOOT_Flash_Pin GPIO_PIN_8
-#define BOOT_Flash_GPIO_Port GPIOB
 #define TIM4_CH4_M_SCTR_LIDAR_Pin GPIO_PIN_9
 #define TIM4_CH4_M_SCTR_LIDAR_GPIO_Port GPIOB
 

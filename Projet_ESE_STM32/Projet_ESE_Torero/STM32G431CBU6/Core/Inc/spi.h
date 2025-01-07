@@ -42,7 +42,7 @@ void MX_SPI2_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 void ADXL343_Init(void);
-void Read_Acceleration(void);
+HAL_StatusTypeDef Read_Acceleration(float *accel_data);
 uint8_t SPI_Read(uint8_t reg);
 void SPI_Write(uint8_t reg, uint8_t value);
 /* USER CODE END Prototypes */

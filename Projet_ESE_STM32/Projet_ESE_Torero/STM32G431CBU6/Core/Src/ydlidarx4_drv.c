@@ -131,15 +131,15 @@ void LIDAR_process_frame(LIDAR_HandleTypeDef_t * hlidar) {
     uint16_t Si;
     float Di;
     float Ai;
-    float AngleFSA = (hlidar->process_frame->FSA >> 1) / 64.0; // Angle initial (en degrés)
-    float AngleLSA = (hlidar->process_frame->LSA >> 1) / 64.0; // Angle final (en degrés)
+    float AngleFSA = (hlidar->process_frame.FSA >> 1) / 64.0; // Angle initial (en degrés)
+    float AngleLSA = (hlidar->process_frame.LSA >> 1) / 64.0; // Angle final (en degrés)
     float diffAngle = AngleLSA - AngleFSA; // Différence d'angle (en degrés)
-    int LSN = hlidar->process_frame->LSN;     // Nombre d'échantillons dans le paquet
+    int LSN = hlidar->process_frame.LSN;     // Nombre d'échantillons dans le paquet
     int index;
 
-    for (int i = 0; i < hlidar->process_frame->index / 2; i++) {
+    for (int i = 0; i < hlidar->process_frame.index / 2; i++) {
         // Extraction des données de distance
-        Si = hlidar->process_frame->frame_buff[2 * i] | (hlidar->process_frame->frame_buff[2 * i + 1] << 8);
+        Si = hlidar->process_frame.frame_buff[2 * i] | (hlidar->process_frame.frame_buff[2 * i + 1] << 8);
         Di = Si / 4.0; // Distance en mm
 
         // Calcul de l'angle sans correction
@@ -157,9 +157,9 @@ void LIDAR_process_frame(LIDAR_HandleTypeDef_t * hlidar) {
 
         // Filtrage des points trop proches ou trop loin
         if (Di > 1500 || Di < 40) {
-            hlidar->process_frame->point_buff[index] = 0;
+            hlidar->process_frame.point_buff[index] = 0;
         } else {
-            hlidar->process_frame->point_buff[index] = (int)Di;
+            hlidar->process_frame.point_buff[index] = (int)Di;
         }
     }
 }
@@ -182,7 +182,7 @@ void LIDAR_get_point(LIDAR_HandleTypeDef_t *hlidar) {
                 (hlidar->data_buff[i + 5] == 0x40) &&
                 (hlidar->data_buff[i + 6] == 0x81)) {
                 printf("Scan Command Reply\r\n");
-                hlidar->process_frame->index = 0;
+                hlidar->process_frame.index = 0;
                 i = 6;
                 frame_start = 7;
                 frame_end = frame_start + 4;
@@ -191,50 +191,50 @@ void LIDAR_get_point(LIDAR_HandleTypeDef_t *hlidar) {
 
         // Extraction des données des trames
         if (i == frame_start) {
-            hlidar->process_frame->PH = hlidar->data_buff[i];
+            hlidar->process_frame.PH = hlidar->data_buff[i];
         }
         else if (i == frame_start + 1) {
-            hlidar->process_frame->PH |= (hlidar->data_buff[i] << 8);
+            hlidar->process_frame.PH |= (hlidar->data_buff[i] << 8);
         }
         else if (i == frame_start + 2) {
-            hlidar->process_frame->CT = hlidar->data_buff[i];
+            hlidar->process_frame.CT = hlidar->data_buff[i];
         }
         else if (i == frame_start + 3) {
             frame_end = frame_start + 9 + 2 * hlidar->data_buff[i];
-            hlidar->process_frame->LSN = hlidar->data_buff[i];
+            hlidar->process_frame.LSN = hlidar->data_buff[i];
         }
         else if (i == frame_start + 4) {
-            hlidar->process_frame->FSA = hlidar->data_buff[i];
+            hlidar->process_frame.FSA = hlidar->data_buff[i];
         }
         else if (i == frame_start + 5) {
-            hlidar->process_frame->FSA |= (hlidar->data_buff[i] << 8);
+            hlidar->process_frame.FSA |= (hlidar->data_buff[i] << 8);
         }
         else if (i == frame_start + 6) {
-            hlidar->process_frame->LSA = hlidar->data_buff[i];
+            hlidar->process_frame.LSA = hlidar->data_buff[i];
         }
         else if (i == frame_start + 7) {
-            hlidar->process_frame->LSA |= (hlidar->data_buff[i] << 8);
+            hlidar->process_frame.LSA |= (hlidar->data_buff[i] << 8);
         }
         else if (i == frame_start + 8) {
-            hlidar->process_frame->CS = hlidar->data_buff[i];
+            hlidar->process_frame.CS = hlidar->data_buff[i];
         }
         else if (i == frame_start + 9) {
-            hlidar->process_frame->CS |= (hlidar->data_buff[i] << 8);
+            hlidar->process_frame.CS |= (hlidar->data_buff[i] << 8);
         }
         else if (i == frame_end) {
-            hlidar->process_frame->frame_buff[hlidar->process_frame->index++] = hlidar->data_buff[i];
+            hlidar->process_frame.frame_buff[hlidar->process_frame.index++] = hlidar->data_buff[i];
 
             if (frame_end - frame_start > 11) {
                 // Traitement de la trame pour extraire les points
                 LIDAR_process_frame(hlidar);
             }
 
-            hlidar->process_frame->index = 0;
+            hlidar->process_frame.index = 0;
             frame_start = frame_end + 1;
             frame_end = frame_start + 5;
         }
         else {
-            hlidar->process_frame->frame_buff[hlidar->process_frame->index++] = hlidar->data_buff[i];
+            hlidar->process_frame.frame_buff[hlidar->process_frame.index++] = hlidar->data_buff[i];
         }
     }
 
@@ -248,7 +248,7 @@ void LIDAR_get_point(LIDAR_HandleTypeDef_t *hlidar) {
  * @param hlidar Pointer to the LIDAR_HandleTypeDef_t structure
  */
 void LIDAR_Find_Clusters(LIDAR_HandleTypeDef_t *hlidar) {
-    int *distances = hlidar->process_frame->point_buff;
+    int *distances = hlidar->process_frame.point_buff;
     int cluster_count = 0;
 
     // Initialize the first cluster

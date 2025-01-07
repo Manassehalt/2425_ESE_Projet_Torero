@@ -1,20 +1,20 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Main program body
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2024 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
@@ -44,6 +44,9 @@
 #define UART_RX_BUFFER_SIZE 1
 #define UART_TX_BUFFER_SIZE 64
 
+#define STACK_SIZE 256
+
+#define SHOCK_THRESHOLD 15
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -54,6 +57,11 @@
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 LIDAR_HandleTypeDef_t hlidar;
+
+SemaphoreHandle_t SemHalfCallBack;
+SemaphoreHandle_t SemClpCallBack;
+
+
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -65,13 +73,45 @@ LIDAR_HandleTypeDef_t hlidar;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 void MX_FREERTOS_Init(void);
-void print_buffer(const char * Name, uint8_t *pData, uint16_t Size, int N_lines);
 /* USER CODE BEGIN PFP */
-
+void TaskACC(void *pvParameters);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+//flag choc
+volatile uint8_t shock_detected = 0;
+
+//Vitesse
+int angle;		//Calcul de alpha
+int vitesse;	//
+
+//Etat Robot
+int chat = pdTRUE;	//0 -> souris	1 -> chat
+int alpha1,alpha2;
+float delta;
+SemaphoreHandle_t SemEtat;
+SemaphoreHandle_t SemEdge;
+SemaphoreHandle_t xShockSemaphore;
+//SemaphoreHandle_t xNoSignalSemaphore;
+SemaphoreHandle_t SemDMAHalfCallBack;
+SemaphoreHandle_t SemDMAClpCallBack;
+
+//Lidar
+int distance_min=0;
+int idx_min = 0;
+int frame_start = 0;
+int frame_end = 0;
+
+int read_sensor_Left(void) {
+    return HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0);
+}
+
+int read_sensor_Right(void) {
+    return HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1);
+}
+
 int __io_putchar(int chr){
 	HAL_UART_Transmit(&huart2, (uint8_t*)&chr, 1, HAL_MAX_DELAY);
 	return chr;
@@ -90,6 +130,91 @@ void print_buffer(const char * Name, uint8_t *pData, uint16_t Size, int N_lines)
 		}
 	}
 }
+
+void TaskETAT(void * pvParameters){
+	for (;;) {
+		// Attendre que le sémaphore soit donné
+		if (xSemaphoreTake(xShockSemaphore, portMAX_DELAY) == pdTRUE) {
+			printf("%f\r\n", delta);
+			if(chat == pdTRUE){
+				chat = pdFALSE;
+				printf("Squik\r\n");
+			}
+			else{
+				// Le choc a été détecté
+				chat = pdTRUE;
+				printf("Miaou\r\n");
+			}
+		}
+	}
+}
+
+void TaskLIDAR(void * pvParameters){
+	for(;;){
+		printf("lidar\r\n");
+		vTaskDelay(100);
+	}
+}
+
+void TaskACC(void * pvParameters){
+	float current_data[3] = {0.0f, 0.0f, 0.0f}; // Valeur actuelle de X, Y, Z
+	float prev_data[3] = {0.0f, 0.0f, 0.0f};    // Valeur précédente de X, Y, Z
+	                               // Variation de magnitude entre deux lectures
+
+	for (;;) {
+		// Lire les données actuelles de l'accéléromètre
+		if (Read_Acceleration(current_data) == HAL_OK) {  // Fonction de lecture à implémenter
+			// Calculer la magnitude des vecteurs actuel et précédent
+			float current_magnitude = sqrtf(current_data[0] * current_data[0] +
+					current_data[1] * current_data[1] +
+					current_data[2] * current_data[2]);
+
+			float prev_magnitude = sqrtf(prev_data[0] * prev_data[0] +
+					prev_data[1] * prev_data[1] +
+					prev_data[2] * prev_data[2]);
+
+			// Calculer la différence entre la magnitude actuelle et précédente
+			delta = fabsf(current_magnitude - prev_magnitude);
+
+			// Si la variation dépasse le seuil, signaler un choc
+			if (delta > SHOCK_THRESHOLD) {
+				xSemaphoreGive(xShockSemaphore);
+			}
+		}
+
+		// Mettre à jour les valeurs précédentes
+		prev_data[0] = current_data[0];
+		prev_data[1] = current_data[1];
+		prev_data[2] = current_data[2];
+
+
+		//printf("%f\r\n", delta);
+		vTaskDelay(50);
+	}
+
+
+}
+
+
+void TaskMOTOR (void * pvParameters){
+	for(;;){
+		Motor_SetSpeed(100);
+		vTaskDelay(100);
+	}
+}
+
+void TaskEDGE(void * pvParameters){
+	for (;;) {
+
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+		printf("Bonjour de Task2\r\n");
+		}
+
+		// Temporisation pour la prochaine vérification
+		vTaskDelay(1); // Vérifie toutes les 100 ms
+}
+
+
 /* USER CODE END 0 */
 
 /**
@@ -100,7 +225,13 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
+	TaskHandle_t xHandleLIDAR = NULL;
+	TaskHandle_t xHandleETAT = NULL;
+	TaskHandle_t xHandleACC = NULL;
+	TaskHandle_t xHandleMOTOR = NULL;
+	TaskHandle_t xHandleEDGE = NULL;
+	//TaskHandle_t xHandleMOTOR = NULL;
+	BaseType_t ret;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -131,23 +262,57 @@ int main(void)
   MX_USART2_UART_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
-  Start_Motors();
-  ADXL343_Init();
+	Start_Motors();
+	ADXL343_Init();
+	LIDAR_Init(&hlidar);
+	LIDAR_Start(&hlidar);
 
-  LIDAR_Init(&hlidar);
-  HAL_Delay(500);
-  LIDAR_Stop(&hlidar);
-  HAL_Delay(500);
-  LIDAR_Get_Health_Status(&hlidar);
-  print_buffer("Health", hlidar.health_buff, HEALTH_BUFF_SIZE_LIDAR, HEALTH_BUFF_SIZE_LIDAR);
-  HAL_Delay(500);
-  LIDAR_Get_Info(&hlidar);
-  print_buffer("Info", hlidar.info_buff, INFO_BUFF_SIZE_LIDAR, INFO_BUFF_SIZE_LIDAR);
-  LIDAR_Start(&hlidar);
-  while(1){
-	  LIDAR_get_point(&hlidar);
-	  print_buffer("points", hlidar.process_frame->point_buff, POINT_BUFF_SIZE_LIDAR, 50);
-  }
+	ret = xTaskCreate(TaskETAT,"TaskETAT",STACK_SIZE,(void *) NULL,5,&xHandleETAT);
+	if (ret != pdPASS)
+	{
+		printf("Error creating TaskETAT\r\n");
+		Error_Handler();
+	}
+	printf("Task ETAT created\r\n");
+
+	/*
+	ret = xTaskCreate(TaskLIDAR,"TaskLIDAR",STACK_SIZE,(void *) NULL,3,&xHandleLIDAR);
+	if (ret != pdPASS)
+	{
+		printf("Error creating TaskLIDAR\r\n");
+		Error_Handler();
+	}
+	printf("Task LIDAR created\r\n");
+*/
+	ret = xTaskCreate(TaskACC,"TaskACC",STACK_SIZE,(void *) NULL,4,&xHandleACC);
+	if (ret != pdPASS)
+	{
+		printf("Error creating TaskACC\r\n");
+		Error_Handler();
+	}
+	printf("Task ACC created\r\n");
+
+	ret = xTaskCreate(TaskMOTOR,"TaskMOTOR",STACK_SIZE,(void *) NULL,1,&xHandleMOTOR);
+	if (ret != pdPASS)
+	{
+		printf("Error creating TaskMOTOR\r\n");
+		Error_Handler();
+	}
+	printf("Task MOTOR created\r\n");
+
+/*
+	ret = xTaskCreate(TaskEDGE,"TaskEDGE",STACK_SIZE,(void *) NULL,6,&xHandleEDGE);
+	if (ret != pdPASS)
+	{
+		printf("Error creating TaskEDGE\r\n");
+		Error_Handler();
+	}
+	printf("Task EDGE created\r\n");
+*/
+	SemDMAHalfCallBack = xSemaphoreCreateBinary();
+	SemDMAClpCallBack = xSemaphoreCreateBinary();
+	xShockSemaphore = xSemaphoreCreateBinary();
+	//xNoSignalSemaphore = xSemaphoreCreateBinary();
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in cmsis_os2.c) */
@@ -160,14 +325,12 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-	  //Read_Acceleration();
-	  //HAL_Delay(1000);
+	while (1)
+	{
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+	}
   /* USER CODE END 3 */
 }
 
@@ -211,7 +374,19 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
+{
+	BaseType_t higher_priority_task_woken = pdFALSE;
+	xSemaphoreGiveFromISR(SemHalfCallBack,&higher_priority_task_woken);
+	portYIELD_FROM_ISR(higher_priority_task_woken);
+}
 
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	BaseType_t higher_priority_task_woken = pdFALSE;
+	xSemaphoreGiveFromISR(SemClpCallBack,&higher_priority_task_woken);
+	portYIELD_FROM_ISR(higher_priority_task_woken);
+}
 /* USER CODE END 4 */
 
 /**
@@ -221,11 +396,11 @@ void SystemClock_Config(void)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  {
-  }
+	/* User can add his own implementation to report the HAL error return state */
+	__disable_irq();
+	while (1)
+	{
+	}
   /* USER CODE END Error_Handler_Debug */
 }
 
@@ -240,7 +415,7 @@ void Error_Handler(void)
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
+	/* User can add his own implementation to report the file name and line number,
      ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
 }

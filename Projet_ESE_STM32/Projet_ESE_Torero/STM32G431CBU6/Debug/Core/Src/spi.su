@@ -3,5 +3,5 @@
 ../Core/Src/spi.c:100:6:HAL_SPI_MspDeInit	16	static
 ../Core/Src/spi.c:125:6:SPI_Write	24	static
 ../Core/Src/spi.c:135:9:SPI_Read	24	static
-../Core/Src/spi.c:147:6:Read_Acceleration	176	static
+../Core/Src/spi.c:147:19:Read_Acceleration	40	static
 ../Core/Src/spi.c:173:6:ADXL343_Init	24	static

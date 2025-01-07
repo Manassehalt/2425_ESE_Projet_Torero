@@ -87,6 +87,12 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+  /*Configure GPIO pins : PBPin PB8 */
+  GPIO_InitStruct.Pin = CAPTEUR_G_Pin|GPIO_PIN_8;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
   /*Configure GPIO pins : PBPin PBPin PBPin PBPin
                            PBPin PBPin */
   GPIO_InitStruct.Pin = M_EN_LIDAR_Pin|LED_NW_Pin|LED_W_Pin|LED_N_Pin
@@ -96,19 +102,17 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PtPin */
-  GPIO_InitStruct.Pin = BOOT_Flash_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(BOOT_Flash_GPIO_Port, &GPIO_InitStruct);
-
 }
 
 /* USER CODE BEGIN 2 */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+	/*
 	if (GPIO_Pin == GPIO_PIN_10) {
-		Read_Acceleration();
-		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_10);
+		BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+		printf("Bouton appuye !\r\n");
+		vTaskNotifyGiveFromISR( myTask02Handle, &xHigherPriorityTaskWoken);
+		portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
 	}
+	*/
 }
 /* USER CODE END 2 */

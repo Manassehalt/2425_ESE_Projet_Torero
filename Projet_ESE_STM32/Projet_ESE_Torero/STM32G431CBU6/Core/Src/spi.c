@@ -1,21 +1,21 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file    spi.c
-  * @brief   This file provides code for the configuration
-  *          of the SPI instances.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    spi.c
+ * @brief   This file provides code for the configuration
+ *          of the SPI instances.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2024 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "spi.h"
@@ -133,59 +133,59 @@ void SPI_Write(uint8_t reg, uint8_t value) {
 }
 
 uint8_t SPI_Read(uint8_t reg) {
-    uint8_t tx_data = reg | 0x80;
-    uint8_t rx_data = 0;
+	uint8_t tx_data = reg | 0x80;
+	uint8_t rx_data = 0;
 
-    HAL_GPIO_WritePin(ADXL343_CS_GPIO, ADXL343_CS_PIN, GPIO_PIN_RESET);
-    HAL_SPI_Transmit(&hspi2, &tx_data, 1, HAL_MAX_DELAY);
-    HAL_SPI_Receive(&hspi2, &rx_data, 1, HAL_MAX_DELAY);
-    HAL_GPIO_WritePin(ADXL343_CS_GPIO, ADXL343_CS_PIN, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(ADXL343_CS_GPIO, ADXL343_CS_PIN, GPIO_PIN_RESET);
+	HAL_SPI_Transmit(&hspi2, &tx_data, 1, HAL_MAX_DELAY);
+	HAL_SPI_Receive(&hspi2, &rx_data, 1, HAL_MAX_DELAY);
+	HAL_GPIO_WritePin(ADXL343_CS_GPIO, ADXL343_CS_PIN, GPIO_PIN_SET);
 
-    return rx_data;
+	return rx_data;
 }
 
-void Read_Acceleration(void) {
-    uint8_t buffer[6];
-    uint8_t reg = 0x32 | 0xC0;  // Commande de lecture multiple à partir de DATAX0
+HAL_StatusTypeDef Read_Acceleration(float *accel_data) {
+	uint8_t buffer[6];
+	int16_t raw_accel[3]; // Valeurs brutes signées (16 bits) pour X, Y, Z
+	uint8_t reg = 0x32 | 0xC0;  // Commande de lecture multiple à partir de DATAX0
 
-    HAL_GPIO_WritePin(ADXL343_CS_GPIO, ADXL343_CS_PIN, GPIO_PIN_RESET);
-    HAL_SPI_Transmit(&hspi2, &reg, 1, HAL_MAX_DELAY);
-    HAL_SPI_Receive(&hspi2, buffer, 6, HAL_MAX_DELAY);
-    HAL_GPIO_WritePin(ADXL343_CS_GPIO, ADXL343_CS_PIN, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(ADXL343_CS_GPIO, ADXL343_CS_PIN, GPIO_PIN_RESET);
+	HAL_SPI_Transmit(&hspi2, &reg, 1, HAL_MAX_DELAY);
+	HAL_SPI_Receive(&hspi2, buffer, 6, HAL_MAX_DELAY);
+	HAL_GPIO_WritePin(ADXL343_CS_GPIO, ADXL343_CS_PIN, GPIO_PIN_SET);
 
-    // Combinaison des octets pour obtenir des valeurs 16 bits signées
-    int16_t x = (int16_t)((buffer[1] << 8) | buffer[0]);
-    int16_t y = (int16_t)((buffer[3] << 8) | buffer[2]);
-    int16_t z = (int16_t)((buffer[5] << 8) | buffer[4]);
+	// Combinaison des octets pour obtenir des valeurs 16 bits signées
+	raw_accel[0] = (int16_t)((buffer[1] << 8) | buffer[0]);
+	raw_accel[1] = (int16_t)((buffer[3] << 8) | buffer[2]);
+	raw_accel[2] = (int16_t)((buffer[5] << 8) | buffer[4]);
 
-    // Conversion en g (±2g, Full Resolution ou Fixed 10-bit)
-    float scale = 3.9 / 1000.0;  // Sensibilité pour ±2g en g/LSB
-    float ax = x * scale;
-    float ay = y * scale;
-    float az = z * scale;
+	// Conversion en g (±2g, Full Resolution ou Fixed 10-bit)
+	//float scale = 3.9 / 1000.0;  // Sensibilité pour ±2g en g/LSB
 
-    // Transmission des résultats via UART
-    char msg[100];
-    sprintf(msg, "Ax: %.3f g, Ay: %.3f g, Az: %.3f g\r\n", ax, ay, az);
-    HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
+	// Convertir les données brutes en 'g'
+	accel_data[0] = (float)raw_accel[0]; // Accélération X en g
+	accel_data[1] = (float)raw_accel[1]; // Accélération Y en g
+	accel_data[2] = (float)raw_accel[2]; // Accélération Z en g
+
+	return HAL_OK;
 }
 
 void ADXL343_Init(void) {
-    uint8_t devid = SPI_Read(0x00);  // Lire le registre DEVID (0x00)
+	uint8_t devid = SPI_Read(0x00);  // Lire le registre DEVID (0x00)
 
-    if (devid == 0xE5) {
-        // Le composant est détecté, procéder à l'initialisation
-        SPI_Write(0x2C, 0x04);  // Configurer la bande passante à 1.56 Hz
-        SPI_Write(0x2E, 0x80);  // Activer DATA_READY
-        SPI_Write(0x31, 0x08);  // DATA_FORMAT : FULL_RES = 1, RANGE = ±2g
-        SPI_Write(0x2D, 0x08);  // Activer le mode mesure
-        Read_Acceleration();    // Lire les données pour effacer l'interruption
+	if (devid == 0xE5) {
+		// Le composant est détecté, procéder à l'initialisation
+		SPI_Write(0x2C, 0x0F);  // Configurer la bande passante à 1.56 Hz
+		SPI_Write(0x2E, 0x80);  // Activer DATA_READY
+		SPI_Write(0x31, 0x08);  // DATA_FORMAT : FULL_RES = 1, RANGE = ±2g
+		SPI_Write(0x2D, 0x08);  // Activer le mode mesure
+		//Read_Acceleration(float *accel_data);    // Lire les données pour effacer l'interruption
 
-        char *msg = "ADXL343 detecte et initialise !\r\n";
-        HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
-    } else {
-        char *error_msg = "Erreur : ADXL343 non detecte !\r\n";
-        HAL_UART_Transmit(&huart2, (uint8_t *)error_msg, strlen(error_msg), HAL_MAX_DELAY);
-    }
+		char *msg = "ADXL343 detecte et initialise !\r\n";
+		HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
+	} else {
+		char *error_msg = "Erreur : ADXL343 non detecte !\r\n";
+		HAL_UART_Transmit(&huart2, (uint8_t *)error_msg, strlen(error_msg), HAL_MAX_DELAY);
+	}
 }
 /* USER CODE END 1 */

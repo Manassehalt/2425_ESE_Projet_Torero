@@ -106,7 +106,7 @@ typedef struct LIDAR_HandleStruct{
 	uint8_t data_buff[DATA_BUFF_SIZE_LIDAR];		// data buff received with DMA
 
 	//Processing of the frames
-	LIDAR_ScanData_t * process_frame;
+	LIDAR_ScanData_t process_frame;
 
 	// Detected clusters
 	LIDAR_Cluster_t clusters[MAX_CLUSTERS];

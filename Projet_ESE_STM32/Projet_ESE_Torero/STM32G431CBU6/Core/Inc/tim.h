@@ -54,6 +54,9 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 /* USER CODE BEGIN Prototypes */
 void Start_Motors(void);
 void Stop_Motors(void);
+void Motor_Forward(int percentage);
+void Motor_Reverse(int percentage);
+void Motor_SetSpeed(int percentage);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus
