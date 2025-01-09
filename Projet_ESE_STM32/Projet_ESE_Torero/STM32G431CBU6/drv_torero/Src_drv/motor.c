@@ -1,7 +1,7 @@
 #include "tim.h"
 #include "motor.h"
 
-#define PWM_MAX_DUTY_CYCLE 65535
+#define PWM_MAX_DUTY_CYCLE 40
 #define FWD_GPIO_PIN_R GPIO_PIN_8  // PA8 -> FWD
 #define REV_GPIO_PIN_R GPIO_PIN_9  // PA9 -> REV
 #define FWD_GPIO_PIN_L GPIO_PIN_0  // PA0 -> FWD
@@ -45,8 +45,8 @@ void Motor_Forward_L(int percentage) {
     // Mettre à jour les GPIO et PWM pour avancer (moteur gauche)
     HAL_GPIO_WritePin(REV_GPIO_PORT_L, REV_GPIO_PIN_L, GPIO_PIN_RESET);
     HAL_GPIO_WritePin(FWD_GPIO_PORT_L, FWD_GPIO_PIN_L, GPIO_PIN_SET);
-    TIM2->CCR1 = (percentage * PWM_MAX_DUTY_CYCLE) / 100;
-    TIM2->CCR2 = 0;
+    TIM2->CCR2 = (percentage * PWM_MAX_DUTY_CYCLE) / 100;
+    TIM2->CCR1 = 0;
 }
 
 void Motor_Reverse_L(int percentage) {
@@ -57,8 +57,8 @@ void Motor_Reverse_L(int percentage) {
     // Mettre à jour les GPIO et PWM pour reculer (moteur gauche)
     HAL_GPIO_WritePin(FWD_GPIO_PORT_L, FWD_GPIO_PIN_L, GPIO_PIN_RESET);
     HAL_GPIO_WritePin(REV_GPIO_PORT_L, REV_GPIO_PIN_L, GPIO_PIN_SET);
-    TIM2->CCR2 = (percentage * PWM_MAX_DUTY_CYCLE) / 100;
-    TIM2->CCR1 = 0;
+    TIM2->CCR1 = (percentage * PWM_MAX_DUTY_CYCLE) / 100;
+    TIM2->CCR2 = 0;
 }
 
 void Stop_Motors(void) {
