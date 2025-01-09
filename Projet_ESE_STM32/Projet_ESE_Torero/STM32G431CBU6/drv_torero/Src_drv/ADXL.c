@@ -65,20 +65,26 @@ void ADXL343_Init(void) {
 	if (devid == 0xE5) {
 		// Le composant est détecté, procéder à l'initialisation
 
-		SPI_Write(ADXL343_REG_POWER_CTL, 0x08);  // Désactiver appareil
-		SPI_Write(ADXL343_REG_DATA_FORMAT, 0x08);  // DATA_FORMAT : FULL_RES = 1, RANGE = ±2g
-		SPI_Write(ADXL343_REG_INT_ENABLE, 0x00);  // Désactiver interruption
-		SPI_Write(ADXL343_REG_THRESH_TAP, 0x20);	// Config seuil choc
-		SPI_Write(ADXL343_REG_DUR, 0x10);	// Config durée choc
+		SPI_Write(ADXL343_REG_POWER_CTL, 0x00);  // Appareil en standby
+		SPI_Write(ADXL343_REG_DATA_FORMAT, 0x00);  // DATA_FORMAT : FULL_RES = 1, RANGE = ±2g
+
+		//Configuration single tap
+		SPI_Write(ADXL343_REG_THRESH_TAP, 50);	// Config seuil choc
+		SPI_Write(ADXL343_REG_DUR, 15);	// Config durée choc
 		SPI_Write(ADXL343_REG_LATENT, 0xC8);	// Config latence choc
-		SPI_Write(ADXL343_REG_TAP_AXES, 0x06);	// Activer axe X Y
+
+		SPI_Write(ADXL343_REG_TAP_AXES, 0x07);	// Activer axe X Y
 		SPI_Write(ADXL343_REG_BW_RATE, 0x0F);  // Configurer la bande passante
-		SPI_Write(ADXL343_REG_INT_MAP, 0x40);	// Configurer pin interruption
+
+		SPI_Write(ADXL343_REG_INT_MAP, 0x00);	// Configurer pin interruption
 		SPI_Write(ADXL343_REG_INT_ENABLE, 0x40);  // Activer interruption
+		SPI_Write(ADXL343_REG_POWER_CTL, 0x08);
 		//Read_Acceleration(float *accel_data);    // Lire les données pour effacer l'interruption
 
 		char *msg = "ADXL343 detecte et initialise !\r\n";
 		HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
+		uint8_t check = SPI_Read(ADXL343_REG_INT_SOURCE);
+		printf("%x\r\n", check);
 	} else {
 		char *error_msg = "Erreur : ADXL343 non detecte !\r\n";
 		HAL_UART_Transmit(&huart2, (uint8_t *)error_msg, strlen(error_msg), HAL_MAX_DELAY);
