@@ -65,11 +65,11 @@ void ADXL343_Init(void) {
 	if (devid == 0xE5) {
 		// Le composant est détecté, procéder à l'initialisation
 
-		SPI_Write(ADXL343_REG_POWER_CTL, 0x00);  // Désactiver appareil
-		SPI_Write(ADXL343_REG_DATA_FORMAT, 0x00);  // DATA_FORMAT : FULL_RES = 1, RANGE = ±2g
+		SPI_Write(ADXL343_REG_POWER_CTL, 0x08);  // Désactiver appareil
+		SPI_Write(ADXL343_REG_DATA_FORMAT, 0x08);  // DATA_FORMAT : FULL_RES = 1, RANGE = ±2g
 		SPI_Write(ADXL343_REG_INT_ENABLE, 0x00);  // Désactiver interruption
 		SPI_Write(ADXL343_REG_THRESH_TAP, 0x20);	// Config seuil choc
-		SPI_Write(ADXL343_REG_DUR, 0x20);	// Config durée choc
+		SPI_Write(ADXL343_REG_DUR, 0x10);	// Config durée choc
 		SPI_Write(ADXL343_REG_LATENT, 0xC8);	// Config latence choc
 		SPI_Write(ADXL343_REG_TAP_AXES, 0x06);	// Activer axe X Y
 		SPI_Write(ADXL343_REG_BW_RATE, 0x0F);  // Configurer la bande passante
