@@ -69,8 +69,10 @@ void Error_Handler(void);
 #define LED_SE_GPIO_Port GPIOC
 #define CAPTEUR_G_Pin GPIO_PIN_0
 #define CAPTEUR_G_GPIO_Port GPIOB
+#define CAPTEUR_G_EXTI_IRQn EXTI0_IRQn
 #define CAPTEUR_D_Pin GPIO_PIN_1
 #define CAPTEUR_D_GPIO_Port GPIOB
+#define CAPTEUR_D_EXTI_IRQn EXTI1_IRQn
 #define M_EN_LIDAR_Pin GPIO_PIN_2
 #define M_EN_LIDAR_GPIO_Port GPIOB
 #define USART3_TX_LIDAR_Pin GPIO_PIN_10
@@ -89,6 +91,7 @@ void Error_Handler(void);
 #define LED_SW_GPIO_Port GPIOC
 #define INT1_ACC_Pin GPIO_PIN_10
 #define INT1_ACC_GPIO_Port GPIOA
+#define INT1_ACC_EXTI_IRQn EXTI15_10_IRQn
 #define DEV_EN_LIDAR_Pin GPIO_PIN_15
 #define DEV_EN_LIDAR_GPIO_Port GPIOA
 #define Status_LED_Pin GPIO_PIN_10

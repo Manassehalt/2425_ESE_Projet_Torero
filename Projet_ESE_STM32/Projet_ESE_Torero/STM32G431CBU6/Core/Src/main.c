@@ -19,7 +19,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
-#include "adc.h"
 #include "dma.h"
 #include "spi.h"
 #include "tim.h"
@@ -30,6 +29,8 @@
 /* USER CODE BEGIN Includes */
 #include "ydlidarx4_header.h"
 #include "stdio.h"
+#include "ADXL.h"
+#include "motor.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -61,7 +62,13 @@ LIDAR_HandleTypeDef_t hlidar;
 SemaphoreHandle_t SemHalfCallBack;
 SemaphoreHandle_t SemClpCallBack;
 
-
+TaskHandle_t xHandleLIDAR = NULL;
+TaskHandle_t xHandleETAT = NULL;
+TaskHandle_t xHandleACC = NULL;
+TaskHandle_t xHandleMOTOR = NULL;
+TaskHandle_t xHandleEDGE = NULL;
+//TaskHandle_t xHandleMOTOR = NULL;
+BaseType_t ret;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -81,15 +88,21 @@ void TaskACC(void *pvParameters);
 /* USER CODE BEGIN 0 */
 
 //flag choc
-volatile uint8_t shock_detected = 0;
+int shock_detected = 0;
+
+//flag caoteurs bord
+int capteur_G = 0;
+int capteur_D = 0;
+int capteur_virtuel = 0;
 
 //Vitesse
 int angle;		//Calcul de alpha
 int vitesse;	//
 
 //Etat Robot
-int chat = pdTRUE;	//0 -> souris	1 -> chat
+int chat = 0;	//0 -> souris	1 -> chat
 int alpha1,alpha2;
+float coeff_Lidar, coeff_Capteur;
 float delta;
 SemaphoreHandle_t SemEtat;
 SemaphoreHandle_t SemEdge;
@@ -104,13 +117,7 @@ int idx_min = 0;
 int frame_start = 0;
 int frame_end = 0;
 
-int read_sensor_Left(void) {
-    return HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0);
-}
 
-int read_sensor_Right(void) {
-    return HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1);
-}
 
 int __io_putchar(int chr){
 	HAL_UART_Transmit(&huart2, (uint8_t*)&chr, 1, HAL_MAX_DELAY);
@@ -133,20 +140,20 @@ void print_buffer(const char * Name, uint8_t *pData, uint16_t Size, int N_lines)
 
 void TaskETAT(void * pvParameters){
 	for (;;) {
-		// Attendre que le sémaphore soit donné
-		if (xSemaphoreTake(xShockSemaphore, portMAX_DELAY) == pdTRUE) {
-			printf("%f\r\n", delta);
-			if(chat == pdTRUE){
-				chat = pdFALSE;
+		// Attendre que la notification arrive
+		printf("hi\r\n");
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+			if(chat == 1){
+				chat = 0;
 				printf("Squik\r\n");
 			}
 			else{
 				// Le choc a été détecté
-				chat = pdTRUE;
+				chat = 1;
 				printf("Miaou\r\n");
 			}
 		}
-	}
+
 }
 
 void TaskLIDAR(void * pvParameters){
@@ -157,62 +164,38 @@ void TaskLIDAR(void * pvParameters){
 }
 
 void TaskACC(void * pvParameters){
-	float current_data[3] = {0.0f, 0.0f, 0.0f}; // Valeur actuelle de X, Y, Z
-	float prev_data[3] = {0.0f, 0.0f, 0.0f};    // Valeur précédente de X, Y, Z
-	                               // Variation de magnitude entre deux lectures
 
 	for (;;) {
-		// Lire les données actuelles de l'accéléromètre
-		if (Read_Acceleration(current_data) == HAL_OK) {  // Fonction de lecture à implémenter
-			// Calculer la magnitude des vecteurs actuel et précédent
-			float current_magnitude = sqrtf(current_data[0] * current_data[0] +
-					current_data[1] * current_data[1] +
-					current_data[2] * current_data[2]);
-
-			float prev_magnitude = sqrtf(prev_data[0] * prev_data[0] +
-					prev_data[1] * prev_data[1] +
-					prev_data[2] * prev_data[2]);
-
-			// Calculer la différence entre la magnitude actuelle et précédente
-			delta = fabsf(current_magnitude - prev_magnitude);
-
-			// Si la variation dépasse le seuil, signaler un choc
-			if (delta > SHOCK_THRESHOLD) {
-				xSemaphoreGive(xShockSemaphore);
-			}
-		}
-
-		// Mettre à jour les valeurs précédentes
-		prev_data[0] = current_data[0];
-		prev_data[1] = current_data[1];
-		prev_data[2] = current_data[2];
-
-
-		//printf("%f\r\n", delta);
-		vTaskDelay(50);
-	}
-
 
 }
-
+}
 
 void TaskMOTOR (void * pvParameters){
 	for(;;){
-		Motor_SetSpeed_L(50);
-		Motor_SetSpeed_R(-50);
-		vTaskDelay(100);
+
+		Motor_Reverse_L(20);
+		//Motor_Forward_R(100);
+
 	}
 }
+
+/*		Début de comportement à implementer pour asserv dynamique
+ *
+ * 		capteur_virtuel = capteur_G&&capteur_D;
+		int erreur_capteur = -45*capteur_G+45*capteur_D+90*capteur_virtuel;
+		int erreurLidar = 10/180;
+		int alphaD = coeff_Lidar*erreurLidar-coeff_Capteur*erreur_capteur;
+		int alphaG = -coeff_Lidar*erreurLidar+coeff_Capteur*erreur_capteur;
+ */
 
 void TaskEDGE(void * pvParameters){
 	for (;;) {
 
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 		printf("Bonjour de Task2\r\n");
-		}
+		//s'arreter, reculer, tourner et repartir
 
-		// Temporisation pour la prochaine vérification
-		vTaskDelay(1); // Vérifie toutes les 100 ms
+		}
 }
 
 
@@ -226,13 +209,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-	TaskHandle_t xHandleLIDAR = NULL;
-	TaskHandle_t xHandleETAT = NULL;
-	TaskHandle_t xHandleACC = NULL;
-	TaskHandle_t xHandleMOTOR = NULL;
-	TaskHandle_t xHandleEDGE = NULL;
-	//TaskHandle_t xHandleMOTOR = NULL;
-	BaseType_t ret;
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -254,7 +231,6 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_ADC1_Init();
   MX_SPI2_Init();
   MX_TIM1_Init();
   MX_TIM2_Init();
@@ -264,19 +240,19 @@ int main(void)
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
 	Start_Motors();
-	Motor_SetSpeed_L(0);
-	Motor_SetSpeed_R(0);
+	Motor_SetSpeed_L(30);
+	//Motor_SetSpeed_R(-15);
 	ADXL343_Init();
 	LIDAR_Init(&hlidar);
 	LIDAR_Start(&hlidar);
 
-	ret = xTaskCreate(TaskETAT,"TaskETAT",STACK_SIZE,(void *) NULL,5,&xHandleETAT);
-	if (ret != pdPASS)
-	{
-		printf("Error creating TaskETAT\r\n");
-		Error_Handler();
-	}
-	printf("Task ETAT created\r\n");
+	//ret = xTaskCreate(TaskETAT,"TaskETAT",STACK_SIZE,(void *) NULL,5,&xHandleETAT);
+	//if (ret != pdPASS)
+	//{
+	//	printf("Error creating TaskETAT\r\n");
+	//	Error_Handler();
+	//}
+	//printf("Task ETAT created\r\n");
 
 	/*
 	ret = xTaskCreate(TaskLIDAR,"TaskLIDAR",STACK_SIZE,(void *) NULL,3,&xHandleLIDAR);
@@ -287,34 +263,35 @@ int main(void)
 	}
 	printf("Task LIDAR created\r\n");
 */
-	ret = xTaskCreate(TaskACC,"TaskACC",STACK_SIZE,(void *) NULL,4,&xHandleACC);
-	if (ret != pdPASS)
-	{
-		printf("Error creating TaskACC\r\n");
-		Error_Handler();
-	}
-	printf("Task ACC created\r\n");
+	//ret = xTaskCreate(TaskACC,"TaskACC",STACK_SIZE,(void *) NULL,4,&xHandleACC);
+	//if (ret != pdPASS)
+	//{
+	//	printf("Error creating TaskACC\r\n");
+	//	Error_Handler();
+	//}
+	//printf("Task ACC created\r\n");
 
-	ret = xTaskCreate(TaskMOTOR,"TaskMOTOR",STACK_SIZE,(void *) NULL,1,&xHandleMOTOR);
-	if (ret != pdPASS)
-	{
-		printf("Error creating TaskMOTOR\r\n");
-		Error_Handler();
-	}
-	printf("Task MOTOR created\r\n");
+	//ret = xTaskCreate(TaskMOTOR,"TaskMOTOR",STACK_SIZE,(void *) NULL,1,&xHandleMOTOR);
+	//if (ret != pdPASS)
+	//{
+	//	printf("Error creating TaskMOTOR\r\n");
+	//	Error_Handler();
+	//}
+	//printf("Task MOTOR created\r\n");
 
-/*
-	ret = xTaskCreate(TaskEDGE,"TaskEDGE",STACK_SIZE,(void *) NULL,6,&xHandleEDGE);
+
+	ret = xTaskCreate(TaskEDGE,"TaskEDGE",STACK_SIZE,(void *) NULL,4,&xHandleEDGE);
 	if (ret != pdPASS)
 	{
 		printf("Error creating TaskEDGE\r\n");
 		Error_Handler();
 	}
 	printf("Task EDGE created\r\n");
-*/
+
 	SemDMAHalfCallBack = xSemaphoreCreateBinary();
 	SemDMAClpCallBack = xSemaphoreCreateBinary();
 	xShockSemaphore = xSemaphoreCreateBinary();
+	SemEtat = xSemaphoreCreateBinary();
 	//xNoSignalSemaphore = xSemaphoreCreateBinary();
   /* USER CODE END 2 */
 
@@ -377,6 +354,28 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+
+	if (GPIO_Pin == INT1_ACC_Pin) {
+		printf("yeah\r\n");
+		BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+		vTaskNotifyGiveFromISR(xHandleETAT, &xHigherPriorityTaskWoken);
+		portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+	}
+	if (GPIO_Pin == CAPTEUR_D_Pin) {
+			printf("void\r\n");
+			BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+			vTaskNotifyGiveFromISR(xHandleEDGE, &xHigherPriorityTaskWoken);
+			portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+		}
+	if (GPIO_Pin == CAPTEUR_G_Pin) {
+			printf("vide\r\n");
+			BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+			vTaskNotifyGiveFromISR(xHandleEDGE, &xHigherPriorityTaskWoken);
+			portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+		}
+}
+/*
 void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
 {
 	BaseType_t higher_priority_task_woken = pdFALSE;
@@ -390,6 +389,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	xSemaphoreGiveFromISR(SemClpCallBack,&higher_priority_task_woken);
 	portYIELD_FROM_ISR(higher_priority_task_woken);
 }
+*/
 /* USER CODE END 4 */
 
 /**

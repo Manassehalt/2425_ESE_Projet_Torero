@@ -1,5 +1,5 @@
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o: \
- ../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c \
+drv_torero/Src_drv/motor.o: ../drv_torero/Src_drv/motor.c \
+ ../Core/Inc/tim.h ../Core/Inc/main.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h \
  ../Core/Inc/stm32g4xx_hal_conf.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h \
@@ -19,9 +19,6 @@ Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o: \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h \
- ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h \
- ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_adc.h \
- ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_exti.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h \
@@ -33,7 +30,10 @@ Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o: \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h \
- ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h \
+ C:/Users/paul_/OneDrive/Bureau/ESE/2425_ESE_Projet_Torero/Projet_ESE_STM32/Projet_ESE_Torero/STM32G431CBU6/drv_torero/Inc_drv/motor.h
+../Core/Inc/tim.h:
+../Core/Inc/main.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h:
@@ -53,9 +53,6 @@ Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o: \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma_ex.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h:
-../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h:
-../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_adc.h:
-../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc_ex.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_exti.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h:
@@ -68,3 +65,4 @@ Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o: \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h:
+C:/Users/paul_/OneDrive/Bureau/ESE/2425_ESE_Projet_Torero/Projet_ESE_STM32/Projet_ESE_Torero/STM32G431CBU6/drv_torero/Inc_drv/motor.h:

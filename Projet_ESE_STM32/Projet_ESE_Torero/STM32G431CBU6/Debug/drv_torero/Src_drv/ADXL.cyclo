@@ -1,0 +1,4 @@
+../drv_torero/Src_drv/ADXL.c:14:6:SPI_Write	1
+../drv_torero/Src_drv/ADXL.c:24:9:SPI_Read	1
+../drv_torero/Src_drv/ADXL.c:36:19:Read_Acceleration	1
+../drv_torero/Src_drv/ADXL.c:62:6:ADXL343_Init	2

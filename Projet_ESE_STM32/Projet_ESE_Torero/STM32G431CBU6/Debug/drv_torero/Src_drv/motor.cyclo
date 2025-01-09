@@ -1,0 +1,10 @@
+../drv_torero/Src_drv/motor.c:16:6:Motor_Forward_R	3
+../drv_torero/Src_drv/motor.c:28:6:Motor_Reverse_R	3
+../drv_torero/Src_drv/motor.c:40:6:Motor_Forward_L	3
+../drv_torero/Src_drv/motor.c:52:6:Motor_Reverse_L	3
+../drv_torero/Src_drv/motor.c:64:6:Stop_Motors	1
+../drv_torero/Src_drv/motor.c:75:6:Start_Motors	1
+../drv_torero/Src_drv/motor.c:85:9:Read_Encoder	1
+../drv_torero/Src_drv/motor.c:89:6:Reset_Encoder	1
+../drv_torero/Src_drv/motor.c:93:6:Motor_SetSpeed_R	7
+../drv_torero/Src_drv/motor.c:128:6:Motor_SetSpeed_L	7
