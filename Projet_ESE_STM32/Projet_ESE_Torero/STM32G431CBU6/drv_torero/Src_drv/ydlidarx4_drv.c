@@ -12,17 +12,18 @@
 #include "ydlidarx4_header.h"
 
 /* Functions ---------------------------------------------------------------- */
-
+extern UART_HandleTypeDef huart3;
+uint16_t frame_start = 0, frame_end = 0;
 /*
  * @brief Initialization of the lidar
  * @param
  */
 void LIDAR_Init(LIDAR_HandleTypeDef_t * hlidar){
 	hlidar->huart = &huart3;
-
+	/*
 	HAL_GPIO_WritePin(GPIOA, DEV_EN_LIDAR_Pin, GPIO_PIN_SET);
 	// Enable M_EN lidar
-	HAL_GPIO_WritePin(M_EN_LIDAR_GPIO_Port, M_EN_LIDAR_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(M_EN_LIDAR_GPIO_Port, M_EN_LIDAR_Pin, GPIO_PIN_SET);*/
 
 }
 
@@ -164,12 +165,13 @@ void LIDAR_process_frame(LIDAR_HandleTypeDef_t * hlidar) {
     }
 }
 
+
 /*
  * @brief
  * @param
  */
 void LIDAR_get_point(LIDAR_HandleTypeDef_t *hlidar) {
-    uint16_t frame_start = 0, frame_end = 0;
+
 
     for (int i = 0; i < DATA_BUFF_SIZE_LIDAR; i++) {
         // Réponse à la commande SCAN pour détecter le début des trames
@@ -189,12 +191,12 @@ void LIDAR_get_point(LIDAR_HandleTypeDef_t *hlidar) {
             }
         }
 
-        // Extraction des données des trames
+        // Data frame extraction
         if (i == frame_start) {
             hlidar->process_frame.PH = hlidar->data_buff[i];
         }
         else if (i == frame_start + 1) {
-            hlidar->process_frame.PH |= (hlidar->data_buff[i] << 8);
+            hlidar->process_frame.PH = hlidar->process_frame.PH|(hlidar->data_buff[i] << 8);
         }
         else if (i == frame_start + 2) {
             hlidar->process_frame.CT = hlidar->data_buff[i];
@@ -207,25 +209,25 @@ void LIDAR_get_point(LIDAR_HandleTypeDef_t *hlidar) {
             hlidar->process_frame.FSA = hlidar->data_buff[i];
         }
         else if (i == frame_start + 5) {
-            hlidar->process_frame.FSA |= (hlidar->data_buff[i] << 8);
+            hlidar->process_frame.FSA = hlidar->process_frame.FSA|(hlidar->data_buff[i] << 8);
         }
         else if (i == frame_start + 6) {
             hlidar->process_frame.LSA = hlidar->data_buff[i];
         }
         else if (i == frame_start + 7) {
-            hlidar->process_frame.LSA |= (hlidar->data_buff[i] << 8);
+            hlidar->process_frame.LSA = hlidar->process_frame.LSA|(hlidar->data_buff[i] << 8);
         }
         else if (i == frame_start + 8) {
             hlidar->process_frame.CS = hlidar->data_buff[i];
         }
         else if (i == frame_start + 9) {
-            hlidar->process_frame.CS |= (hlidar->data_buff[i] << 8);
+            hlidar->process_frame.CS = hlidar->process_frame.CS|(hlidar->data_buff[i] << 8);
         }
         else if (i == frame_end) {
             hlidar->process_frame.frame_buff[hlidar->process_frame.index++] = hlidar->data_buff[i];
 
             if (frame_end - frame_start > 11) {
-                // Traitement de la trame pour extraire les points
+                // Extracting the points using the frame previously calculated
                 LIDAR_process_frame(hlidar);
             }
 
@@ -243,19 +245,66 @@ void LIDAR_get_point(LIDAR_HandleTypeDef_t *hlidar) {
     frame_end = frame_end - DATA_BUFF_SIZE_LIDAR;
 }
 
+
+/*
+ * @brief Filter point buff using a median filter to eliminate the aberrant values due
+ * to the noise
+ * @param hlidar : pointer to the lidar handle structure
+ */
+void LIDAR_median_filter(LIDAR_HandleTypeDef_t *hlidar){
+    int data_to_filter[POINT_BUFF_SIZE_LIDAR];
+    int block_size = 5; // Size of the sliding window
+    int middle = block_size / 2;
+
+    // Copy the original data to process
+    for (int i = 0; i < POINT_BUFF_SIZE_LIDAR; i++) {
+        data_to_filter[i] = hlidar->process_frame.point_buff[i];
+    }
+
+    // Apply the median filter
+    for (int i = 0; i < POINT_BUFF_SIZE_LIDAR; i++) {
+        int window[block_size];
+        int count = 0;
+
+        // Build the window (handle edges with zero-padding)
+        for (int j = -middle; j <= middle; j++) {
+            if ((i + j) >= 0 && (i + j) < POINT_BUFF_SIZE_LIDAR) {
+                window[count++] = data_to_filter[i + j];
+            } else {
+                window[count++] = 0; // Zero-padding for edge cases
+            }
+        }
+
+        // Sort the window to find the median
+        for (int k = 0; k < count - 1; k++) {
+            for (int l = k + 1; l < count; l++) {
+                if (window[k] > window[l]) {
+                    int temp = window[k];
+                    window[k] = window[l];
+                    window[l] = temp;
+                }
+            }
+        }
+
+        // Assign the median value to the filtered data
+        hlidar->process_frame.filtered_buff[i] = window[count / 2];
+    }
+}
+
+
 /**
  * @brief Detect clusters in LIDAR data
  * @param hlidar Pointer to the LIDAR_HandleTypeDef_t structure
  */
 void LIDAR_Find_Clusters(LIDAR_HandleTypeDef_t *hlidar) {
-    int *distances = hlidar->process_frame.point_buff;
+    int *distances = hlidar->process_frame.filtered_buff;
     int cluster_count = 0;
 
     // Initialize the first cluster
     int cluster_start = 0;
 
     // Traverse 360 degrees to group points into clusters
-    for (int i = 1; i < NB_DEGREES; i++) {
+    for (int i = 1; i < POINT_BUFF_SIZE_LIDAR; i++) {
         if (fabs(distances[i] - distances[i - 1]) > CLUSTER_THRESHOLD) {
             // Compute the mean distance for the cluster
             int mean_distance = 0;
@@ -286,15 +335,15 @@ void LIDAR_Find_Clusters(LIDAR_HandleTypeDef_t *hlidar) {
 
     // Handle the last cluster
     int mean_distance = 0;
-    for (int j = cluster_start; j < NB_DEGREES; j++) {
+    for (int j = cluster_start; j < POINT_BUFF_SIZE_LIDAR; j++) {
         mean_distance += distances[j];
     }
-    mean_distance /= (NB_DEGREES - cluster_start);
-    int mean_angle = (cluster_start + NB_DEGREES - 1) / 2;
+    mean_distance /= (POINT_BUFF_SIZE_LIDAR - cluster_start);
+    int mean_angle = (cluster_start + POINT_BUFF_SIZE_LIDAR - 1) / 2;
 
     hlidar->clusters[cluster_count].mean_angle = mean_angle;
     hlidar->clusters[cluster_count].mean_distance = mean_distance;
-    hlidar->clusters[cluster_count].point_count = NB_DEGREES - cluster_start;
+    hlidar->clusters[cluster_count].point_count = POINT_BUFF_SIZE_LIDAR - cluster_start;
     cluster_count++;
 
     // Update the total number of detected clusters
