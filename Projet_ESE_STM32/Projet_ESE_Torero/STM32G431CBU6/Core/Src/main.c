@@ -209,7 +209,7 @@ void TaskEDGE(void * pvParameters){
 			Motor_Reverse_L(40);
 			delayReverse = pdMS_TO_TICKS(800);
 			lastWakeTime = xTaskGetTickCount();
-			while((xTaskGetTickCount() - lastWakeTime) < delayStop){
+			while((xTaskGetTickCount() - lastWakeTime) < delayReverse){
 			}
 		}
 		/* Cas Robot bord droite tourne a gauche */
@@ -219,7 +219,7 @@ void TaskEDGE(void * pvParameters){
 			Motor_Reverse_L(30);
 			delayReverse = pdMS_TO_TICKS(800);
 			lastWakeTime = xTaskGetTickCount();
-			while((xTaskGetTickCount() - lastWakeTime) < delayStop){
+			while((xTaskGetTickCount() - lastWakeTime) < delayReverse){
 			}
 			for(int i=0;i<4;i++){
 				Motor_Forward_R(50+10*i);
@@ -237,7 +237,7 @@ void TaskEDGE(void * pvParameters){
 			Motor_Reverse_L(30);
 			delayReverse = pdMS_TO_TICKS(800);
 			lastWakeTime = xTaskGetTickCount();
-			while((xTaskGetTickCount() - lastWakeTime) < delayStop){
+			while((xTaskGetTickCount() - lastWakeTime) < delayReverse){
 			}
 			for(int i=0;i<4;i++){
 				Motor_Forward_L(50+10*i);
