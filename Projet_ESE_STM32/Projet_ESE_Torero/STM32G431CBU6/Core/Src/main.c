@@ -188,7 +188,7 @@ void TaskMOTOR (void * pvParameters){
  */
 
 void TaskEDGE(void * pvParameters){
-	TickType_t lastWakeTime = xTaskGetTickCount();
+	TickType_t lastWakeTime;
 	TickType_t delayStop;
 	TickType_t delayReverse;
 	TickType_t delayTurn;
@@ -199,6 +199,7 @@ void TaskEDGE(void * pvParameters){
 		Motor_Forward_L(0);
 
 		delayStop = pdMS_TO_TICKS(10);
+		lastWakeTime = xTaskGetTickCount();
 		while((xTaskGetTickCount() - lastWakeTime) < delayStop){
 		}
 
@@ -207,6 +208,7 @@ void TaskEDGE(void * pvParameters){
 			Motor_Reverse_R(50);
 			Motor_Reverse_L(40);
 			delayReverse = pdMS_TO_TICKS(800);
+			lastWakeTime = xTaskGetTickCount();
 			while((xTaskGetTickCount() - lastWakeTime) < delayStop){
 			}
 		}
@@ -216,12 +218,14 @@ void TaskEDGE(void * pvParameters){
 			Motor_Reverse_R(30);
 			Motor_Reverse_L(30);
 			delayReverse = pdMS_TO_TICKS(800);
+			lastWakeTime = xTaskGetTickCount();
 			while((xTaskGetTickCount() - lastWakeTime) < delayStop){
 			}
 			for(int i=0;i<4;i++){
 				Motor_Forward_R(50+10*i);
 				Motor_Reverse_L(50-10*i);
 				delayTurn = pdMS_TO_TICKS(100);
+				lastWakeTime = xTaskGetTickCount();
 				while((xTaskGetTickCount() - lastWakeTime) < delayTurn){
 				}
 			}
@@ -232,12 +236,14 @@ void TaskEDGE(void * pvParameters){
 			Motor_Reverse_R(30);
 			Motor_Reverse_L(30);
 			delayReverse = pdMS_TO_TICKS(800);
+			lastWakeTime = xTaskGetTickCount();
 			while((xTaskGetTickCount() - lastWakeTime) < delayStop){
 			}
 			for(int i=0;i<4;i++){
 				Motor_Forward_L(50+10*i);
 				Motor_Reverse_R(50-10*i);
 				delayTurn = pdMS_TO_TICKS(100);
+				lastWakeTime = xTaskGetTickCount();
 				while((xTaskGetTickCount() - lastWakeTime) < delayTurn){
 				}
 			}
