@@ -1,5 +1,48 @@
 <p align="left"> <img src="Graphique_Logo/logo ENSEA.png" width="15%" height="auto" /> </p>
 <p align="center"> <img src="Graphique_Logo/Torero-Logo.png" width="30%" height="auto" /> </p>
+```
+void TaskEDGE(void * pvParameters){
+	for (;;) {
+
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+		Motor_Forward_R(0);
+		Motor_Forward_L(0);
+		HAL_Delay(5);
+		/* Cas Robot bord frontal */
+		while((capteur_D|capteur_G)==1){
+			Motor_Reverse_R(50);
+			Motor_Reverse_L(50);
+			HAL_Delay(100);
+		}
+		/* Cas Robot bord droite tourne a gauche */
+		while((capteur_D)==1){
+			// reculer, tourner et repartir
+			Motor_Reverse_R(50);
+			Motor_Reverse_L(50);
+			HAL_Delay(100);
+			for(int i=0;i<5;i++){
+				Motor_Forward_R(50+10*i);
+				Motor_Reverse_L(50-10*i);
+				HAL_Delay(100);
+			}
+		}
+		/* Cas Robot bord gauche tourne a droite */
+		while((capteur_G)==1){
+			// reculer, tourner et repartir
+			Motor_Reverse_R(50);
+			Motor_Reverse_L(50);
+			HAL_Delay(100);
+			for(int i=0;i<5;i++){
+				Motor_Forward_L(50+10*i);
+				Motor_Reverse_R(50-10*i);
+				HAL_Delay(100);
+			}
+		}
+		//s'arreter, reculer, tourner et repartir 
+	}
+}
+
+```
 
 # 2425_ESE_Projet_Torero
 
