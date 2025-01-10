@@ -6,18 +6,18 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../drv_torero/Src_drv/ADXL.c \
-../drv_torero/Src_drv/motor.c \
-../drv_torero/Src_drv/ydlidarx4_drv.c 
+../drv_torero/Src_drv/lidarX4.c \
+../drv_torero/Src_drv/motor.c 
 
 OBJS += \
 ./drv_torero/Src_drv/ADXL.o \
-./drv_torero/Src_drv/motor.o \
-./drv_torero/Src_drv/ydlidarx4_drv.o 
+./drv_torero/Src_drv/lidarX4.o \
+./drv_torero/Src_drv/motor.o 
 
 C_DEPS += \
 ./drv_torero/Src_drv/ADXL.d \
-./drv_torero/Src_drv/motor.d \
-./drv_torero/Src_drv/ydlidarx4_drv.d 
+./drv_torero/Src_drv/lidarX4.d \
+./drv_torero/Src_drv/motor.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -27,7 +27,7 @@ drv_torero/Src_drv/%.o drv_torero/Src_drv/%.su drv_torero/Src_drv/%.cyclo: ../dr
 clean: clean-drv_torero-2f-Src_drv
 
 clean-drv_torero-2f-Src_drv:
-	-$(RM) ./drv_torero/Src_drv/ADXL.cyclo ./drv_torero/Src_drv/ADXL.d ./drv_torero/Src_drv/ADXL.o ./drv_torero/Src_drv/ADXL.su ./drv_torero/Src_drv/motor.cyclo ./drv_torero/Src_drv/motor.d ./drv_torero/Src_drv/motor.o ./drv_torero/Src_drv/motor.su ./drv_torero/Src_drv/ydlidarx4_drv.cyclo ./drv_torero/Src_drv/ydlidarx4_drv.d ./drv_torero/Src_drv/ydlidarx4_drv.o ./drv_torero/Src_drv/ydlidarx4_drv.su
+	-$(RM) ./drv_torero/Src_drv/ADXL.cyclo ./drv_torero/Src_drv/ADXL.d ./drv_torero/Src_drv/ADXL.o ./drv_torero/Src_drv/ADXL.su ./drv_torero/Src_drv/lidarX4.cyclo ./drv_torero/Src_drv/lidarX4.d ./drv_torero/Src_drv/lidarX4.o ./drv_torero/Src_drv/lidarX4.su ./drv_torero/Src_drv/motor.cyclo ./drv_torero/Src_drv/motor.d ./drv_torero/Src_drv/motor.o ./drv_torero/Src_drv/motor.su
 
 .PHONY: clean-drv_torero-2f-Src_drv
 

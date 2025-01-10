@@ -27,7 +27,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "ydlidarx4_header.h"
+#include "lidarX4.h"
 #include "stdio.h"
 #include "ADXL.h"
 #include "motor.h"
@@ -116,8 +116,8 @@ SemaphoreHandle_t SemDMAClpCallBack;
 //Lidar
 int distance_min=0;
 int idx_min = 0;
-int frame_start = 0;
-int frame_end = 0;
+uint16_t frame_start = 0;
+uint16_t frame_end = 0;
 
 
 
@@ -172,8 +172,8 @@ void TaskMOTOR (void * pvParameters){
 
 		Motor_Forward_R(50);
 		Motor_Forward_L(50);
-		Motor_Forward_R(80);
-		Motor_Forward_L(80);
+		Motor_Forward_R(75);
+		Motor_Forward_L(75);
 	}
 }
 
@@ -197,10 +197,12 @@ void TaskEDGE(void * pvParameters){
 
 			Motor_Reverse_R(50);
 			Motor_Reverse_L(50);
+			HAL_Delay(200);
+		}
+		for (int i=0;i<4;i++){
+			Motor_Reverse_R(50-10*i);
+			Motor_Forward_L(0+10*i);
 			HAL_Delay(100);
-			Motor_Reverse_R(50);
-			Motor_Reverse_L(0);
-			HAL_Delay(500);
 		}
 		//s'arreter, reculer, tourner et repartir
 

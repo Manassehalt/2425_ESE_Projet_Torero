@@ -41,5 +41,5 @@
 "./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o"
 "./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o"
 "./drv_torero/Src_drv/ADXL.o"
+"./drv_torero/Src_drv/lidarX4.o"
 "./drv_torero/Src_drv/motor.o"
-"./drv_torero/Src_drv/ydlidarx4_drv.o"

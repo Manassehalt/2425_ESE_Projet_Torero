@@ -49,7 +49,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
  ../Core/Inc/dma.h ../Core/Inc/main.h ../Core/Inc/spi.h ../Core/Inc/tim.h \
  ../Core/Inc/usart.h ../Core/Inc/gpio.h \
- C:/Users/paul_/OneDrive/Bureau/ESE/2425_ESE_Projet_Torero/Projet_ESE_STM32/Projet_ESE_Torero/STM32G431CBU6/drv_torero/Inc_drv/ydlidarx4_header.h \
+ C:/Users/paul_/OneDrive/Bureau/ESE/2425_ESE_Projet_Torero/Projet_ESE_STM32/Projet_ESE_Torero/STM32G431CBU6/drv_torero/Inc_drv/lidarX4.h \
  C:/Users/paul_/OneDrive/Bureau/ESE/2425_ESE_Projet_Torero/Projet_ESE_STM32/Projet_ESE_Torero/STM32G431CBU6/drv_torero/Inc_drv/ADXL.h \
  C:/Users/paul_/OneDrive/Bureau/ESE/2425_ESE_Projet_Torero/Projet_ESE_STM32/Projet_ESE_Torero/STM32G431CBU6/drv_torero/Inc_drv/motor.h
 ../Core/Inc/main.h:
@@ -107,6 +107,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/tim.h:
 ../Core/Inc/usart.h:
 ../Core/Inc/gpio.h:
-C:/Users/paul_/OneDrive/Bureau/ESE/2425_ESE_Projet_Torero/Projet_ESE_STM32/Projet_ESE_Torero/STM32G431CBU6/drv_torero/Inc_drv/ydlidarx4_header.h:
+C:/Users/paul_/OneDrive/Bureau/ESE/2425_ESE_Projet_Torero/Projet_ESE_STM32/Projet_ESE_Torero/STM32G431CBU6/drv_torero/Inc_drv/lidarX4.h:
 C:/Users/paul_/OneDrive/Bureau/ESE/2425_ESE_Projet_Torero/Projet_ESE_STM32/Projet_ESE_Torero/STM32G431CBU6/drv_torero/Inc_drv/ADXL.h:
 C:/Users/paul_/OneDrive/Bureau/ESE/2425_ESE_Projet_Torero/Projet_ESE_STM32/Projet_ESE_Torero/STM32G431CBU6/drv_torero/Inc_drv/motor.h:

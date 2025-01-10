@@ -1,10 +1,4 @@
-/*
- * @file ydlidarx4_header.h
- * @brief Definition of the functions and structures of the YDLIDARX4's driver
- *
- *  Created on: Nov 27, 2024
- *      Author: jeanp
- */
+
 
 #ifndef YDLIDARX4_DRIVER_YDLIDARX4_HEADER_H_
 #define YDLIDARX4_DRIVER_YDLIDARX4_HEADER_H_

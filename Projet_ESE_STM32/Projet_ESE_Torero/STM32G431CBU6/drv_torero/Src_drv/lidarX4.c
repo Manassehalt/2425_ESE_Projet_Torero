@@ -1,19 +1,10 @@
-/*
- * ydlidarx4_drv.c
- *
- *  Created on: Nov 27, 2024
- *      Author: jeanp
- *
- *  About this driver :
- *
- */
 
 /* Includes ----------------------------------------------------------------- */
-#include "ydlidarx4_header.h"
+#include "lidarX4.h"
 
 /* Functions ---------------------------------------------------------------- */
 extern UART_HandleTypeDef huart3;
-uint16_t frame_start = 0, frame_end = 0;
+extern uint16_t frame_start, frame_end;
 /*
  * @brief Initialization of the lidar
  * @param
