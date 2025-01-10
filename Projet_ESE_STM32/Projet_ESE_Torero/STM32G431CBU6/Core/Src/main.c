@@ -95,7 +95,6 @@ int shock_detected = 0;
 //flag caoteurs bord
 int capteur_G = 0;
 int capteur_D = 0;
-int capteur_virtuel = 0;
 
 //Vitesse
 int angle;		//Calcul de alpha
@@ -157,21 +156,23 @@ void TaskETAT(void * pvParameters){
 			printf("Miaou\r\n");
 		}
 	}
-
 }
 
 void TaskLIDAR(void * pvParameters){
 	for(;;){
-		printf("lidar\r\n");
-		vTaskDelay(100);
 	}
 }
 
 void TaskMOTOR (void * pvParameters){
 	for(;;){
-
-		Motor_Forward_R(50);
-		Motor_Forward_L(50);
+		int cpt=0;
+		while(cpt==0){
+			Motor_Forward_R(30);
+			Motor_Forward_L(30);
+			Motor_Forward_R(50);
+			Motor_Forward_L(50);
+			cpt++;
+		}
 		Motor_Forward_R(75);
 		Motor_Forward_L(75);
 	}
@@ -187,40 +188,58 @@ void TaskMOTOR (void * pvParameters){
  */
 
 void TaskEDGE(void * pvParameters){
+	TickType_t lastWakeTime = xTaskGetTickCount();
+	TickType_t delayStop;
+	TickType_t delayReverse;
+	TickType_t delayTurn;
 	for (;;) {
 
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 		Motor_Forward_R(0);
 		Motor_Forward_L(0);
-		HAL_Delay(5);
+
+		delayStop = pdMS_TO_TICKS(10);
+		while((xTaskGetTickCount() - lastWakeTime) < delayStop){
+		}
+
 		/* Cas Robot bord frontal */
-		while((capteur_D|capteur_G)==1){
+		while((capteur_D&&capteur_G)==1){
 			Motor_Reverse_R(50);
-			Motor_Reverse_L(50);
-			HAL_Delay(100);
+			Motor_Reverse_L(40);
+			delayReverse = pdMS_TO_TICKS(800);
+			while((xTaskGetTickCount() - lastWakeTime) < delayStop){
+			}
 		}
 		/* Cas Robot bord droite tourne a gauche */
 		while((capteur_D)==1){
 			// reculer, tourner et repartir
-			Motor_Reverse_R(50);
-			Motor_Reverse_L(50);
-			HAL_Delay(100);
-			for(int i=0;i<5;i++){
+			Motor_Reverse_R(30);
+			Motor_Reverse_L(30);
+			delayReverse = pdMS_TO_TICKS(800);
+			while((xTaskGetTickCount() - lastWakeTime) < delayStop){
+			}
+			for(int i=0;i<4;i++){
 				Motor_Forward_R(50+10*i);
 				Motor_Reverse_L(50-10*i);
-				HAL_Delay(100);
+				delayTurn = pdMS_TO_TICKS(100);
+				while((xTaskGetTickCount() - lastWakeTime) < delayTurn){
+				}
 			}
 		}
 		/* Cas Robot bord gauche tourne a droite */
 		while((capteur_G)==1){
 			// reculer, tourner et repartir
-			Motor_Reverse_R(50);
-			Motor_Reverse_L(50);
-			HAL_Delay(100);
-			for(int i=0;i<5;i++){
+			Motor_Reverse_R(30);
+			Motor_Reverse_L(30);
+			delayReverse = pdMS_TO_TICKS(800);
+			while((xTaskGetTickCount() - lastWakeTime) < delayStop){
+			}
+			for(int i=0;i<4;i++){
 				Motor_Forward_L(50+10*i);
 				Motor_Reverse_R(50-10*i);
-				HAL_Delay(100);
+				delayTurn = pdMS_TO_TICKS(100);
+				while((xTaskGetTickCount() - lastWakeTime) < delayTurn){
+				}
 			}
 		}
 		//s'arreter, reculer, tourner et repartir 

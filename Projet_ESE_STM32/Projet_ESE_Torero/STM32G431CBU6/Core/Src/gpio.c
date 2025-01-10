@@ -62,7 +62,7 @@ void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, M_EN_LIDAR_Pin|LED_NW_Pin|LED_W_Pin|LED_N_Pin
-                          |LED_E_Pin|LED_S_Pin, GPIO_PIN_RESET);
+                          |LED_E_Pin|LED_S_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin : PtPin */
   GPIO_InitStruct.Pin = INT2_ACC_Pin;
