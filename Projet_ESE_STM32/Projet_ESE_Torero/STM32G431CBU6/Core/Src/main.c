@@ -89,8 +89,6 @@ void TaskLIDAR(void * pvParameters);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-//flag choc
-int shock_detected = 0;
 
 //flag caoteurs bord
 int capteur_G = 0;
@@ -101,13 +99,14 @@ int angle;		//Calcul de alpha
 int vitesse;	//
 
 //Etat Robot
-int chat = 0;	//0 -> souris	1 -> chat
+int etat = 0;	//0 -> souris	1 -> chat
 int alpha1,alpha2;
 float coeff_Lidar, coeff_Capteur;
 float delta;
-SemaphoreHandle_t SemEtat;
-SemaphoreHandle_t SemEdge;
-SemaphoreHandle_t xShockSemaphore;
+
+
+int EdgeProcess;
+
 //SemaphoreHandle_t xNoSignalSemaphore;
 SemaphoreHandle_t SemDMAHalfCallBack;
 SemaphoreHandle_t SemDMAClpCallBack;
@@ -142,18 +141,17 @@ void print_buffer(const char * Name, uint8_t *pData, uint16_t Size, int N_lines)
 void TaskETAT(void * pvParameters){
 	for (;;) {
 		// Attendre que la notification arrive
-		printf("hi\r\n");
+		//printf("hi\r\n");
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
-		//lire INT_SOURCEmet à 0 bit interruption single tap pour générer une nouvelle interruption au prochain tap
+		//lire INT_SOURCE met à 0 bit interruption single tap pour générer une nouvelle interruption au prochain tap
 		uint8_t rst_int = SPI_Read(ADXL343_REG_INT_SOURCE);
-		if(chat == 1){
-			chat = 0;
-			printf("Squik\r\n");
+		if(etat == 1){
+			etat = 0;
+			//printf("Squik\r\n");
 		}
 		else{
-			// Le choc a été détecté
-			chat = 1;
-			printf("Miaou\r\n");
+			etat = 1;
+			//printf("Miaou\r\n");
 		}
 	}
 }
@@ -165,16 +163,18 @@ void TaskLIDAR(void * pvParameters){
 
 void TaskMOTOR (void * pvParameters){
 	for(;;){
-		int cpt=0;
-		while(cpt==0){
-			Motor_Forward_R(30);
-			Motor_Forward_L(30);
-			Motor_Forward_R(50);
-			Motor_Forward_L(50);
-			cpt++;
+		if(EdgeProcess==0){
+			int cpt=0;
+			while(cpt==0){
+				Motor_Forward_R(30);
+				Motor_Forward_L(30);
+				Motor_Forward_R(50);
+				Motor_Forward_L(50);
+				cpt++;
+			}
+			Motor_Forward_R(75);
+			Motor_Forward_L(75);
 		}
-		Motor_Forward_R(75);
-		Motor_Forward_L(75);
 	}
 }
 
@@ -188,67 +188,49 @@ void TaskMOTOR (void * pvParameters){
  */
 
 void TaskEDGE(void * pvParameters){
-	TickType_t lastWakeTime;
-	TickType_t delayStop;
-	TickType_t delayReverse;
-	TickType_t delayTurn;
 	for (;;) {
 
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+		EdgeProcess++;
 		Motor_Forward_R(0);
 		Motor_Forward_L(0);
-
-		delayStop = pdMS_TO_TICKS(10);
-		lastWakeTime = xTaskGetTickCount();
-		while((xTaskGetTickCount() - lastWakeTime) < delayStop){
-		}
+		vTaskDelay(pdMS_TO_TICKS(10));
 
 		/* Cas Robot bord frontal */
 		while((capteur_D&&capteur_G)==1){
 			Motor_Reverse_R(50);
 			Motor_Reverse_L(40);
-			delayReverse = pdMS_TO_TICKS(800);
-			lastWakeTime = xTaskGetTickCount();
-			while((xTaskGetTickCount() - lastWakeTime) < delayReverse){
-			}
+			vTaskDelay(pdMS_TO_TICKS(800));
 		}
-		/* Cas Robot bord droite tourne a gauche */
+
+		/* Cas Robot bord droit tourne a gauche */
 		while((capteur_D)==1){
 			// reculer, tourner et repartir
 			Motor_Reverse_R(30);
 			Motor_Reverse_L(30);
-			delayReverse = pdMS_TO_TICKS(800);
-			lastWakeTime = xTaskGetTickCount();
-			while((xTaskGetTickCount() - lastWakeTime) < delayReverse){
-			}
+			vTaskDelay(pdMS_TO_TICKS(800));
+
 			for(int i=0;i<4;i++){
 				Motor_Forward_R(50+10*i);
 				Motor_Reverse_L(50-10*i);
-				delayTurn = pdMS_TO_TICKS(100);
-				lastWakeTime = xTaskGetTickCount();
-				while((xTaskGetTickCount() - lastWakeTime) < delayTurn){
-				}
+				vTaskDelay(pdMS_TO_TICKS(100));
 			}
 		}
+
 		/* Cas Robot bord gauche tourne a droite */
 		while((capteur_G)==1){
 			// reculer, tourner et repartir
 			Motor_Reverse_R(30);
 			Motor_Reverse_L(30);
-			delayReverse = pdMS_TO_TICKS(800);
-			lastWakeTime = xTaskGetTickCount();
-			while((xTaskGetTickCount() - lastWakeTime) < delayReverse){
-			}
+			vTaskDelay(pdMS_TO_TICKS(800));
+
 			for(int i=0;i<4;i++){
 				Motor_Forward_L(50+10*i);
 				Motor_Reverse_R(50-10*i);
-				delayTurn = pdMS_TO_TICKS(100);
-				lastWakeTime = xTaskGetTickCount();
-				while((xTaskGetTickCount() - lastWakeTime) < delayTurn){
-				}
+				vTaskDelay(pdMS_TO_TICKS(100));
 			}
 		}
-		//s'arreter, reculer, tourner et repartir 
+		EdgeProcess--;
 	}
 }
 
@@ -299,7 +281,7 @@ int main(void)
 	LIDAR_Init(&hlidar);
 	LIDAR_Start(&hlidar);
 
-	ret = xTaskCreate(TaskETAT,"TaskETAT",STACK_SIZE,(void *) NULL,5,&xHandleETAT);
+	ret = xTaskCreate(TaskETAT,"TaskETAT",STACK_SIZE,(void *) NULL,2,&xHandleETAT);
 	if (ret != pdPASS)
 	{
 		printf("Error creating TaskETAT\r\n");
@@ -317,7 +299,7 @@ int main(void)
 	printf("Task LIDAR created\r\n");
 	 */
 
-	ret = xTaskCreate(TaskMOTOR,"TaskMOTOR",STACK_SIZE,(void *) NULL,3,&xHandleMOTOR);
+	ret = xTaskCreate(TaskMOTOR,"TaskMOTOR",STACK_SIZE,(void *) NULL,1,&xHandleMOTOR);
 	if (ret != pdPASS)
 	{
 		printf("Error creating TaskMOTOR\r\n");
@@ -326,7 +308,7 @@ int main(void)
 	printf("Task MOTOR created\r\n");
 
 
-	ret = xTaskCreate(TaskEDGE,"TaskEDGE",STACK_SIZE,(void *) NULL,4,&xHandleEDGE);
+	ret = xTaskCreate(TaskEDGE,"TaskEDGE",STACK_SIZE,(void *) NULL,3,&xHandleEDGE);
 	if (ret != pdPASS)
 	{
 		printf("Error creating TaskEDGE\r\n");
@@ -336,9 +318,8 @@ int main(void)
 
 	SemDMAHalfCallBack = xSemaphoreCreateBinary();
 	SemDMAClpCallBack = xSemaphoreCreateBinary();
-	xShockSemaphore = xSemaphoreCreateBinary();
-	SemEtat = xSemaphoreCreateBinary();
-	//xNoSignalSemaphore = xSemaphoreCreateBinary();
+
+
 	/* USER CODE END 2 */
 
 	/* Call init function for freertos objects (in cmsis_os2.c) */
@@ -416,7 +397,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 		else{
 			capteur_D=1;
 		}
-		printf("capteurD\r\n");
+		//printf("capteurD\r\n");
 		BaseType_t xHigherPriorityTaskWoken = pdFALSE;
 		vTaskNotifyGiveFromISR(xHandleEDGE, &xHigherPriorityTaskWoken);
 		portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
@@ -428,7 +409,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 		else{
 			capteur_G=1;
 		}
-		printf("capteurG\r\n");
+		//printf("capteurG\r\n");
 		BaseType_t xHigherPriorityTaskWoken = pdFALSE;
 		vTaskNotifyGiveFromISR(xHandleEDGE, &xHigherPriorityTaskWoken);
 		portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
