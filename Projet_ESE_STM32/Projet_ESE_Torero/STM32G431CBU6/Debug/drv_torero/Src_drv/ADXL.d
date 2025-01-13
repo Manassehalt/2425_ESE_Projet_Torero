@@ -33,6 +33,7 @@ drv_torero/Src_drv/ADXL.o: ../drv_torero/Src_drv/ADXL.c \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h \
  ../Core/Inc/spi.h \
  C:/Users/paul_/OneDrive/Bureau/ESE/2425_ESE_Projet_Torero/Projet_ESE_STM32/Projet_ESE_Torero/STM32G431CBU6/drv_torero/Inc_drv/ADXL.h \
+ ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Core/Inc/FreeRTOSConfig.h \
@@ -85,6 +86,7 @@ drv_torero/Src_drv/ADXL.o: ../drv_torero/Src_drv/ADXL.c \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h:
 ../Core/Inc/spi.h:
 C:/Users/paul_/OneDrive/Bureau/ESE/2425_ESE_Projet_Torero/Projet_ESE_STM32/Projet_ESE_Torero/STM32G431CBU6/drv_torero/Inc_drv/ADXL.h:
+../Core/Inc/main.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:

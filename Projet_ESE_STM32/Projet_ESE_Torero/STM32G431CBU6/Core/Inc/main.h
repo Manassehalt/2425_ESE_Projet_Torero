@@ -111,7 +111,24 @@ void Error_Handler(void);
 #define TIM4_CH4_M_SCTR_LIDAR_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
+#define ADXL343_CS_GPIO GPIOA
+#define ADXL343_CS_PIN GPIO_PIN_5
+#define PWM_MAX_DUTY_CYCLE 8499
+#define FWD_GPIO_PIN GPIO_PIN_8  // PA8 -> FWD
+#define REV_GPIO_PIN GPIO_PIN_9  // PA9 -> REV
+#define FWD_GPIO_PORT GPIOA      // Port pour FWD
+#define REV_GPIO_PORT GPIOA      // Port pour REV
+#define UART_RX_BUFFER_SIZE 1
+#define UART_TX_BUFFER_SIZE 64
 
+#define STACK_SIZE 256
+
+#define TAP_THRESHOLD 50
+#define TAP_DUR 15
+#define TAP_LATENT 0xFF
+
+#define MAX_SPEED_FORWARD 70
+#define MAX_SPEED_REVERSE -70
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

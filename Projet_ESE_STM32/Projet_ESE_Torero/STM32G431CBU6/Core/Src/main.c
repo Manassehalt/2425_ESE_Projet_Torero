@@ -35,19 +35,7 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-#define ADXL343_CS_GPIO GPIOA
-#define ADXL343_CS_PIN GPIO_PIN_5
-#define PWM_MAX_DUTY_CYCLE 8499
-#define FWD_GPIO_PIN GPIO_PIN_8  // PA8 -> FWD
-#define REV_GPIO_PIN GPIO_PIN_9  // PA9 -> REV
-#define FWD_GPIO_PORT GPIOA      // Port pour FWD
-#define REV_GPIO_PORT GPIOA      // Port pour REV
-#define UART_RX_BUFFER_SIZE 1
-#define UART_TX_BUFFER_SIZE 64
 
-#define STACK_SIZE 256
-
-#define SHOCK_THRESHOLD 15
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -57,6 +45,8 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
+extern TIM_HandleTypeDef htim16;
+
 LIDAR_HandleTypeDef_t hlidar;
 
 SemaphoreHandle_t SemHalfCallBack;
@@ -89,6 +79,7 @@ void TaskLIDAR(void * pvParameters);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+int motor_init = 0;
 
 //flag caoteurs bord
 int capteur_G = 0;
@@ -100,12 +91,14 @@ int vitesse;	//
 
 //Etat Robot
 int etat = 0;	//0 -> souris	1 -> chat
-int alpha1,alpha2;
+int alpha1 = MAX_SPEED_FORWARD; //moteur droit
+int alpha2 = MAX_SPEED_FORWARD; //moteur gauche
 float coeff_Lidar, coeff_Capteur;
 float delta;
 
 
-int EdgeProcess;
+int EdgeProcess = 0;
+int ShockProcess = 0;
 
 //SemaphoreHandle_t xNoSignalSemaphore;
 SemaphoreHandle_t SemDMAHalfCallBack;
@@ -117,7 +110,8 @@ int idx_min = 0;
 uint16_t frame_start = 0;
 uint16_t frame_end = 0;
 
-
+//Accéléromètre
+uint8_t rst_int;
 
 int __io_putchar(int chr){
 	HAL_UART_Transmit(&huart2, (uint8_t*)&chr, 1, HAL_MAX_DELAY);
@@ -141,18 +135,23 @@ void print_buffer(const char * Name, uint8_t *pData, uint16_t Size, int N_lines)
 void TaskETAT(void * pvParameters){
 	for (;;) {
 		// Attendre que la notification arrive
-		//printf("hi\r\n");
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
-		//lire INT_SOURCE met à 0 bit interruption single tap pour générer une nouvelle interruption au prochain tap
-		uint8_t rst_int = SPI_Read(ADXL343_REG_INT_SOURCE);
+		ShockProcess++;
+		//lire INT_SOURCE met à 0 le bit d'interruption single tap
+		//du registre pour générer une nouvelle interruption au prochain tap
+		rst_int = SPI_Read(ADXL343_REG_INT_SOURCE);
 		if(etat == 1){
 			etat = 0;
-			//printf("Squik\r\n");
+			printf("Squik\r\n");
 		}
 		else{
 			etat = 1;
-			//printf("Miaou\r\n");
+			printf("Miaou\r\n");
 		}
+		alpha1 = MAX_SPEED_REVERSE;
+		alpha2 = MAX_SPEED_REVERSE+40;
+		vTaskDelay(pdMS_TO_TICKS(400));
+		ShockProcess--;
 	}
 }
 
@@ -163,17 +162,9 @@ void TaskLIDAR(void * pvParameters){
 
 void TaskMOTOR (void * pvParameters){
 	for(;;){
-		if(EdgeProcess==0){
-			int cpt=0;
-			while(cpt==0){
-				Motor_Forward_R(30);
-				Motor_Forward_L(30);
-				Motor_Forward_R(50);
-				Motor_Forward_L(50);
-				cpt++;
-			}
-			Motor_Forward_R(75);
-			Motor_Forward_L(75);
+		if((EdgeProcess||ShockProcess) == 0){
+			alpha1 = MAX_SPEED_FORWARD;
+			alpha2 = MAX_SPEED_FORWARD;
 		}
 	}
 }
@@ -192,44 +183,50 @@ void TaskEDGE(void * pvParameters){
 
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 		EdgeProcess++;
-		Motor_Forward_R(0);
-		Motor_Forward_L(0);
-		vTaskDelay(pdMS_TO_TICKS(10));
 
 		/* Cas Robot bord frontal */
-		while((capteur_D&&capteur_G)==1){
-			Motor_Reverse_R(50);
-			Motor_Reverse_L(40);
-			vTaskDelay(pdMS_TO_TICKS(800));
+		if((capteur_D&&capteur_G)==1){
+			while((capteur_D&&capteur_G)==1){
+				alpha1 = MAX_SPEED_REVERSE;
+				alpha2 = MAX_SPEED_REVERSE;
+			}
+			vTaskDelay(pdMS_TO_TICKS(100));
+
+
+			alpha1 = MAX_SPEED_FORWARD;
+			alpha2 = MAX_SPEED_REVERSE;
+			vTaskDelay(pdMS_TO_TICKS(200));
 		}
 
 		/* Cas Robot bord droit tourne a gauche */
-		while((capteur_D)==1){
-			// reculer, tourner et repartir
-			Motor_Reverse_R(30);
-			Motor_Reverse_L(30);
-			vTaskDelay(pdMS_TO_TICKS(800));
-
-			for(int i=0;i<4;i++){
-				Motor_Forward_R(50+10*i);
-				Motor_Reverse_L(50-10*i);
-				vTaskDelay(pdMS_TO_TICKS(100));
+		if(capteur_D){
+			while(capteur_D){
+				// reculer, tourner et repartir
+				alpha1 = MAX_SPEED_REVERSE;
+				alpha2 = MAX_SPEED_REVERSE;
 			}
+			vTaskDelay(pdMS_TO_TICKS(100));
+
+
+			alpha1 = MAX_SPEED_FORWARD;
+			alpha2 = MAX_SPEED_REVERSE;
+			vTaskDelay(pdMS_TO_TICKS(200));
 		}
 
 		/* Cas Robot bord gauche tourne a droite */
-		while((capteur_G)==1){
-			// reculer, tourner et repartir
-			Motor_Reverse_R(30);
-			Motor_Reverse_L(30);
-			vTaskDelay(pdMS_TO_TICKS(800));
-
-			for(int i=0;i<4;i++){
-				Motor_Forward_L(50+10*i);
-				Motor_Reverse_R(50-10*i);
-				vTaskDelay(pdMS_TO_TICKS(100));
+		if(capteur_G){
+			while(capteur_G){
+				// reculer, tourner et repartir
+				alpha1 = MAX_SPEED_REVERSE;
+				alpha2 = MAX_SPEED_REVERSE;
 			}
+			vTaskDelay(pdMS_TO_TICKS(100));
+
+			alpha1 = MAX_SPEED_FORWARD;
+			alpha2 = MAX_SPEED_REVERSE;
+			vTaskDelay(pdMS_TO_TICKS(200));
 		}
+		rst_int = SPI_Read(ADXL343_REG_INT_SOURCE);
 		EdgeProcess--;
 	}
 }
@@ -273,11 +270,11 @@ int main(void)
 	MX_TIM4_Init();
 	MX_USART2_UART_Init();
 	MX_USART3_UART_Init();
+	MX_TIM16_Init();
 	/* USER CODE BEGIN 2 */
 	Start_Motors();
-	Motor_Forward_R(50);
-	Motor_Forward_L(50);
 	ADXL343_Init();
+	HAL_TIM_Base_Start_IT(&htim16);
 	LIDAR_Init(&hlidar);
 	LIDAR_Start(&hlidar);
 
@@ -318,7 +315,6 @@ int main(void)
 
 	SemDMAHalfCallBack = xSemaphoreCreateBinary();
 	SemDMAClpCallBack = xSemaphoreCreateBinary();
-
 
 	/* USER CODE END 2 */
 
@@ -385,10 +381,12 @@ void SystemClock_Config(void)
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 
 	if (GPIO_Pin == INT1_ACC_Pin) {
-		BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-		vTaskNotifyGiveFromISR(xHandleETAT, &xHigherPriorityTaskWoken);
-		portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
-		HAL_GPIO_TogglePin(GPIOC, Status_LED_Pin);
+		if(EdgeProcess==0){
+			BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+			vTaskNotifyGiveFromISR(xHandleETAT, &xHigherPriorityTaskWoken);
+			portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+			HAL_GPIO_TogglePin(GPIOC, Status_LED_Pin);
+		}
 	}
 	if (GPIO_Pin == CAPTEUR_D_Pin) {
 		if(capteur_D==1){
@@ -415,6 +413,17 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 		portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
 	}
 }
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
+{
+	if (htim->Instance == TIM16){
+		if(motor_init){
+			Motor_SetSpeed_R(alpha1);
+			Motor_SetSpeed_L(alpha2);
+		}
+	}
+}
+
 /*
 void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
 {

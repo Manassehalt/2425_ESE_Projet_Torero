@@ -1,6 +1,7 @@
 #include "usart.h"
 #include "spi.h"
 #include "ADXL.h"
+#include "main.h"
 #include "cmsis_os.h"
 
 #include <stdio.h>
@@ -69,11 +70,11 @@ void ADXL343_Init(void) {
 		SPI_Write(ADXL343_REG_DATA_FORMAT, 0x00);  // DATA_FORMAT : FULL_RES = 1, RANGE = ±2g
 
 		//Configuration single tap
-		SPI_Write(ADXL343_REG_THRESH_TAP, 50);	// Config seuil choc
-		SPI_Write(ADXL343_REG_DUR, 15);	// Config durée choc
-		SPI_Write(ADXL343_REG_LATENT, 0xC8);	// Config latence choc
+		SPI_Write(ADXL343_REG_THRESH_TAP, TAP_THRESHOLD);	// Config seuil choc
+		SPI_Write(ADXL343_REG_DUR, TAP_DUR);	// Config durée choc
+		SPI_Write(ADXL343_REG_LATENT, TAP_LATENT);	// Config latence choc
 
-		SPI_Write(ADXL343_REG_TAP_AXES, 0x07);	// Activer axe X Y
+		SPI_Write(ADXL343_REG_TAP_AXES, 0x07);	// Activer axe X Y Z
 		SPI_Write(ADXL343_REG_BW_RATE, 0x0F);  // Configurer la bande passante
 
 		SPI_Write(ADXL343_REG_INT_MAP, 0x00);	// Configurer pin interruption
@@ -84,7 +85,6 @@ void ADXL343_Init(void) {
 		char *msg = "ADXL343 detecte et initialise !\r\n";
 		HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
 		uint8_t check = SPI_Read(ADXL343_REG_INT_SOURCE);
-		printf("%x\r\n", check);
 	} else {
 		char *error_msg = "Erreur : ADXL343 non detecte !\r\n";
 		HAL_UART_Transmit(&huart2, (uint8_t *)error_msg, strlen(error_msg), HAL_MAX_DELAY);
