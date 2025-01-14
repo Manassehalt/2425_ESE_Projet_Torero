@@ -415,7 +415,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
-{
+{	
+	//Timer qui génère une interruption toutes les 1ms pour faire une rampe d'accélération des moteurs
 	if (htim->Instance == TIM16){
 		if(motor_init){
 			Motor_SetSpeed_R(alpha1);
