@@ -139,7 +139,7 @@ void TaskETAT(void * pvParameters){
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 		ShockProcess++;
 		//lire INT_SOURCE met à 0 le bit d'interruption single tap
-		//du registre pour générer une nouvelle interruption au prochain tap
+		//du registre pour générer une nouvelle interruption au prochain choc
 		rst_int = SPI_Read(ADXL343_REG_INT_SOURCE);
 		if(etat == 1){
 			etat = 0;
@@ -227,6 +227,8 @@ void TaskEDGE(void * pvParameters){
 			alpha2 = MAX_SPEED_REVERSE;
 			vTaskDelay(pdMS_TO_TICKS(200));
 		}
+		//lire INT_SOURCE met à 0 le bit d'interruption single tap
+		//du registre pour générer une nouvelle interruption au prochain choc
 		rst_int = SPI_Read(ADXL343_REG_INT_SOURCE);
 		EdgeProcess--;
 	}

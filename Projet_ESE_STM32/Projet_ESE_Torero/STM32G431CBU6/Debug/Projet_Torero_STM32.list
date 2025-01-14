@@ -1774,7 +1774,7 @@ void TaskETAT(void * pvParameters){
  8001300:	4a15      	ldr	r2, [pc, #84]	@ (8001358 <TaskETAT+0x70>)
  8001302:	6013      	str	r3, [r2, #0]
 		//lire INT_SOURCE met à 0 le bit d'interruption single tap
-		//du registre pour générer une nouvelle interruption au prochain tap
+		//du registre pour générer une nouvelle interruption au prochain choc
 		rst_int = SPI_Read(ADXL343_REG_INT_SOURCE);
  8001304:	2030      	movs	r0, #48	@ 0x30
  8001306:	f007 fda1 	bl	8008e4c <SPI_Read>
@@ -2035,6 +2035,8 @@ void TaskEDGE(void * pvParameters){
  80014a2:	20c8      	movs	r0, #200	@ 0xc8
  80014a4:	f006 fbb0 	bl	8007c08 <vTaskDelay>
 		}
+		//lire INT_SOURCE met à 0 le bit d'interruption single tap
+		//du registre pour générer une nouvelle interruption au prochain choc
 		rst_int = SPI_Read(ADXL343_REG_INT_SOURCE);
  80014a8:	2030      	movs	r0, #48	@ 0x30
  80014aa:	f007 fccf 	bl	8008e4c <SPI_Read>
@@ -2505,19 +2507,21 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 
 080017c0 <HAL_TIM_PeriodElapsedCallback>:
 
+//Timer qui génère une interruption toutes les 1ms pour faire une rampe d'accélération des moteurs
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
-{
+{	
  80017c0:	b580      	push	{r7, lr}
  80017c2:	b082      	sub	sp, #8
  80017c4:	af00      	add	r7, sp, #0
  80017c6:	6078      	str	r0, [r7, #4]
+	//Timer qui génère une interruption toutes les 1ms pour faire une rampe d'accélération des moteurs
 	if (htim->Instance == TIM16){
  80017c8:	687b      	ldr	r3, [r7, #4]
  80017ca:	681b      	ldr	r3, [r3, #0]
  80017cc:	4a0a      	ldr	r2, [pc, #40]	@ (80017f8 <HAL_TIM_PeriodElapsedCallback+0x38>)
  80017ce:	4293      	cmp	r3, r2
  80017d0:	d10d      	bne.n	80017ee <HAL_TIM_PeriodElapsedCallback+0x2e>
-		if(motor_init){
+		if(motor_init){		//Attendre de générer les PWM avant de mettre à jour leur rapport cyclique
  80017d2:	4b0a      	ldr	r3, [pc, #40]	@ (80017fc <HAL_TIM_PeriodElapsedCallback+0x3c>)
  80017d4:	681b      	ldr	r3, [r3, #0]
  80017d6:	2b00      	cmp	r3, #0
