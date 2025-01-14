@@ -58,18 +58,18 @@
 
 - [x] designer le parchoc qui porte les capteur de bord 
 - [x] designer les support ajustable
-- [ ] imprimer les pieces du robot
+- [x] imprimer les pieces du robot
 
 </details>
 <details >
 <summary>  <strong><ins> SOFTWARE: </ins></strong></summary>
 
 
-- [ ] piloter les driver moteurs
+- [x] piloter les driver moteurs
 - [ ] piloter le lidar
 - [ ] recevoir les donnés du lidar et les interpréter
 - [x] recevoir les donnés de l'accelerometre
-- [ ] recevoir les donnés des capteurs de bords
+- [x] recevoir les donnés des capteurs de bords
 - [ ] realiser les comportement en odometrie
 - [ ] coder les comportement de fuite/evitement
 - [ ] coder les comportement de chasse/collision
