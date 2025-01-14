@@ -1,20 +1,19 @@
 
 /* Includes ----------------------------------------------------------------- */
 #include "lidarX4.h"
-
+#include "gpio.h"
 /* Functions ---------------------------------------------------------------- */
-extern UART_HandleTypeDef huart3;
-extern uint16_t frame_start, frame_end;
+
 /*
  * @brief Initialization of the lidar
  * @param
  */
 void LIDAR_Init(LIDAR_HandleTypeDef_t * hlidar){
 	hlidar->huart = &huart3;
-	/*
+
 	HAL_GPIO_WritePin(GPIOA, DEV_EN_LIDAR_Pin, GPIO_PIN_SET);
 	// Enable M_EN lidar
-	HAL_GPIO_WritePin(M_EN_LIDAR_GPIO_Port, M_EN_LIDAR_Pin, GPIO_PIN_SET);*/
+	HAL_GPIO_WritePin(M_EN_LIDAR_GPIO_Port, M_EN_LIDAR_Pin, GPIO_PIN_SET);
 
 }
 

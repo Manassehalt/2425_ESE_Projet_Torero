@@ -8,9 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-TaskHandle_t Bump_task = NULL;
-
+extern uint8_t rst_int;
 
 void SPI_Write(uint8_t reg, uint8_t value) {
 	uint8_t data[2];
@@ -80,11 +78,11 @@ void ADXL343_Init(void) {
 		SPI_Write(ADXL343_REG_INT_MAP, 0x00);	// Configurer pin interruption
 		SPI_Write(ADXL343_REG_INT_ENABLE, 0x40);  // Activer interruption
 		SPI_Write(ADXL343_REG_POWER_CTL, 0x08);
-		//Read_Acceleration(float *accel_data);    // Lire les données pour effacer l'interruption
+
 
 		char *msg = "ADXL343 detecte et initialise !\r\n";
 		HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
-		uint8_t check = SPI_Read(ADXL343_REG_INT_SOURCE);
+		rst_int = SPI_Read(ADXL343_REG_INT_SOURCE); // Lire les données pour effacer l'interruption
 	} else {
 		char *error_msg = "Erreur : ADXL343 non detecte !\r\n";
 		HAL_UART_Transmit(&huart2, (uint8_t *)error_msg, strlen(error_msg), HAL_MAX_DELAY);

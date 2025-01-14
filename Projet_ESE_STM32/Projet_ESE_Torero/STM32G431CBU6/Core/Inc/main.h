@@ -113,7 +113,6 @@ void Error_Handler(void);
 /* USER CODE BEGIN Private defines */
 #define ADXL343_CS_GPIO GPIOA
 #define ADXL343_CS_PIN GPIO_PIN_5
-#define PWM_MAX_DUTY_CYCLE 8499
 #define FWD_GPIO_PIN GPIO_PIN_8  // PA8 -> FWD
 #define REV_GPIO_PIN GPIO_PIN_9  // PA9 -> REV
 #define FWD_GPIO_PORT GPIOA      // Port pour FWD
@@ -122,6 +121,11 @@ void Error_Handler(void);
 #define UART_TX_BUFFER_SIZE 64
 
 #define STACK_SIZE 256
+#define PRIORITY_LIDAR 0
+#define PRIORITY_MOTOR 1
+#define PRIORITY_ETAT 2
+#define PRIORITY_EDGE 3
+
 
 #define TAP_THRESHOLD 50
 #define TAP_DUR 15

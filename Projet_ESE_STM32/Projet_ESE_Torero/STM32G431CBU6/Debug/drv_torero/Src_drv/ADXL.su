@@ -1,4 +1,4 @@
-../drv_torero/Src_drv/ADXL.c:15:6:SPI_Write	24	static
-../drv_torero/Src_drv/ADXL.c:25:9:SPI_Read	24	static
-../drv_torero/Src_drv/ADXL.c:37:19:Read_Acceleration	40	static
-../drv_torero/Src_drv/ADXL.c:63:6:ADXL343_Init	24	static
+../drv_torero/Src_drv/ADXL.c:13:6:SPI_Write	24	static
+../drv_torero/Src_drv/ADXL.c:23:9:SPI_Read	24	static
+../drv_torero/Src_drv/ADXL.c:35:19:Read_Acceleration	40	static
+../drv_torero/Src_drv/ADXL.c:61:6:ADXL343_Init	24	static

@@ -73,6 +73,7 @@ void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
 void TaskMOTOR (void * pvParameters);
 void TaskETAT(void * pvParameters);
+void TaskEDGE(void * pvParameters);
 void TaskLIDAR(void * pvParameters);
 /* USER CODE END PFP */
 
@@ -96,7 +97,7 @@ int alpha2 = MAX_SPEED_FORWARD; //moteur gauche
 float coeff_Lidar, coeff_Capteur;
 float delta;
 
-
+//Flag pour bloquer l'actualisation de la vitesse des moteurs de TaskMOTOR
 int EdgeProcess = 0;
 int ShockProcess = 0;
 
@@ -278,7 +279,7 @@ int main(void)
 	LIDAR_Init(&hlidar);
 	LIDAR_Start(&hlidar);
 
-	ret = xTaskCreate(TaskETAT,"TaskETAT",STACK_SIZE,(void *) NULL,2,&xHandleETAT);
+	ret = xTaskCreate(TaskETAT,"TaskETAT",STACK_SIZE,(void *) NULL,PRIORITY_ETAT,&xHandleETAT);
 	if (ret != pdPASS)
 	{
 		printf("Error creating TaskETAT\r\n");
@@ -287,7 +288,7 @@ int main(void)
 	printf("Task ETAT created\r\n");
 
 	/*
-	ret = xTaskCreate(TaskLIDAR,"TaskLIDAR",STACK_SIZE,(void *) NULL,3,&xHandleLIDAR);
+	ret = xTaskCreate(TaskLIDAR,"TaskLIDAR",STACK_SIZE,(void *) NULL,PRIORITY_LIDAR,&xHandleLIDAR);
 	if (ret != pdPASS)
 	{
 		printf("Error creating TaskLIDAR\r\n");
@@ -296,7 +297,7 @@ int main(void)
 	printf("Task LIDAR created\r\n");
 	 */
 
-	ret = xTaskCreate(TaskMOTOR,"TaskMOTOR",STACK_SIZE,(void *) NULL,1,&xHandleMOTOR);
+	ret = xTaskCreate(TaskMOTOR,"TaskMOTOR",STACK_SIZE,(void *) NULL,PRIORITY_MOTOR,&xHandleMOTOR);
 	if (ret != pdPASS)
 	{
 		printf("Error creating TaskMOTOR\r\n");
@@ -305,7 +306,7 @@ int main(void)
 	printf("Task MOTOR created\r\n");
 
 
-	ret = xTaskCreate(TaskEDGE,"TaskEDGE",STACK_SIZE,(void *) NULL,3,&xHandleEDGE);
+	ret = xTaskCreate(TaskEDGE,"TaskEDGE",STACK_SIZE,(void *) NULL,PRIORITY_EDGE,&xHandleEDGE);
 	if (ret != pdPASS)
 	{
 		printf("Error creating TaskEDGE\r\n");
@@ -414,10 +415,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	}
 }
 
+//Timer qui génère une interruption toutes les 1ms pour faire une rampe d'accélération des moteurs
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
 {
 	if (htim->Instance == TIM16){
-		if(motor_init){
+		if(motor_init){		//Attendre de générer les PWM avant de mettre à jour leur rapport cyclique
 			Motor_SetSpeed_R(alpha1);
 			Motor_SetSpeed_L(alpha2);
 		}
