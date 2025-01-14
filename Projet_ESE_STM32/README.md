@@ -20,7 +20,7 @@ lorsqu'ils la voient de nouveau permettant ainsi de régler la marche arrière d
 A remplir
 
 ## Implémentation FreeRTOS
-TaskMOTOR de priorité 1
+# TaskMOTOR de priorité 1
 Cette tâche actualise la vitesse des moteurs à l'aide des variable alpha1 pour le moteur droit et alpha2 pour le moteur gauche pour atteindre 
 la vitesse maximale en ligne droite.
 Les fonctions utilisées Motor_SetSpeed_L et Motor_SetSpeed_R font converger le rapport cyclique des PWM par pas de 1 à chaque interruption
@@ -32,11 +32,11 @@ Cette tâche est bloqué par deux flags :
 Cet ajout permet de réaliser les manoeuvres d'évitement de bord et de changement de direction suite à un choc sans que TaskMOTOR remette la vitesse
 des moteurs à leur valeur maximale en ligne droite.
 
-TaskETAT de priorité 2
+# TaskETAT de priorité 2
 Cette tâche reçoit une notification par l'interruption générée lorsque le robot reçoit un choc. Elle active le flag ShockProcess car on réalise 
 un changement de direction qui ne doit pas être influencer par TaskMOTOR.
 
-TaskEDGE de priorité 3
+# TaskEDGE de priorité 3
 Cette tâche reçoit une notification par les interruptions générées par les capteurs de bord. Elle active le flag EdgeProcess qui bloque TaskMOTOR
 pour réaliser les manoeuvres d'évitement de bord. Ce flag bloque aussi les interruptions dûes aux chocs pendant l'évitement du bord.
 Cet ajout permet de ne pas changer d'état suite à des changements brusques de direction. Il y avait des changements d'état virtuels lorsque le 
