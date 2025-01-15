@@ -54,10 +54,9 @@ SemaphoreHandle_t SemClpCallBack;
 
 TaskHandle_t xHandleLIDAR = NULL;
 TaskHandle_t xHandleETAT = NULL;
-TaskHandle_t xHandleACC = NULL;
 TaskHandle_t xHandleMOTOR = NULL;
 TaskHandle_t xHandleEDGE = NULL;
-//TaskHandle_t xHandleMOTOR = NULL;
+
 BaseType_t ret;
 /* USER CODE END PM */
 
@@ -82,20 +81,20 @@ void TaskLIDAR(void * pvParameters);
 
 int motor_init = 0;
 
-//flag caoteurs bord
+//flag capteurs bord
 int capteur_G = 0;
 int capteur_D = 0;
 
-//Vitesse
+//Asservissement
 int angle;		//Calcul de alpha
 int vitesse;	//
 
 //Etat Robot
 int etat = 0;	//0 -> souris	1 -> chat
+
+//Commande moteur
 int alpha1 = MAX_SPEED_FORWARD; //moteur droit
 int alpha2 = MAX_SPEED_FORWARD; //moteur gauche
-float coeff_Lidar, coeff_Capteur;
-float delta;
 
 //Flag pour bloquer l'actualisation de la vitesse des moteurs de TaskMOTOR
 int EdgeProcess = 0;
@@ -110,6 +109,8 @@ int distance_min=0;
 int idx_min = 0;
 uint16_t frame_start = 0;
 uint16_t frame_end = 0;
+float coeff_Lidar, coeff_Capteur;
+float delta;
 
 //Accéléromètre
 uint8_t rst_int;
