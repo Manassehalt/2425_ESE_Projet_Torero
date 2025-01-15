@@ -70,11 +70,3 @@ Voici le schéma d'un des caepterus de bord :
 ![image](https://github.com/user-attachments/assets/f5ae0c31-2263-4cc9-9992-8436d3f53350)
 
 
----
-
-## 📋 Instructions
-
-1. **Téléchargez les fichiers du PCB** via [le dépôt GitHub](#).
-2. **Compilez les fichiers KiCad** pour visualiser les schémas et la disposition du PCB.
-3. **Procédez à l'assemblage** en respectant les schémas fournis.
-
