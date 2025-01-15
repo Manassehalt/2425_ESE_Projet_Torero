@@ -63,7 +63,7 @@ https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/PCB
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/PCB/Projet_torero/Projet_torero.kicad_sch
 
 ### DOSSIER CODE STM32 : 
-https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/Projet_ESE_STM32/Projet_ESE_Torero/STM32G431CBU6
+https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/Projet_ESE_STM32
 
 ### DOSSIER CALCULS : 
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/8892ed05e16a1e8a040fe9dc08f9f57ab23dc9e8/Calculs%20et%20brouillons
