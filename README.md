@@ -43,9 +43,6 @@ https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/Datasheet
 ### LISTE des choses faite ou a faire : 
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Calculs%20et%20brouillons/Remarque_Sch.md
 
-### Lien utile : 
-https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Calculs%20et%20brouillons/Liens.xlsx
-
 ### BOM : 
 https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/BOM.xlsx
 
