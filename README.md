@@ -3,7 +3,11 @@
 
 # 2425_ESE_Projet_Torero
 
-## Projet de ESE de 3éme année de JACQUOT Nolan, GUIFFAULT Gabriel, BOULOT Paul et THOMAR Jean-Philippe
+Projet de 3ème année d'ESE réalisé par :  
+- **JACQUOT Nolan**  
+- **GUIFFAULT Gabriel**  
+- **BOULOT Paul**  
+- **THOMAR Jean-Philippe**
 
 Ce projet contient toute les ressources de l'élaboration d'un robot capable de jouer au chat et a la souris.
 Les liens vers les differentes ressources sont énuméré avec un court intitulé a la FIN du README.
