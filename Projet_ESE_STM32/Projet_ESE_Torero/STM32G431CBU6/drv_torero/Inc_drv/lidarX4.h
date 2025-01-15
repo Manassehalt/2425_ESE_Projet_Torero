@@ -1,4 +1,10 @@
-
+/**
+  ******************************************************************************
+  * @file    lidarX4.h
+  * @brief   This file contains all the structures ,defines, and function prototypes for
+  *          the lidarX4.c file
+  ******************************************************************************
+  */
 
 #ifndef YDLIDARX4_DRIVER_YDLIDARX4_HEADER_H_
 #define YDLIDARX4_DRIVER_YDLIDARX4_HEADER_H_
@@ -8,9 +14,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include "math.h"
-/*
-#include "usart.h"
-#include "gpio.h"*/
+
 
 /* Defines ------------------------------------------------------------------ */
 #define DATA_BUFF_SIZE_LIDAR 2000 // Size of the data buffer received with DMA
@@ -22,13 +26,15 @@
 
 #define CLUSTER_THRESHOLD 20  // Threshold difference for separating clusters
 #define MAX_CLUSTERS 100      // Maximum number of clusters
-//#define NB_DEGREES 360        // Number of degrees in the LIDAR sweep
 
 /* Typedef ------------------------------------------------------------------ */
 extern UART_HandleTypeDef huart3;
 extern uint16_t frame_start, frame_end;
+
 /*
- * @brief
+ * @brief Definition of the structure storing the hexadecimal commands of the lidar
+ * It will be used as following in the lidarX4.c file : {START_CMD_LIDAR, ***_CMD_LIDAR}
+ * "***_CMD_LIDAR" refers to the command you want to send (cf. Reference manual of the YDLIDARX4)
  */
 typedef enum LIDAR_CMD{
 	START_CMD_LIDAR = 0xA5, // Lidar start, 1st byte of the command buffer
@@ -37,11 +43,11 @@ typedef enum LIDAR_CMD{
 	GET_INFO_CMD_LIDAR = 0x90, // Get device information command
 	GET_HEALTH_CMD_LIDAR = 0x91, // Get health information command
 	RESTART_CMD_LIDAR = 0x80 // Lidar restart command
-
 }LIDAR_CMD_t;
 
 /*
- * @brief
+ * @brief Definition of the structure storing the buffers and variables used to parse the lidar
+ * data receiving continuously by DMA during the scan. (SCAN_CMD_LIDAR)
  */
 typedef struct LIDAR_ScanDataStruct{
 	uint16_t PH; // Packet header (2B)
@@ -51,13 +57,13 @@ typedef struct LIDAR_ScanDataStruct{
 	uint16_t LSA; // End Angle (2B)
 	uint16_t CS; // Check code (2B)
 	uint8_t index; // Frame index (1B)
-	uint8_t frame_buff[FRAME_BUFF_SIZE_LIDAR];
-	int point_buff[POINT_BUFF_SIZE_LIDAR];
-	int filtered_buff[POINT_BUFF_SIZE_LIDAR];
+	uint8_t frame_buff[FRAME_BUFF_SIZE_LIDAR];  // buffer containing one frame from the lidar
+	int point_buff[POINT_BUFF_SIZE_LIDAR]; // buffer containing the raw distances points over 360 degrees
+	int filtered_buff[POINT_BUFF_SIZE_LIDAR]; // buffer containing the filtered point using a median filter
 }LIDAR_ScanData_t;
 
 /*
- * @brief Structure to store cluster information
+ * @brief Definition of the structure to store cluster information
  */
 typedef struct LIDAR_ClusterStruct {
     int mean_angle;           // Mean angle of the cluster
@@ -66,7 +72,7 @@ typedef struct LIDAR_ClusterStruct {
 } LIDAR_Cluster_t;
 
 /*
- * @brief
+ * @brief Definition of the structure storing the device information received after the GET_INFO_CMD_LIDAR.
  */
 typedef struct LIDAR_DeviceInfoStruct{
 	uint16_t start_sign;
@@ -80,7 +86,7 @@ typedef struct LIDAR_DeviceInfoStruct{
 }LIDAR_DeviceInfo_t;
 
 /*
- * @brief
+ * @brief Definition of the structure storing the Health information received after the GET_HEALTH_CMD_LIDAR.
  */
 typedef struct LIDAR_HealthStatusStruct{
 	uint16_t start_sign;
@@ -92,7 +98,7 @@ typedef struct LIDAR_HealthStatusStruct{
 }LIDAR_HealthStatus_t;
 
 /*
- * @brief
+ * @brief Definition of the lidar handle structure
  */
 typedef struct LIDAR_HandleStruct{
 	UART_HandleTypeDef *huart;		// huart 3 handle
