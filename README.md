@@ -87,7 +87,3 @@ Objectif annexe:
 
 - [Dossier calculs](https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/8892ed05e16a1e8a040fe9dc08f957ab23dc9e8/Calculs%20et%20brouillons)  
 
-
-### Ligne pour cloner un répertoire en utilisant le port 443 (https) au lieu du port 22, si bug sur la connexion:
-> [!TIP]
->git clone ssh://git@ssh.github.com:443/username/Repositority_name.git
