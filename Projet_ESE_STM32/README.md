@@ -5,7 +5,9 @@ https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/Projet_ESE_STM32
 
 ## Driver Moteurs motor.c
 Démarre la génération des PWM sur les timers TIM1 et TIM2
+
 Fonction Motor_SetSpeed_L pour contrôler le moteur gauche
+
 Fonction Motor_SetSpeed_R pour contrôler le moteur droit
 
 ## Driver ADXL ADXL.c
