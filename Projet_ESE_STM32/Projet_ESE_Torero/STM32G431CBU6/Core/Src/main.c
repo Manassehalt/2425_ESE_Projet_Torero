@@ -170,6 +170,175 @@ void TaskMOTOR (void * pvParameters){
 		}
 	}
 }
+/*
+void TaskMOTOR (void * pvParameters){
+	for(;;){
+ 		if((EdgeProcess||ShockProcess) == 0){
+			if (Etat_Robot == 0){
+				/* Cas Robot loin */
+				if (distance>==TRIG_DIST) {
+					alpha1 = MAX_SPEED_FORWARD;
+					alpha2 = MAX_SPEED_FORWARD; 
+				}
+				/* Cas Robot proche */
+				if (distance<=TRIG_DIST) {
+					if (ANGLE_R <=45 || ANGLE_R >=315) {
+						if (ANGLE_R <=45) {
+							alpha1 = MAX_SPEED_FORWARD;
+							alpha2 = MAX_SPEED_FORWARD - ANGLE_R;
+						}
+						else{
+							alpha1 = MAX_SPEED_FORWARD -(ANGLE_MAX-ANGLE_R);
+							alpha2 = MAX_SPEED_FORWARD;
+						}
+					}
+					else if (ANGLE_R <=90 || ANGLE_R >=270) {
+						if (ANGLE_R <=90) {
+							alpha1 = MAX_SPEED_FORWARD;
+							alpha2 = MAX_SPEED_FORWARD;
+						}
+						else{
+							alpha1 = MAX_SPEED_FORWARD;
+							alpha2 = MAX_SPEED_FORWARD;
+						}
+	
+					}
+					else if (ANGLE_R <=180 || ANGLE_R >=180) {
+						if (ANGLE_R <=180) {
+							alpha1 = MAX_SPEED_FORWARD;
+							alpha2 = MAX_SPEED_FORWARD - 10;
+						}
+						else{
+							alpha1 = MAX_SPEED_FORWARD - 10;
+							alpha2 = MAX_SPEED_FORWARD;
+						}
+					} 
+				}   
+			}
+			if(Etat_Robot == 1){
+							/* Cas Robot loin */
+				if (distance>=TRIG_DIST) {
+					if (ANGLE_R <=45 || ANGLE_R >=315) {
+						if (ANGLE_R <=45) {
+							alpha1 = MAX_SPEED_FORWARD - 5;
+							alpha2 = MAX_SPEED_FORWARD;
+						}
+						else{
+							alpha1 = MAX_SPEED_FORWARD;
+							alpha2 = MAX_SPEED_FORWARD - 5;
+						}
+					}
+					else if (ANGLE_R <=90 || ANGLE_R >=270) {
+						if (ANGLE_R <=90) {
+							alpha1 = 50 - ANGLE_R;
+							alpha2 = MAX_SPEED_FORWARD;
+						}
+						else{
+							alpha1 = MAX_SPEED_FORWARD;
+							alpha2 = 50 - (360-ANGLE_R);
+						}
+	
+					}
+				}
+					else if (ANGLE_R <=180 || ANGLE_R >=180) {
+						if (ANGLE_R <=180) {
+							alpha1 = - MAX_SPEED_FORWARD;
+							alpha2 = MAX_SPEED_FORWARD;
+						}
+						else{
+							alpha1 = MAX_SPEED_FORWARD;
+							alpha2 = - MAX_SPEED_FORWARD;
+						} 
+				}
+				/* Cas Robot proche */
+				if (distance<==TRIG_DIST) {
+					if (ANGLE_R <=45 || ANGLE_R >=315) {
+						if (ANGLE_R <=45) {
+							alpha1 = MAX_SPEED_FORWARD;
+							alpha2 = MAX_SPEED_FORWARD;
+						}
+						else{
+							alpha1 = MAX_SPEED_FORWARD;
+							alpha2 = MAX_SPEED_FORWARD;
+						}
+					}
+					else if (ANGLE_R <=90 || ANGLE_R >=270) {
+						if (ANGLE_R <=90) {
+							alpha1 = 70 - ANGLE_R;
+							alpha2 = MAX_SPEED_FORWARD;
+						}
+						else{
+							alpha1 = MAX_SPEED_FORWARD;
+							alpha2 = 70 - ANGLE_R;
+						}
+	
+					}
+					else if (ANGLE_R <=180 || ANGLE_R >=180) {
+						if (ANGLE_R <=180) {
+							alpha1 = - (MAX_SPEED_FORWARD - 10);
+							alpha2 = - MAX_SPEED_FORWARD;
+						}
+						else{
+							alpha1 = - MAX_SPEED_FORWARD;
+							alpha2 = - (MAX_SPEED_FORWARD - 10);
+						}
+					}    
+				}
+			}
+		}
+	}
+}
+
+*/
+/*		Début de comportement à implementer pour asserv dynamique
+ *
+ * 		capteur_virtuel = capteur_G&&capteur_D;
+		int erreur_capteur = -45*capteur_G+45*capteur_D+90*capteur_virtuel;
+		int erreurLidar = 10/180;
+		int alphaD = coeff_Lidar*erreurLidar-coeff_Capteur*erreur_capteur;
+		int alphaG = -coeff_Lidar*erreurLidar+coeff_Capteur*erreur_capteur;
+ */
+
+void TaskEDGE(void * pvParameters){
+	for (;;) {
+
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+		Motor_Forward_R(0);
+		Motor_Forward_L(0);
+		HAL_Delay(5);
+		/* Cas Robot bord frontal */
+		while((capteur_D|capteur_G)==1){
+			Motor_Reverse_R(50);
+			Motor_Reverse_L(50);
+			HAL_Delay(100);
+		}
+		/* Cas Robot bord droite tourne a gauche */
+		while((capteur_D)==1){
+			// reculer, tourner et repartir
+			Motor_Reverse_R(50);
+			Motor_Reverse_L(50);
+			HAL_Delay(100);
+			for(int i=0;i<5;i++){
+				Motor_Forward_R(50+10*i);
+				Motor_Reverse_L(50-10*i);
+				HAL_Delay(100);
+			}
+		}
+		/* Cas Robot bord gauche tourne a droite */
+		while((capteur_G)==1){
+			// reculer, tourner et repartir
+			Motor_Reverse_R(50);
+			Motor_Reverse_L(50);
+			HAL_Delay(100);
+			for(int i=0;i<5;i++){
+				Motor_Forward_L(50+10*i);
+				Motor_Reverse_R(50-10*i);
+				HAL_Delay(100);
+			}
+		}
+		//s'arreter, reculer, tourner et repartir 
+	}
+}
 
 /*		Début de comportement à implementer pour asserv dynamique
  *
