@@ -20,7 +20,7 @@ Les capteurs de bord génèrent directement des interruptions lorsqu'ils ne voie
 lorsqu'ils la voient de nouveau permettant ainsi de régler la marche arrière du robot pour se dégager du bord.
 
 ## Driver Lidar lidarX4.c
-Le driver n'est pas pleinement fonctionnel, mais son objectif est de gérer l'initialisation, la transmission des commandes et le traitement des données pour extraire les informations de distance et d'angle. Les données seraient filtrées pour réduire le bruit, et des commandes spécifiques permettraient de démarrer, arrêter ou vérifier l'état du Lidar. L'intégration repose sur l'utilisation de l'interface UART avec DMA en mode circulaire pour assurer un traitement en arrière-plan.
+Le driver n'est pas pleinement fonctionnel, mais son objectif est de gérer l'initialisation, la transmission des commandes et le traitement des données pour extraire les informations de distance et d'angle. Les données seraient filtrées pour réduire le bruit, et des commandes spécifiques permettraient de démarrer, arrêter ou vérifier l'état du Lidar. L'intégration repose sur l'utilisation de l'interface UART avec DMA en mode circulaire pour un traitement en arrière-plan.
 
 ## Implémentation FreeRTOS
 
