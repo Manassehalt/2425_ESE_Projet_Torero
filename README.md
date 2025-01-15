@@ -9,22 +9,22 @@ Projet de 3ème année d'ESE réalisé par :
 - **BOULOT Paul**  
 - **THOMAR Jean-Philippe**
 
-Ce projet consiste à concevoir un robot autonome combinant électronique et programmation pour jouer une partie de "chat et souris".
+Ce projet consiste à concevoir un robot autonome de A à Z, combinant électronique et programmation, pour jouer une partie de "chat et souris".
 
 ---
 
 ## Cahier des charges:
 > [!IMPORTANT]
->- Le robot doit etre capable de ce déplacer sur une table sans tomber (absence de bord et de marquage)
->- Le robot doit etre capable de detecter l'autre robot present sur la table pour le fuir ou le chasser en fonction de son role dans la partie.
->- Le robot doit etre capable de detecter un contact meme leger avec le robot adverse et changer son comportement d'un role vers l'autre.
+>- Le robot doit être capable de se déplacer sur une table sans tomber (absence de bord et de marquage)
+>- Le robot doit être capable de détecter l'autre robot présent sur la table pour le fuir ou le chasser en fonction de son rôle dans la partie.
+>- Le robot doit être capable de détecter un contact, même léger, avec le robot adverse et changer son comportement d'un rôle vers l'autre.
 
 Objectif annexe:
-- Le robot peut realiser une odometrie simple pour suivre le bord de table lorsqu'il debute en souris
-- Le robot peut realiser une odometrie simple pour se positionner au centre de la table avant de commencer la traque lorsqu'il debute en chat
-- Le robot peut declencher un brusque changement de direction si il detecte un robot approchant rapidement en mode souris
-- Le robot peut effectuer des prédiction de trajectoire et effectuer des trajectoires de collision en prévision du deplacement adverse en mode chat
-- Le robot evite de prendre des directions ou il serait acculé dans un angle de table
+- Le robot peut réaliser une odométrie simple pour suivre le bord de table lorsqu'il débute en souris
+- Le robot peut réaliser une odométrie simple pour se positionner au centre de la table avant de commencer la traque lorsqu'il débute en chat
+- Le robot peut déclencher un brusque changement de direction s'il détecte un robot approchant rapidement en mode souris
+- Le robot peut effectuer des prédictions de trajectoire et effectuer des trajectoires de collision en prévision du deplacement adverse en mode chat
+- Le robot évite de prendre des directions ou il serait acculé dans un angle de table
 
 ## Architecture du système
 
@@ -34,12 +34,12 @@ Objectif annexe:
 1. **Détection de l'environnement** :
    - Les **capteurs de bord** détectent les limites de la table pour prévenir les chutes.
    - Le **LIDAR** identifie et localise les robots adverse.
-   - La **centrale inertielle** mesure les mouvements brusques et détecte les chocs pour ajuster les réactions du robot.
+   - La **centrale inertielle** mesure les mouvements brusques et détecte les chocs pour changer l'état, chat ou souris, du robot.
 
 2. **Traitement des données** :
    - Le **microcontrôleur** centralise les informations provenant des capteurs, analyse les données et décide des actions en fonction du rôle actuel du robot (chat ou souris).
 
-3. **Actionnement** :
+3. **Actionneur** :
    - Les moteurs sont contrôlés via un système de quadrants.
    - Le microcontrôleur ajuste les commandes de mouvement en temps réel (éviter les chutes, fuir ou poursuivre le robot adverse).
 
@@ -57,9 +57,9 @@ Objectif annexe:
 > [!IMPORTANT]
 > Table de 200cm x 160cm
 > 
-> Table sans Bord ni marquages!
+> Table sans bords ni marquages!
 > 
-> Robot assimilable a un cylindre de 17 cm de diametre et 15 cm de hauteur 
+> Robot assimilable à un cylindre de 17 cm de diametre et 15 cm de hauteur 
 
 ##  Liens utiles
 
