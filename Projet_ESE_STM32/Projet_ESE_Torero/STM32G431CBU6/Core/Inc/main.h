@@ -121,11 +121,11 @@ void Error_Handler(void);
 #define UART_TX_BUFFER_SIZE 64
 
 #define STACK_SIZE 256
+
 #define PRIORITY_LIDAR 0
 #define PRIORITY_MOTOR 1
 #define PRIORITY_ETAT 2
 #define PRIORITY_EDGE 3
-
 
 #define TAP_THRESHOLD 50
 #define TAP_DUR 15
