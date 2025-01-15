@@ -9,13 +9,9 @@ Projet de 3ème année d'ESE réalisé par :
 - **BOULOT Paul**  
 - **THOMAR Jean-Philippe**
 
-Ce projet contient toute les ressources de l'élaboration d'un robot capable de jouer au chat et a la souris.
-Les liens vers les differentes ressources sont énuméré avec un court intitulé a la FIN du README.
-Ci dessous le schéma architectural donnant les grandes lignes du projet.
-<p align="center"> <img src="Graphique_Logo/Schéma_ArchiV2.png" width="80%" height="auto" /> </p>
-[Schéma architectural](https://github.com/user-attachments/files/17220902/Schema.architectural.pdf)
+Ce projet consiste à concevoir un robot autonome combinant électronique et programmation pour jouer une partie de "chat et souris".
 
-
+---
 
 ## Cahier des charges:
 > [!IMPORTANT]
@@ -29,6 +25,31 @@ Objectif annexe:
 - Le robot peut declencher un brusque changement de direction si il detecte un robot approchant rapidement en mode souris
 - Le robot peut effectuer des prédiction de trajectoire et effectuer des trajectoires de collision en prévision du deplacement adverse en mode chat
 - Le robot evite de prendre des directions ou il serait acculé dans un angle de table
+
+## Architecture du système
+
+<p align="center"> <img src="Graphique_Logo/Schéma_ArchiV2.png" width="80%" height="auto" /> </p>
+[Schéma architectural](https://github.com/user-attachments/files/17220902/Schema.architectural.pdf)
+
+1. **Détection de l'environnement** :
+   - Les **capteurs de bord** détectent les limites de la table pour prévenir les chutes.
+   - Le **LIDAR** identifie et localise les robots adverse.
+   - La **centrale inertielle** mesure les mouvements brusques et détecte les chocs pour ajuster les réactions du robot.
+
+2. **Traitement des données** :
+   - Le **microcontrôleur** centralise les informations provenant des capteurs, analyse les données et décide des actions en fonction du rôle actuel du robot (chat ou souris).
+
+3. **Actionnement** :
+   - Les moteurs sont contrôlés via un système de quadrants.
+   - Le microcontrôleur ajuste les commandes de mouvement en temps réel (éviter les chutes, fuir ou poursuivre le robot adverse).
+
+4. **Comportement interactif** :
+   - Un **switch de comportement** permet de basculer entre les rôles de "chat" et "souris".
+   - Les **LED de debug** affichent des informations sur l'état et le rôle actuel du robot.
+
+5. **Alimentation** :
+   - Une **batterie** alimente l'ensemble du système.
+   - Des convertisseurs intégrés fournissent les tensions nécessaires (7,2 V, 5 V et 3,3 V) pour les différents composants.
 
 ## Environnement:
 
@@ -57,25 +78,15 @@ Objectif annexe:
 
 ---
 
-### Apercu serigraphie :
+### Aperçu de la carte PCB
 <p align="center"> <img src="Graphique_Logo/PCB carte 3d.PNG" width="100%" height="auto" /> </p>
-[view PCB 3D](https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Graphique_Logo/PCB%20carte%203d.PNG)
 
+[Voir le modèle en 3D](https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Graphique_Logo/PCB%20carte%203d.PNG)  
 
+### Calculs et développement
 
+- [Dossier calculs](https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/8892ed05e16a1e8a040fe9dc08f957ab23dc9e8/Calculs%20et%20brouillons)  
 
-
-
-
-### Methode si nouvel ordinateur : 
-> [!TIP]
->Générer une clé SSH
->- Taper ssh-keygen puis Entrer
->- Appuyer sur y pour overwrite et sur Entrer pour passer les étapes (if no passphrase)
->- Taper cat ~/.ssh/id_ed25519.pub puis Entrer
->- Copier puis coller la clé dans GitHub Setting > SSH and GPG keys > SSH keys
->- Renommer avec le nom du PC pour savoir à quoi la clé correpond
->  ex : jeanp@HP-Pavilion-JP
 
 ### Ligne pour cloner un répertoire en utilisant le port 443 (https) au lieu du port 22, si bug sur la connexion:
 > [!TIP]
