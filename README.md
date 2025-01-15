@@ -35,35 +35,28 @@ Objectif annexe:
 - Le robot peut effectuer des prédiction de trajectoire et effectuer des trajectoires de collision en prévision du deplacement adverse en mode chat
 - Le robot evite de prendre des directions ou il serait acculé dans un angle de table
 
+##  Liens utiles
 
+### Documentation et ressources :
+- [Datasheets](https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/Datasheet)  
+- [Liste des tâches](https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Calculs%20et%20brouillons/Remarque_Sch.md)  
+- [BOM (Bill of Materials)](https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/BOM.xlsx)  
+- [PCB Info](https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/PCB/info_PCB.docx)  
 
-### Dossier contenant les Datasheets : 
-https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/Datasheet
+### Design électronique :
+- [Fichiers PCB](https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/PCB)  
+- [Schémas KiCad](https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/PCB/Projet_torero/Projet_torero.kicad_sch)  
 
-### LISTE des choses faite ou a faire : 
-https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Calculs%20et%20brouillons/Remarque_Sch.md
+### Code STM32 :
+- [Dossier code](https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/Projet_ESE_STM32)  
 
-### BOM : 
-https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/BOM.xlsx
-
-### INFO PCB : 
-https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/PCB/info_PCB.docx
+---
 
 ### Apercu serigraphie :
 <p align="center"> <img src="Graphique_Logo/PCB carte 3d.PNG" width="100%" height="auto" /> </p>
 [view PCB 3D](https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Graphique_Logo/PCB%20carte%203d.PNG)
 
-### DOSSIER PCB : 
-https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/PCB
 
-### Shematics_torero : 
-https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/PCB/Projet_torero/Projet_torero.kicad_sch
-
-### DOSSIER CODE STM32 : 
-https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/Projet_ESE_STM32
-
-### DOSSIER CALCULS : 
-https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/8892ed05e16a1e8a040fe9dc08f9f57ab23dc9e8/Calculs%20et%20brouillons
 
 
 
