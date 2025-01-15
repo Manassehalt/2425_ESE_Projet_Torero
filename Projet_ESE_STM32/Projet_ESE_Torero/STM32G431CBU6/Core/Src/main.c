@@ -164,14 +164,25 @@ void TaskLIDAR(void * pvParameters){
 
 void TaskMOTOR (void * pvParameters){
 	for(;;){
+		if((EdgeProcess||ShockProcess) == 0){
+			alpha1 = MAX_SPEED_FORWARD;
+			alpha2 = MAX_SPEED_FORWARD;
+		}
+	}
+}
+
+/* 
+//TaskMOTOR si le lidar fournissait bien l'angle de l'objet le plus proche et la distance
+void TaskMOTOR (void * pvParameters){
+	for(;;){
  		if((EdgeProcess||ShockProcess) == 0){
 			if (Etat_Robot == 0){
-				/* Cas Robot loin */
+				// Cas Robot loin 
 				if (distance>==TRIG_DIST) {
 					alpha1 = MAX_SPEED_FORWARD;
 					alpha2 = MAX_SPEED_FORWARD; 
 				}
-				/* Cas Robot proche */
+				// Cas Robot proche 
 				if (distance<=TRIG_DIST) {
 					if (ANGLE_R <=45 || ANGLE_R >=315) {
 						if (ANGLE_R <=45) {
@@ -207,7 +218,7 @@ void TaskMOTOR (void * pvParameters){
 				}   
 			}
 			if(Etat_Robot == 1){
-							/* Cas Robot loin */
+							// Cas Robot loin 
 				if (distance>=TRIG_DIST) {
 					if (ANGLE_R <=45 || ANGLE_R >=315) {
 						if (ANGLE_R <=45) {
@@ -241,7 +252,7 @@ void TaskMOTOR (void * pvParameters){
 							alpha2 = - MAX_SPEED_FORWARD;
 						} 
 				}
-				/* Cas Robot proche */
+				// Cas Robot proche 
 				if (distance<==TRIG_DIST) {
 					if (ANGLE_R <=45 || ANGLE_R >=315) {
 						if (ANGLE_R <=45) {
@@ -279,7 +290,7 @@ void TaskMOTOR (void * pvParameters){
 		}
 	}
 }
-
+*/
 
 /*		Début de comportement à implementer pour asserv dynamique
  *
