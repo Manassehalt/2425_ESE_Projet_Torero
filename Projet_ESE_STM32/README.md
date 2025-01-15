@@ -10,6 +10,7 @@ Fonction Motor_SetSpeed_R pour contrôler le moteur droit
 
 ## Driver ADXL ADXL.c
 ADXL_Init permet de configurer l'accéléromètre pour que ce dernier génère des interruptions lors d'un choc.
+
 Source d'erreur : après une interruption générée par l'ADXL, il faut lire le registre INT_SOURCE pour générer une nouvelle interruption
 
 ## Capteur de bord
