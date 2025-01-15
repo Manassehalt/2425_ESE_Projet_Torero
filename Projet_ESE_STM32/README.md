@@ -20,6 +20,13 @@ lorsqu'ils la voient de nouveau permettant ainsi de régler la marche arrière d
 A remplir
 
 ## Implémentation FreeRTOS
+
+### TaskLIDAR de priorité 0
+Non implémentée car le driver lidar n'est pas fonctionnel. S'il l'avait été, la tâche aurait une priorité 0 pour traiter les données reçues par le
+lidar en arrière tâche car ce traitement est moins important que le reste. On aurait ajouter un vTaskDelay() pendant un nb de tick important dans TaskMOTOR pour laisser 
+le temps à cette tâche de s'exécuter et ainsi mettre à jour les commandes moteurs alpha1 et alpha2 pour l'asservissement et le suivi de cible. TaskMOTOR 
+aurait seulement été active si le lidar ne toruvait pas de cible pour avancer tout droit.
+
 ### TaskMOTOR de priorité 1
 Cette tâche actualise la vitesse des moteurs à l'aide des variable alpha1 pour le moteur droit et alpha2 pour le moteur gauche pour atteindre 
 la vitesse maximale en ligne droite.
@@ -27,11 +34,8 @@ Les fonctions utilisées Motor_SetSpeed_L et Motor_SetSpeed_R font converger le 
 du timer TIM16. Une interruption intervient toutes les 1ms permettant ainsi de réaliser une rampe d'accélération pour éviter les appels de
 courant trop importants.
 Cette tâche est bloqué par deux flags :
-  
-- EdgeProcess, actif lorque le robot réalise la manoeuvre d'évitement du bord
-  
-- ShockProcess, actif lorque le robot réalise la manoeuvre de changement de direction suite à un choc
-
+  -EdgeProcess, actif lorque le robot réalise la manoeuvre d'évitement du bord
+  -ShockProcess, actif lorque le robot réalise la manoeuvre de changement de direction suite à un choc
 Cet ajout permet de réaliser les manoeuvres d'évitement de bord et de changement de direction suite à un choc sans que TaskMOTOR remette la vitesse
 des moteurs à leur valeur maximale en ligne droite.
 
