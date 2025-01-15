@@ -10,6 +10,7 @@ Fonction Motor_SetSpeed_R pour contrôler le moteur droit
 
 ## Driver ADXL ADXL.c
 ADXL_Init permet de configurer l'accéléromètre pour que ce dernier génère des interruptions lors d'un choc.
+
 Source d'erreur : après une interruption générée par l'ADXL, il faut lire le registre INT_SOURCE pour générer une nouvelle interruption
 
 ## Capteur de bord
@@ -20,6 +21,13 @@ lorsqu'ils la voient de nouveau permettant ainsi de régler la marche arrière d
 A remplir
 
 ## Implémentation FreeRTOS
+
+### TaskLIDAR de priorité 0
+Non implémentée car le driver lidar n'est pas fonctionnel. S'il l'avait été, la tâche aurait une priorité 0 pour traiter les données reçues par le
+lidar en arrière tâche car ce traitement est moins important que le reste. On aurait ajouter un vTaskDelay() pendant un nb de tick important dans TaskMOTOR pour laisser 
+le temps à cette tâche de s'exécuter et ainsi mettre à jour les commandes moteurs alpha1 et alpha2 pour l'asservissement et le suivi de cible. TaskMOTOR 
+aurait seulement été active si le lidar ne toruvait pas de cible pour avancer tout droit.
+
 ### TaskMOTOR de priorité 1
 Cette tâche actualise la vitesse des moteurs à l'aide des variable alpha1 pour le moteur droit et alpha2 pour le moteur gauche pour atteindre 
 la vitesse maximale en ligne droite.
