@@ -46,9 +46,9 @@ des moteurs à leur valeur maximale en ligne droite.
 ### TaskMOTOR (si le LIDAR transmet des informations) priorité 1
 
 Cette version de TaskMOTOR prend en compte les informations transmise par le LIDAR pour chasser ou fuir le robot adverse. Elle est disponible en commentaires sous la TaskMOTOR effective.
-Il est bon de souligner que cette version n'a pas pu etre testé et par conséquent necessite probablement des ajustement des coefficient introduits. La tache prends en compte la distance pour adapter la séverité des ajustements.
-Le robot prends comme Angle 0 devant lui et les angle sont attribués dans le sens trigonométrique.Comme le robot ne dispose pas de capteurs de bord à l'arriere, il n'effectue pas de marche arriere pour fuir ou chasser. 
-Dans l'eventualité d'une mécanique différente ou des capteurs rendrait les deux sens de maneuvre symétrique, il serait bon de partitionner en deux demi cercle de 180 degré et faire un code qui choisi le sens de maneuvre selon la situation.
+Il est bon de souligner que cette version n'a pas pu être testé et par conséquent nécessite probablement des ajustement des coefficients introduits. La tâche prends en compte la distance pour adapter la séverité des ajustements.
+Le robot prend comme Angle 0 devant lui et les angles sont attribués dans le sens trigonométrique. Comme le robot ne dispose pas de capteurs de bord à l'arriere, il n'effectue pas de marche arrière pour fuir ou chasser. 
+Dans l'éventualité d'une mécanique différente où des capteurs rendraient les deux sens de manoeuvre symétriques, il serait bon de partitionner en deux demi-cercles de 180 degrés et faire un code qui choisi le sens de maneouvre selon la situation.
 
 ### TaskETAT de priorité 2
 Cette tâche reçoit une notification par l'interruption générée lorsque le robot reçoit un choc. Elle active le flag ShockProcess car on réalise 
