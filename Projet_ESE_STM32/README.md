@@ -52,8 +52,8 @@ lorsqu'ils la voient de nouveau permettant ainsi de régler la marche arrière d
 
 ### Prérequis
 - Bibliothèque HAL pour STM32.
-- Interface UART pour communiquer avec le capteur lidar.
-- Configuration GPIO pour activer le lidar.
+- Interface UART pour communiquer avec le capteur lidar. (dans Init)
+- Configuration GPIO pour activer le lidar. (dans Init)
 - Activer le DMA en mode circulaire.
 
 ### Utilisation
