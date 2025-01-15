@@ -12,15 +12,6 @@ Ci dessous le schéma architectural donnant les grandes lignes du projet.
 [Schéma architectural](https://github.com/user-attachments/files/17220902/Schema.architectural.pdf)
 
 
-## Environnement:
-
-
-> [!IMPORTANT]
-> Table de 200cm x 160cm
-> 
-> Table sans Bord ni marquages!
-> 
-> Robot assimilable a un cylindre de 17 cm de diametre et 15 cm de hauteur 
 
 ## Cahier des charges:
 > [!IMPORTANT]
@@ -34,6 +25,16 @@ Objectif annexe:
 - Le robot peut declencher un brusque changement de direction si il detecte un robot approchant rapidement en mode souris
 - Le robot peut effectuer des prédiction de trajectoire et effectuer des trajectoires de collision en prévision du deplacement adverse en mode chat
 - Le robot evite de prendre des directions ou il serait acculé dans un angle de table
+
+## Environnement:
+
+
+> [!IMPORTANT]
+> Table de 200cm x 160cm
+> 
+> Table sans Bord ni marquages!
+> 
+> Robot assimilable a un cylindre de 17 cm de diametre et 15 cm de hauteur 
 
 ##  Liens utiles
 
