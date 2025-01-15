@@ -18,7 +18,51 @@ Les capteurs de bord génèrent directement des interruptions lorsqu'ils ne voie
 lorsqu'ils la voient de nouveau permettant ainsi de régler la marche arrière du robot pour se dégager du bord.
 
 ## Driver Lidar lidarX4.c
-A remplir
+### Fonctionnalités
+- **Initialisation du lidar** : Configure et active le capteur lidar.
+- **Transmission de commandes** : Envoie des commandes pour démarrer, arrêter, redémarrer ou récupérer des informations sur le lidar.
+- **Traitement des données** : Traite les trames de données reçues pour extraire les informations de distance et d'angle.
+- **Informations de santé et de périphérique** : Récupère l'état de santé et les spécifications du lidar.
+- **Filtrage** : Applique un filtre médian pour réduire le bruit dans les points de données du lidar.
+
+### Aperçu des fonctions
+#### Initialisation
+- `void LIDAR_Init(LIDAR_HandleTypeDef_t *hlidar)`
+  - Configure l'interface UART et alimente le capteur lidar.
+
+#### Commandes
+- `HAL_StatusTypeDef LIDAR_Start(LIDAR_HandleTypeDef_t *hlidar)`
+  - Envoie la commande de démarrage pour lancer le scan.
+- `HAL_StatusTypeDef LIDAR_Stop(LIDAR_HandleTypeDef_t *hlidar)`
+  - Arrête le fonctionnement du lidar.
+- `HAL_StatusTypeDef LIDAR_Restart(LIDAR_HandleTypeDef_t *hlidar)`
+  - Redémarre le capteur lidar.
+- `HAL_StatusTypeDef LIDAR_Get_Info(LIDAR_HandleTypeDef_t *hlidar)`
+  - Récupère des informations détaillées sur le périphérique.
+- `HAL_StatusTypeDef LIDAR_Get_Health_Status(LIDAR_HandleTypeDef_t *hlidar)`
+  - Récupère l'état de santé du lidar.
+
+#### Traitement des données
+- `void LIDAR_process_frame(LIDAR_HandleTypeDef_t *hlidar)`
+  - Traite les trames de données brutes pour extraire les mesures de distance et d'angle.
+- `void LIDAR_get_point(LIDAR_HandleTypeDef_t *hlidar)`
+  - Extrait et classe les points de données depuis le buffer circulaire.
+- `void LIDAR_median_filter(LIDAR_HandleTypeDef_t *hlidar)`
+  - Applique un filtre médian pour éliminer le bruit dans les points de données.
+
+### Prérequis
+- Bibliothèque HAL pour STM32.
+- Interface UART pour communiquer avec le capteur lidar.
+- Configuration GPIO pour activer le lidar.
+- Activer le DMA en mode circulaire.
+
+### Utilisation
+1. **Initialisation** : Appelez `LIDAR_Init` pour configurer le lidar.
+2. **Démarrage du scan** : Utilisez `LIDAR_Start` pour commencer l'acquisition de données.
+3. **Traitement des données** : Appelez périodiquement `LIDAR_get_point` et `LIDAR_process_frame` pour récupérer et traiter les données.
+4. **Filtrage optionnel** : Appliquez `LIDAR_median_filter` pour améliorer la qualité des données.
+5. **Arrêt du scan** : Utilisez `LIDAR_Stop` pour arrêter le lidar lorsque celui-ci n'est pas utilisé.
+
 
 ## Implémentation FreeRTOS
 
