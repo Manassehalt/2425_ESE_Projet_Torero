@@ -478,15 +478,8 @@ Discarded input sections
                 0x00000000        0x4 ./Core/Src/main.o
  .bss.xHandleLIDAR
                 0x00000000        0x4 ./Core/Src/main.o
- .bss.xHandleACC
-                0x00000000        0x4 ./Core/Src/main.o
  .bss.angle     0x00000000        0x4 ./Core/Src/main.o
  .bss.vitesse   0x00000000        0x4 ./Core/Src/main.o
- .bss.coeff_Lidar
-                0x00000000        0x4 ./Core/Src/main.o
- .bss.coeff_Capteur
-                0x00000000        0x4 ./Core/Src/main.o
- .bss.delta     0x00000000        0x4 ./Core/Src/main.o
  .bss.distance_min
                 0x00000000        0x4 ./Core/Src/main.o
  .bss.idx_min   0x00000000        0x4 ./Core/Src/main.o
@@ -494,6 +487,11 @@ Discarded input sections
                 0x00000000        0x2 ./Core/Src/main.o
  .bss.frame_end
                 0x00000000        0x2 ./Core/Src/main.o
+ .bss.coeff_Lidar
+                0x00000000        0x4 ./Core/Src/main.o
+ .bss.coeff_Capteur
+                0x00000000        0x4 ./Core/Src/main.o
+ .bss.delta     0x00000000        0x4 ./Core/Src/main.o
  .text.print_buffer
                 0x00000000       0x80 ./Core/Src/main.o
  .text.TaskLIDAR
@@ -5058,7 +5056,7 @@ Discarded input sections
                 0x00000000       0x38 ./drv_torero/Src_drv/lidarX4.o
  .text.LIDAR_Restart
                 0x00000000       0x38 ./drv_torero/Src_drv/lidarX4.o
- .rodata        0x00000000       0x40 ./drv_torero/Src_drv/lidarX4.o
+ .rodata        0x00000000       0x29 ./drv_torero/Src_drv/lidarX4.o
  .text.LIDAR_Get_Info
                 0x00000000      0x16c ./drv_torero/Src_drv/lidarX4.o
  .text.LIDAR_Get_Health_Status
@@ -5066,7 +5064,7 @@ Discarded input sections
  .text.LIDAR_process_frame
                 0x00000000      0x250 ./drv_torero/Src_drv/lidarX4.o
  .text.LIDAR_get_point
-                0x00000000      0x314 ./drv_torero/Src_drv/lidarX4.o
+                0x00000000      0x304 ./drv_torero/Src_drv/lidarX4.o
  .text.LIDAR_median_filter
                 0x00000000      0x23e ./drv_torero/Src_drv/lidarX4.o
  .text.LIDAR_Calculate_Average_Distance
@@ -7240,41 +7238,41 @@ LOAD C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
 LOAD C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
 LOAD C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard\libgcc.a
 
-.debug_info     0x00000000    0x1ebad
+.debug_info     0x00000000    0x1eb9c
  .debug_info    0x00000000      0x293 ./Core/Src/app_freertos.o
  .debug_info    0x00000293      0x4f2 ./Core/Src/dma.o
  .debug_info    0x00000785      0x6c0 ./Core/Src/gpio.o
- .debug_info    0x00000e45     0x1719 ./Core/Src/main.o
- .debug_info    0x0000255e      0xaec ./Core/Src/spi.o
- .debug_info    0x0000304a      0x4ec ./Core/Src/stm32g4xx_hal_msp.o
- .debug_info    0x00003536      0x910 ./Core/Src/stm32g4xx_it.o
- .debug_info    0x00003e46      0x6a3 ./Core/Src/syscalls.o
- .debug_info    0x000044e9      0x168 ./Core/Src/sysmem.o
- .debug_info    0x00004651      0x58e ./Core/Src/system_stm32g4xx.o
- .debug_info    0x00004bdf     0x1435 ./Core/Src/tim.o
- .debug_info    0x00006014      0xe07 ./Core/Src/usart.o
- .debug_info    0x00006e1b       0x30 ./Core/Startup/startup_stm32g431cbux.o
- .debug_info    0x00006e4b      0xadb ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
- .debug_info    0x00007926      0xd3f ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
- .debug_info    0x00008665      0x85f ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.o
- .debug_info    0x00008ec4      0x763 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
- .debug_info    0x00009627      0x93f ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
- .debug_info    0x00009f66      0xb82 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
- .debug_info    0x0000aae8      0xc15 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
- .debug_info    0x0000b6fd     0x1748 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.o
- .debug_info    0x0000ce45     0x2c52 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
- .debug_info    0x0000fa97     0x1d95 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
- .debug_info    0x0001182c     0x481e ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.o
- .debug_info    0x0001604a      0xfdd ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.o
- .debug_info    0x00017027     0x16f1 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
- .debug_info    0x00018718      0x2af ./Middlewares/Third_Party/FreeRTOS/Source/list.o
- .debug_info    0x000189c7     0x14e6 ./Middlewares/Third_Party/FreeRTOS/Source/queue.o
- .debug_info    0x00019ead     0x19d9 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
- .debug_info    0x0001b886      0x4de ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
- .debug_info    0x0001bd64      0x4d5 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
- .debug_info    0x0001c239      0xd9b ./drv_torero/Src_drv/ADXL.o
- .debug_info    0x0001cfd4     0x10ef ./drv_torero/Src_drv/lidarX4.o
- .debug_info    0x0001e0c3      0xaea ./drv_torero/Src_drv/motor.o
+ .debug_info    0x00000e45     0x1708 ./Core/Src/main.o
+ .debug_info    0x0000254d      0xaec ./Core/Src/spi.o
+ .debug_info    0x00003039      0x4ec ./Core/Src/stm32g4xx_hal_msp.o
+ .debug_info    0x00003525      0x910 ./Core/Src/stm32g4xx_it.o
+ .debug_info    0x00003e35      0x6a3 ./Core/Src/syscalls.o
+ .debug_info    0x000044d8      0x168 ./Core/Src/sysmem.o
+ .debug_info    0x00004640      0x58e ./Core/Src/system_stm32g4xx.o
+ .debug_info    0x00004bce     0x1435 ./Core/Src/tim.o
+ .debug_info    0x00006003      0xe07 ./Core/Src/usart.o
+ .debug_info    0x00006e0a       0x30 ./Core/Startup/startup_stm32g431cbux.o
+ .debug_info    0x00006e3a      0xadb ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
+ .debug_info    0x00007915      0xd3f ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
+ .debug_info    0x00008654      0x85f ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.o
+ .debug_info    0x00008eb3      0x763 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
+ .debug_info    0x00009616      0x93f ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
+ .debug_info    0x00009f55      0xb82 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
+ .debug_info    0x0000aad7      0xc15 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
+ .debug_info    0x0000b6ec     0x1748 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.o
+ .debug_info    0x0000ce34     0x2c52 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
+ .debug_info    0x0000fa86     0x1d95 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
+ .debug_info    0x0001181b     0x481e ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.o
+ .debug_info    0x00016039      0xfdd ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.o
+ .debug_info    0x00017016     0x16f1 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
+ .debug_info    0x00018707      0x2af ./Middlewares/Third_Party/FreeRTOS/Source/list.o
+ .debug_info    0x000189b6     0x14e6 ./Middlewares/Third_Party/FreeRTOS/Source/queue.o
+ .debug_info    0x00019e9c     0x19d9 ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+ .debug_info    0x0001b875      0x4de ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+ .debug_info    0x0001bd53      0x4d5 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+ .debug_info    0x0001c228      0xd9b ./drv_torero/Src_drv/ADXL.o
+ .debug_info    0x0001cfc3     0x10ef ./drv_torero/Src_drv/lidarX4.o
+ .debug_info    0x0001e0b2      0xaea ./drv_torero/Src_drv/motor.o
 
 .debug_abbrev   0x00000000     0x4a07
  .debug_abbrev  0x00000000      0x154 ./Core/Src/app_freertos.o
@@ -7600,7 +7598,7 @@ LOAD C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_macro   0x00022b9a      0x1b3 ./drv_torero/Src_drv/lidarX4.o
  .debug_macro   0x00022d4d      0x205 ./drv_torero/Src_drv/motor.o
 
-.debug_line     0x00000000    0x21893
+.debug_line     0x00000000    0x21890
  .debug_line    0x00000000      0x932 ./Core/Src/app_freertos.o
  .debug_line    0x00000932      0x797 ./Core/Src/dma.o
  .debug_line    0x000010c9      0x801 ./Core/Src/gpio.o
@@ -7633,77 +7631,77 @@ LOAD C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x0001e07e      0x839 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
  .debug_line    0x0001e8b7      0x9c1 ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
  .debug_line    0x0001f278      0xc3c ./drv_torero/Src_drv/ADXL.o
- .debug_line    0x0001feb4      0xef9 ./drv_torero/Src_drv/lidarX4.o
- .debug_line    0x00020dad      0xae6 ./drv_torero/Src_drv/motor.o
+ .debug_line    0x0001feb4      0xef6 ./drv_torero/Src_drv/lidarX4.o
+ .debug_line    0x00020daa      0xae6 ./drv_torero/Src_drv/motor.o
 
-.debug_str      0x00000000    0xd3f72
+.debug_str      0x00000000    0xd3f67
  .debug_str     0x00000000    0xc4c21 ./Core/Src/app_freertos.o
                               0xc4ee7 (size before relaxing)
  .debug_str     0x000c4c21      0x5ca ./Core/Src/dma.o
                               0xbf877 (size before relaxing)
  .debug_str     0x000c51eb       0xe9 ./Core/Src/gpio.o
                               0xbf945 (size before relaxing)
- .debug_str     0x000c52d4     0x510b ./Core/Src/main.o
-                              0xca0b6 (size before relaxing)
- .debug_str     0x000ca3df      0x1e8 ./Core/Src/spi.o
+ .debug_str     0x000c52d4     0x5100 ./Core/Src/main.o
+                              0xca0ab (size before relaxing)
+ .debug_str     0x000ca3d4      0x1e8 ./Core/Src/spi.o
                               0xbf9f3 (size before relaxing)
- .debug_str     0x000ca5c7       0x4d ./Core/Src/stm32g4xx_hal_msp.o
+ .debug_str     0x000ca5bc       0x4d ./Core/Src/stm32g4xx_hal_msp.o
                               0xbf888 (size before relaxing)
- .debug_str     0x000ca614      0x196 ./Core/Src/stm32g4xx_it.o
+ .debug_str     0x000ca609      0x196 ./Core/Src/stm32g4xx_it.o
                               0xc6fdd (size before relaxing)
- .debug_str     0x000ca7aa     0x1f30 ./Core/Src/syscalls.o
+ .debug_str     0x000ca79f     0x1f30 ./Core/Src/syscalls.o
                                0x98f0 (size before relaxing)
- .debug_str     0x000cc6da       0x6b ./Core/Src/sysmem.o
+ .debug_str     0x000cc6cf       0x6b ./Core/Src/sysmem.o
                                0x6108 (size before relaxing)
- .debug_str     0x000cc745       0xdb ./Core/Src/system_stm32g4xx.o
+ .debug_str     0x000cc73a       0xdb ./Core/Src/system_stm32g4xx.o
                               0xbedae (size before relaxing)
- .debug_str     0x000cc820      0x3ac ./Core/Src/tim.o
+ .debug_str     0x000cc815      0x3ac ./Core/Src/tim.o
                               0xc035b (size before relaxing)
- .debug_str     0x000ccbcc      0x25b ./Core/Src/usart.o
+ .debug_str     0x000ccbc1      0x25b ./Core/Src/usart.o
                               0xbfca4 (size before relaxing)
- .debug_str     0x000cce27       0x44 ./Core/Startup/startup_stm32g431cbux.o
+ .debug_str     0x000cce1c       0x44 ./Core/Startup/startup_stm32g431cbux.o
                                  0xbb (size before relaxing)
- .debug_str     0x000cce6b      0x5de ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
+ .debug_str     0x000cce60      0x5de ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
                               0xbf8ed (size before relaxing)
- .debug_str     0x000cd449      0x360 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
+ .debug_str     0x000cd43e      0x360 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
                               0xbf5a9 (size before relaxing)
- .debug_str     0x000cd7a9      0x29f ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.o
+ .debug_str     0x000cd79e      0x29f ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.o
                               0xbf188 (size before relaxing)
- .debug_str     0x000cda48       0xd7 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
+ .debug_str     0x000cda3d       0xd7 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
                               0xbef39 (size before relaxing)
- .debug_str     0x000cdb1f      0x4a5 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
+ .debug_str     0x000cdb14      0x4a5 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
                               0xbf29c (size before relaxing)
- .debug_str     0x000cdfc4      0x4e0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
+ .debug_str     0x000cdfb9      0x4e0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
                               0xbf4a7 (size before relaxing)
- .debug_str     0x000ce4a4      0x40b ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
+ .debug_str     0x000ce499      0x40b ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
                               0xbf4a8 (size before relaxing)
- .debug_str     0x000ce8af      0x581 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.o
+ .debug_str     0x000ce8a4      0x581 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.o
                               0xbf6e6 (size before relaxing)
- .debug_str     0x000cee30      0xda7 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
+ .debug_str     0x000cee25      0xda7 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
                               0xc02ac (size before relaxing)
- .debug_str     0x000cfbd7      0x814 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
+ .debug_str     0x000cfbcc      0x814 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
                               0xbff20 (size before relaxing)
- .debug_str     0x000d03eb      0x98c ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.o
+ .debug_str     0x000d03e0      0x98c ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.o
                               0xbfd69 (size before relaxing)
- .debug_str     0x000d0d77      0x264 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.o
+ .debug_str     0x000d0d6c      0x264 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.o
                               0xbf567 (size before relaxing)
- .debug_str     0x000d0fdb      0x933 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
+ .debug_str     0x000d0fd0      0x933 ./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.o
                                0xe136 (size before relaxing)
- .debug_str     0x000d190e      0x13c ./Middlewares/Third_Party/FreeRTOS/Source/list.o
+ .debug_str     0x000d1903      0x13c ./Middlewares/Third_Party/FreeRTOS/Source/list.o
                                0xab16 (size before relaxing)
- .debug_str     0x000d1a4a      0x7d1 ./Middlewares/Third_Party/FreeRTOS/Source/queue.o
+ .debug_str     0x000d1a3f      0x7d1 ./Middlewares/Third_Party/FreeRTOS/Source/queue.o
                                0xc2c8 (size before relaxing)
- .debug_str     0x000d221b      0xefe ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
+ .debug_str     0x000d2210      0xefe ./Middlewares/Third_Party/FreeRTOS/Source/tasks.o
                                0xcd3a (size before relaxing)
- .debug_str     0x000d3119      0x783 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
+ .debug_str     0x000d310e      0x783 ./Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.o
                                0x875f (size before relaxing)
- .debug_str     0x000d389c      0x32d ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
+ .debug_str     0x000d3891      0x32d ./Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.o
                                0xb458 (size before relaxing)
- .debug_str     0x000d3bc9       0x6f ./drv_torero/Src_drv/ADXL.o
+ .debug_str     0x000d3bbe       0x6f ./drv_torero/Src_drv/ADXL.o
                               0xc8fdf (size before relaxing)
- .debug_str     0x000d3c38      0x287 ./drv_torero/Src_drv/lidarX4.o
+ .debug_str     0x000d3c2d      0x287 ./drv_torero/Src_drv/lidarX4.o
                               0xc3cb9 (size before relaxing)
- .debug_str     0x000d3ebf       0xb3 ./drv_torero/Src_drv/motor.o
+ .debug_str     0x000d3eb4       0xb3 ./drv_torero/Src_drv/motor.o
                               0xbfb5f (size before relaxing)
 
 .comment        0x00000000       0x43

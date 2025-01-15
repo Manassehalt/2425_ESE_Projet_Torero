@@ -197,8 +197,8 @@ void LIDAR_get_point(LIDAR_HandleTypeDef_t *hlidar) {
                 (hlidar->data_buff[i + 3] == 0x00) &&
                 (hlidar->data_buff[i + 4] == 0x00) &&
                 (hlidar->data_buff[i + 5] == 0x40) &&
-                (hlidar->data_buff[i + 6] == 0x81)) {
-                printf("Scan Command Reply\r\n");
+                (hlidar->data_buff[i + 6] == 0x81))
+            {
                 hlidar->process_frame.index = 0;
                 i = 6;
                 frame_start = 7;
