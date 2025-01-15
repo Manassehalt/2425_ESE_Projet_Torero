@@ -37,8 +37,8 @@ Les fonctions utilisées Motor_SetSpeed_L et Motor_SetSpeed_R font converger le 
 du timer TIM16. Une interruption intervient toutes les 1ms permettant ainsi de réaliser une rampe d'accélération pour éviter les appels de
 courant trop importants.
 Cette tâche est bloqué par deux flags :
-  -EdgeProcess, actif lorque le robot réalise la manoeuvre d'évitement du bord
-  -ShockProcess, actif lorque le robot réalise la manoeuvre de changement de direction suite à un choc
+  - EdgeProcess, actif lorque le robot réalise la manoeuvre d'évitement du bord
+  - ShockProcess, actif lorque le robot réalise la manoeuvre de changement de direction suite à un choc
 Cet ajout permet de réaliser les manoeuvres d'évitement de bord et de changement de direction suite à un choc sans que TaskMOTOR remette la vitesse
 des moteurs à leur valeur maximale en ligne droite.
 
