@@ -356,15 +356,6 @@ void TaskEDGE(void * pvParameters){
 	}
 }
 
-/*		Début de comportement à implementer pour asserv dynamique
- *
- * 		capteur_virtuel = capteur_G&&capteur_D;
-		int erreur_capteur = -45*capteur_G+45*capteur_D+90*capteur_virtuel;
-		int erreurLidar = 10/180;
-		int alphaD = coeff_Lidar*erreurLidar-coeff_Capteur*erreur_capteur;
-		int alphaG = -coeff_Lidar*erreurLidar+coeff_Capteur*erreur_capteur;
- */
-
 void TaskEDGE(void * pvParameters){
 	for (;;) {
 
