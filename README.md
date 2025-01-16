@@ -66,9 +66,8 @@ Objectif annexe:
 ### Documentation et ressources :
 - [Datasheets](https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/Datasheet)  
 - [Liste des tâches](https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/Calculs%20et%20brouillons/Remarque_Sch.md)  
-- [BOM (Bill of Materials)](https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/BOM.xlsx)  
-- [PCB Info](https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/PCB/info_PCB.docx)  
-
+- [BOM (Bill of Materials)](https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/BOM.xlsx)
+  
 ### Design électronique :
 - [Fichiers PCB](https://github.com/Manassehalt/2425_ESE_Projet_Torero/tree/main/PCB)  
 - [Schémas KiCad](https://github.com/Manassehalt/2425_ESE_Projet_Torero/blob/main/PCB/Projet_torero/Projet_torero.kicad_sch)  
