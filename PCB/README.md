@@ -69,4 +69,10 @@ Voici le schéma d'un des caepterus de bord :
 ### Alimentation
 ![image](https://github.com/user-attachments/assets/f5ae0c31-2263-4cc9-9992-8436d3f53350)
 
+---
+
+## Rutage du PCB :
+
+![image](https://github.com/user-attachments/assets/87cc6167-0929-4015-b9d0-3cc1841cf9ab)
+
 
